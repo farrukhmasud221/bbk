@@ -1,0 +1,9 @@
+{
+    "update": "<button class='btn btn-success' ng-click='grid.appScope.updateRow(row)'>{{grid.appScope.label}}</button> ",
+    "delete": "<button class='btn btn-danger' ng-click='grid.appScope.deleteRow(row)'>{{grid.appScope.label}}</button> ",
+    "insert": "<button class='btn btn-primary' ng-click='grid.appScope.insertRow(row)'>{{grid.appScope.label}}</button> ",
+    "toggle": "<button class='btn btn-warning' ng-click='grid.appScope.toggleRow(row)'>{{grid.appScope.label}}</button> ",
+    "batchDelete": "<input class='btn btn-danger pull-left' type='button' value='Delete Selected' ng-click='$ctrl.deleteMultipleRows(viewObj)' ng-show='viewObj.displayBatch' />",
+    "batchToggle": "<input class='btn btn-warning pull-left' type='button' value='Toggle Selected' ng-click='$ctrl.toggleMultipleRows(viewObj)' ng-show='viewObj.displayBatch' />",
+    "batchUpdate": "<input class='btn btn-success pull-left' type='button' value='Update Selected' ng-click='$ctrl.updateMultipleRows(viewObj)' ng-show='viewObj.displayBatch' />"
+}

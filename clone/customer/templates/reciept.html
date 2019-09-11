@@ -1,0 +1,216 @@
+<!-- <script src="assets/js/html2canvas.min.js"></script> -->
+<script src="assets/js/pdfmake.min.js"></script>
+<script src="assets/js/vfs_fonts.js"></script>
+
+<link rel="stylesheet" href="customer/styles/reciept.css">
+
+<div class="reciept">
+    <div class="pull-right">
+        <input type="button" ng-click="viewPDF();" value="View PDF" id="view_reciept_pdf" class="btn btn-primary">&nbsp;
+        <input type="button" ng-click="downloadPDF();" value="Download PDF" id="download_reciept_pdf" class="btn btn-primary">&nbsp;
+        <input type="button" ng-click="printPDF();" value="Print PDF" id="print_reciept_pdf" class="btn btn-primary">
+    </div>
+    <br>&nbsp;<br>
+    <div id="paymentReciept" class="paymentReciept" style="width: 698px;font-size:12px;">
+        <div class="rec-wrapper clear">
+            <img class="rec-logo" src="../customer/images/logo1.png" alt="" style="margin-top: 0px; width:200px;display: inline-block;border: none;"></td>
+            <div class="rec-date" style="float: right;margin-top: 40px;text-align: center;">
+                <label>Dated:</label>
+                <span>{{v_AdjustmentDate}}</span><br><br>
+                <span class="rec-office-copy" style="background-color: #ddd;padding: 3px 7px;width: 100px;display: inline-block;margin-bottom:5px;">Office Copy</span>
+            </div>
+                        
+            <div id="officeCopy">
+                <table class="tblGrid" style="border-collapse: collapse; border: none; width: 100%;border:1px solid">
+                    <tr>
+                        <td class="rec-title" style="font-size: 16px;font-weight: 630;text-align: center;background-color: #85dfff;border:1px solid;padding:3px;border-right:0px;">
+                            {{viewsObj.heading}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="padding:25px;border-bottom:0px;padding-bottom:0px;">
+                            <table class="tblGrid" style="width:630px;border:1px solid;">
+                                <tr>
+                                    <td class="text-bold" style="border-right:1px solid;border-bottom:1px solid;padding:3px;width:120px;font-weight:500;">Customer Name</td>
+                                    <td colspan="3" style="border-bottom:1px solid;padding:3px;">{{v_CustomerName}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:1px solid;border-right:1px solid;border-bottom:1px solid;padding:3px;background-color:#eee;" class="rec-light-bg text-bold">Customer ID</td>
+                                    <td style="border-right:1px solid;border-bottom:1px solid;padding:3px;width:200px;">{{v_UserName}}</td>
+                                    <td style="border-right:1px solid;border-bottom:1px solid;padding:3px;width:100px;" class="text-bold">Invoice #</td>
+                                    <td style="border-bottom:1px solid;padding:3px;" class="text-center">{{v_InvoiceReferenceNumber}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-right:1px solid;border-bottom:1px solid;padding:3px;" class="text-bold">Address</td>
+                                    <td style="border-bottom:1px solid;padding:3px;" colspan="3">{{v_Address}} {{v_CityArea}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-right:1px solid;border-bottom:1px solid;padding:3px;" class="text-bold">City</td>
+                                    <td style="border-bottom:1px solid;padding:3px;" colspan="3">{{v_City}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-right:1px solid;padding:3px;" class="text-bold">Phone</td>
+                                    <td style="padding:3px;" colspan="3">{{v_LandLine_Tel.length?'Landline: ' + v_LandLine_Tel:''}} {{v_Mobile_Tel.length?'Mobile: ' + v_Mobile_Tel:''}} {{v_Office_Tel.length?'Office: ' + v_Office_Tel:''}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border:0px solid;">
+                            <div class="text-right rec-font11" style="margin-right:100px;">GR# 12378-08</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="padding:25px;border-top:0px;padding-top:0px;">
+                            <table style="width:630px;">
+                                <tr>
+                                    <td colspan="7" class="rec-title" style="font-size: 16px;font-weight: 630;text-align: center;background-color: #85dfff;border:1px solid;padding:3px;border-right:1px solid;">Payment Clearance Details</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="border-0"></td>
+                                    <td class="text-bold text-center" style="border-left:1px solid;border-right:1px solid;padding:3px;">Total Charges *</td>
+                                    <td colspan="2" class="rec-light-bg text-bold text-center" style="border-right:1px solid;padding:3px;background-color:#eee;">Paid by Customer *</td>
+                                    <td></td>
+                                    <td class="text-bold text-center" style="padding:3px;border-right:1px solid;">Balance **</td>
+                                </tr>
+                                <tr style="border-top:1px solid;">
+                                    <td class="text-bold text-right" style="padding:3px;border-left:1px solid;padding-right:5px;"><i>For the month of</i></td>
+                                    <td class="text-bold text-center" style="padding:3px;border-left:1px solid;"><i>{{v_InvoiceMonth}}</i></td>
+                                    <td class="text-bold text-right" style="padding:3px;border-right:1px solid;padding-right:5px;border-left:1px solid;"><i>{{v_InvoiceAmount | number:0}}</i></td>
+                                    <td></td>
+                                    <td class="text-bold text-right" style="padding:3px;border-right:1px solid;padding-right:5px;"><i>{{v_PaymentAmount | number:0}}</i></td>
+                                    <td></td>
+                                    <td class="text-bold text-right" style="padding:3px;border-right:1px solid;padding-right:5px;"><i>({{Balance | number:0}})</i></td>
+                                </tr>
+                                <tr style="border-top:1px solid;">
+                                    <td class="border-0">
+                                        <div style="float:left;height:12px;margin-top:2px;"><img ng-class="v_PaymentModeID==1?'checkbox':'uncheckbox'" src="../customer/images/sp.gif"><label style="float:left;">Cash</label></div>
+                                        <div style="float:right;height:12px;margin-top:2px;"><img ng-class="v_PaymentModeID==3?'checkbox':'uncheckbox'" src="../customer/images/sp.gif"><label style="float:left;">Cheque</label></div>
+                                    </td>
+                                    <td class="rec-light-bg text-bold text-center;" style="border-left:1px solid;border-bottom:1px solid;padding:3px;padding-right:5px;background-color:#eee;border-top:1px solid;"><i>Cheq #</i></td>
+                                    <td style="border-left:1px solid;border-right:1px solid;border-bottom:1px solid;padding:3px;padding-right:5px;">{{v_CheckNumber}}</td>
+                                    <td class="rec-light-bg text-bold text-center" style="border-bottom:1px solid;padding:3px;padding-right:5px;background-color:#eee;border-top:1px solid;"><i>Bank</i></td>
+                                    <td style="border-left:1px solid;border-right:1px solid;border-bottom:1px solid;padding:3px;padding-right:5px;">{{v_BankName}}</td>
+                                    <td class="rec-light-bg text-bold text-center" style="border-bottom:1px solid;padding:3px;padding-right:5px;background-color:#eee;border-top:1px solid;"><i>Date</i></td>
+                                    <td class="text-center text-bold" style="border-left:1px solid;border-right:1px solid;border-bottom:1px solid;padding:3px;padding-right:5px;"><i>{{v_CheckDate}}</i></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-0 text-right" colspan="7"><b>Amount in words:</b> {{amountInWords}}.</td>
+                                </tr>
+                                <tr>
+                                    <td class="rec-font11 border-0" colspan="7">
+                                        &nbsp;* All Charges in PKR<br>
+                                        ** If positive, customer paid additional. Balance adjustment in next month billing</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="hr" style="border: none; margin-top: 20px; margin-bottom: 20px;">
+            - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+
+        <div class="rec-wrapper clear">
+            <img class="rec-logo" src="../customer/images/logo.jpg" alt="" style="margin-top: 10px; width:200px;display: inline-block;border: none;"></td>
+            <div class="rec-date" style="float: right;margin-top: 40px;text-align: center;">
+                <label>Dated:</label>
+                <span>{{v_AdjustmentDate}}</span><br><br>
+                <span class="rec-office-copy" style="background-color: #ddd;padding: 3px 7px;width: 100px;display: inline-block;margin-bottom:5px;">Customer Copy</span>
+            </div>
+                        
+            <div id="officeCopy">
+                <table class="tblGrid" style="border-collapse: collapse; border: none; width: 100%;border:1px solid">
+                    <tr>
+                        <td class="rec-title" style="font-size: 16px;font-weight: 630;text-align: center;background-color: #85dfff;border:1px solid;padding:3px;border-right:0px;">
+                            {{viewsObj.heading}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="padding:25px;border-bottom:0px;padding-bottom:0px;">
+                            <table class="tblGrid" style="width:630px;border:1px solid;">
+                                <tr>
+                                    <td class="text-bold" style="border-right:1px solid;border-bottom:1px solid;padding:3px;width:120px;font-weight:500;">Customer Name</td>
+                                    <td colspan="3" style="border-bottom:1px solid;padding:3px;">{{v_CustomerName}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:1px solid;border-right:1px solid;border-bottom:1px solid;padding:3px;" class="rec-light-bg text-bold">SRF Ref</td>
+                                    <td style="border-right:1px solid;border-bottom:1px solid;padding:3px;width:200px;">{{v_UserName}}</td>
+                                    <td style="border-right:1px solid;border-bottom:1px solid;padding:3px;width:100px;" class="text-bold">Invoice #</td>
+                                    <td style="border-bottom:1px solid;padding:3px;" class="text-center">{{v_InvoiceReferenceNumber}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-right:1px solid;border-bottom:1px solid;padding:3px;" class="text-bold">Address</td>
+                                    <td style="border-bottom:1px solid;padding:3px;" colspan="3">{{v_Address}} {{v_CityArea}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-right:1px solid;border-bottom:1px solid;padding:3px;" class="text-bold">City</td>
+                                    <td style="border-bottom:1px solid;padding:3px;" colspan="3">{{v_City}}</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-right:1px solid;padding:3px;" class="text-bold">Phone</td>
+                                    <td style="padding:3px;" colspan="3">{{v_LandLine_Tel.length?'Landline: ' + v_LandLine_Tel:''}} {{v_Mobile_Tel.length?'Mobile: ' + v_Mobile_Tel:''}} {{v_Office_Tel.length?'Office: ' + v_Office_Tel:''}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border:0px solid;">
+                            <div class="text-right rec-font11" style="margin-right:100px;">GR# 12378-08</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="padding:25px;border-top:0px;padding-top:0px;">
+                            <table style="width:630px;">
+                                <tr>
+                                    <td colspan="7" class="rec-title" style="font-size: 16px;font-weight: 630;text-align: center;background-color: #85dfff;border:1px solid;padding:3px;border-right:1px solid;">Payment Clearance Details</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="border-0"></td>
+                                    <td class="text-bold text-center" style="border-left:1px solid;border-right:1px solid;padding:3px;">Total Charges *</td>
+                                    <td colspan="2" class="rec-light-bg text-bold text-center" style="border-right:1px solid;padding:3px;background-color:#eee;">Paid by Customer *</td>
+                                    <td></td>
+                                    <td class="text-bold text-center" style="padding:3px;border-right:1px solid;">Balance **</td>
+                                </tr>
+                                <tr style="border-top:1px solid;">
+                                    <td class="text-bold text-right" style="padding:3px;border-left:1px solid;padding-right:5px;"><i>For the month of</i></td>
+                                    <td class="text-bold text-center" style="padding:3px;border-left:1px solid;"><i>{{v_InvoiceMonth}}</i></td>
+                                    <td class="text-bold text-right" style="padding:3px;border-right:1px solid;padding-right:5px;border-left:1px solid;"><i>{{v_InvoiceAmount | number:0}}</i></td>
+                                    <td></td>
+                                    <td class="text-bold text-right" style="padding:3px;border-right:1px solid;padding-right:5px;"><i>{{v_PaymentAmount | number:0}}</i></td>
+                                    <td></td>
+                                    <td class="text-bold text-right" style="padding:3px;border-right:1px solid;padding-right:5px;"><i>({{Balance | number:0}})</i></td>
+                                </tr>
+                                <tr style="border-top:1px solid;">
+                                    <td class="border-0">
+                                        <div style="float:left;height:12px;margin-top:2px;"><img ng-class="v_PaymentModeID==1?'checkbox':'uncheckbox'" src="../customer/images/sp.gif"><label style="float:left;">Cash</label></div>
+                                        <div style="float:right;height:12px;margin-top:2px;"><img ng-class="v_PaymentModeID==3?'checkbox':'uncheckbox'" src="../customer/images/sp.gif"><label style="float:left;">Cheque</label></div>
+                                    </td>
+                                    <td class="rec-light-bg text-bold text-center;" style="border-left:1px solid;border-bottom:1px solid;padding:3px;padding-right:5px;background-color:#eee;border-top:1px solid;"><i>Cheq #</i></td>
+                                    <td style="border-left:1px solid;border-right:1px solid;border-bottom:1px solid;padding:3px;padding-right:5px;">{{v_CheckNumber}}</td>
+                                    <td class="rec-light-bg text-bold text-center" style="border-bottom:1px solid;padding:3px;padding-right:5px;background-color:#eee;border-top:1px solid;"><i>Bank</i></td>
+                                    <td style="border-left:1px solid;border-right:1px solid;border-bottom:1px solid;padding:3px;padding-right:5px;">{{v_BankName}}</td>
+                                    <td class="rec-light-bg text-bold text-center" style="border-bottom:1px solid;padding:3px;padding-right:5px;background-color:#eee;border-top:1px solid;"><i>Date</i></td>
+                                    <td class="text-center text-bold" style="border-left:1px solid;border-right:1px solid;border-bottom:1px solid;padding:3px;padding-right:5px;"><i>{{v_CheckDate}}</i></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-0 text-right" colspan="7"><b>Amount in words:</b> {{amountInWords}}.</td>
+                                </tr>
+                                <tr>
+                                    <td class="rec-font11 border-0" colspan="7">
+                                        &nbsp;* All Charges in PKR<br>
+                                        ** If positive, customer paid additional. Balance adjustment in next month billing</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+</html>

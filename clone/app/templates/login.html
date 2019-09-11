@@ -1,0 +1,37 @@
+<div class="container loginPage">
+    <div class="row">
+      <div class="col-md-12 col-md-offset-1" style="text-align: center;margin-bottom:20px">
+         <img ng-src="/customer/images/logo111111.png" alt="Description" class="col-xs-12 col-md-2 col-md-offset-4"/>
+            <!-- <img ng-src="/customer/images/logo1.png" alt="Description" /> -->
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-4  col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <center><h4 class="text-primary">Please Sign In</h4></center>
+                </div>
+                <div class="panel-body">
+                    <form role="form" name="myForm" autocomplete="on" ng-submit="$ctrl.formSubmit()" class="col-xs-12">
+                        <div class="form-group">
+                            <input type="text"  class="form-control col-xs-12" ng-model="$ctrl.username" placeholder="Username" required="" /> <br>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <input type="password" class="form-control col-xs-12" ng-model="$ctrl.password" placeholder="Password" required="" /> <br><br>
+                        </div>
+                        <b><type="text" class="text-danger col-xs-12" ng-model="$ctrl.warning"> {{ $ctrl.warning }}</b> <br>
+                            <div class="form-group">
+                               
+                                <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-primary  btn-lg col-md-12 col-xs-12">Login</button>
+                                <span class="text-danger">{{ error }}</span>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+

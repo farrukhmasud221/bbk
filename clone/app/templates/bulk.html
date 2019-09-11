@@ -1,0 +1,96 @@
+<div style="margin-bottom: 30px;">
+    <div class="modal-header">
+        <h1 ng-show="$ctrl.viewsObj.heading" class="heading">{{$ctrl.viewsObj.heading}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-3"> </div>
+        <div class="col-md-3">
+            <label class="col-form-label"> {{$ctrl.viewsObj.selectParam.label}} </label>
+        </div>
+
+        <div class="col-md-3">
+            <select ng-if="$ctrl.viewsObj.selectParam.ctype === 'select'" class="form-control" ng-model="$ctrl.viewsObj.selectParam.value"
+                id="{{$ctrl.viewsObj.selectParam.name}}" name="{{$ctrl.viewsObj.selectParam.name}}" ng-change="$ctrl.onSelectionChangeEvent($ctrl.viewsObj.selectParam)"
+                ng-required="$ctrl.viewsObj.selectParam.required || false" ng-options="opt.value as opt.display for opt in $ctrl.viewsObj.selectParam.options"> </select>
+
+            <div ng-if="$ctrl.viewsObj.selectParam.ctype === 'selectSearch'">
+                <ui-select name="{{$ctrl.viewsObj.selectParam.name}}" ng-change="$ctrl.onSelectionChangeEvent($ctrl.viewsObj.selectParam)"
+                    ng-required="$ctrl.viewsObj.selectParam.required || false" ng-model="$ctrl.viewsObj.selectParam.value" id="{{$ctrl.viewsObj.selectParam.name}}"
+                    theme="bootstrap">
+                    <ui-select-match>{{$select.selected.display}}</ui-select-match>
+                    <ui-select-choices repeat="opt.value as opt in $ctrl.viewsObj.selectParam.options | filter: $select.search">
+                        <span ng-bind-html="opt.display | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="col-md-3"> </div>
+
+        <!-- <div class="col-md-3 text-right">
+            <label class="col-form-label">{{$ctrl.viewsObj.fileParam.label}}</label>
+        </div>
+        <div class="col-md-5">
+            <input class="form-control" type="file" ng-model="$ctrl.viewsObj.fileParam.value" ngf-pattern="$ctrl.viewsObj.fileParam.fileTypes"
+                ngf-select="$ctrl.processFile()" style="padding:0px;">
+        </div>
+        <div class="col-md-2">
+            <input class="btn btn-primary pull-left" type="button" value="{{$ctrl.viewsObj.submitButtonLabel}}" ng-click="$ctrl.submitFile()"
+            />
+        </div> -->
+    </div>
+
+    <div class="row" ng-show="$ctrl.showFileBrowser">
+        <div class="col-md-3"> </div>
+        <div class="col-md-3">
+            <label class="col-form-label"> {{$ctrl.viewsObj.fileParam.label}} </label>
+        </div>
+
+        <div class="col-md-3">
+            <input id="{{$ctrl.viewsObj.fileParam.name}}" class="form-control" type="file" ng-model="$ctrl.viewsObj.fileParam.value"
+                ngf-pattern="$ctrl.viewsObj.fileParam.fileTypes" ngf-select="$ctrl.processFile($ctrl.viewsObj.fileParam)" ng-required="$ctrl.viewsObj.fileParam.required || false">
+        </div>
+        <div class="col-md-3"> </div>
+    </div>
+
+
+    <section ng-show="$ctrl.showMetaData && $ctrl.userInputMetaData.length">
+        <h4 class="heading">Enter Bulk Values</h4>
+        <div ng-repeat="param in $ctrl.userInputMetaData track by $index">
+
+            <div class="row">
+                <div class="col-md-3"> </div>
+                <div class="col-md-3">
+                    <label class="col-form-label"> {{param.label}} </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" class="form-control" ng-model="param.value">
+                </div>
+                <div class="col-md-3"> </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <div class="row">
+        <ul>
+            <li ng-repeat="error in $ctrl.fileErrors"> {{error}} </li>
+        </ul>
+    </div> -->
+
+    <!-- <div>
+        <br>
+        <input class="btn btn-primary pull-left" type="button" value="{{$ctrl.viewsObj.submitButtonLabel}}" ng-click="$ctrl.submitFile()" />
+    </div> -->
+
+    <!-- <div ui-grid="$ctrl.viewsObj.gridOptions" ui-grid-edit ui-grid-pagination ui-grid-selection ui-grid-pinning ui-grid-exporter
+        ui-grid-resize-columns class="grid">
+    </div> -->
+
+    <div>
+        <br>
+        <input ng-show="$ctrl.showSubmitButton" class="btn btn-primary pull-right" type="button" value="{{$ctrl.viewsObj.submitButtonLabel || 'Submit File'}}"
+            ng-click="$ctrl.submitFile()" />
+        <br>
+    </div>
+</div>

@@ -1,0 +1,1487 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Dialer Mediation",
+		"version": "1.0",
+		"title": "Xamarin Mediation",
+		"termsOfService": "",
+		"contact": {},
+		"license": {"name":"AdvOSS EULA"}
+	},
+	"host": "138.201.69.133:3000",
+	"basePath": "/",
+	"tags": [],
+	"schemes": ["http", "https"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths": {
+		"/Operations/DeviceManagement/Devices": {
+			"get": {
+				"description": "",
+				"operationId": "LS_devices",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_DeviceID":{ "type": "integer"},
+											"v_DeviceIdentification":{ "type": "string"},
+											"v_DeviceModel":{ "type": "string"},
+											"v_DeviceModelChangeCount":{ "type": "integer"},
+											"v_DevicePlatform":{ "type": "string"},
+											"v_DevicePlatformChangeCount":{ "type": "integer"},
+											"v_DeviceVersion":{ "type": "string"},
+											"v_DeviceVersionChangeCount":{ "type": "integer"},
+											"v_LastFailedVoucherAttempt":{ "type": "string"},
+											"v_LastIdentificationAttempt":{ "type": "string"},
+											"v_NoOfFailedVoucherRecharges":{ "type": "integer"},
+											"v_NoOfIdentificationAttempts":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/DeviceManagement/DeviceDetails": {
+			"get": {
+				"description": "",
+				"operationId": "UI_devices",
+				"parameters": [
+				{
+					"name": "v_DeviceID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_DeviceIdentification":{ "type": "string", "description":""},
+								"v_DevicePlatform":{ "type": "string", "description":""},
+								"v_DeviceModel":{ "type": "string", "description":""},
+								"v_DeviceVersion":{ "type": "string", "description":""},
+								"v_NoOfIdentificationAttempts":{ "type": "integer", "description":""},
+								"v_LastIdentificationAttempt":{ "type": "string", "description":""},
+								"v_NoOfFailedVoucherRecharges":{ "type": "integer", "description":""},
+								"v_LastFailedVoucherAttempt":{ "type": "string", "description":""},
+								"v_DevicePlatformChangeCount":{ "type": "integer", "description":""},
+								"v_DeviceModelChangeCount":{ "type": "integer", "description":""},
+								"v_DeviceVersionChangeCount":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/PublicIdentitiesManagement/PublicIdentities": {
+			"get": {
+				"description": "",
+				"operationId": "SE_PublicIdentities",
+				"parameters": [
+				{
+					"name": "v_UserName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_PublicIdentity",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_IsCreditCardSupported":{ "type": "boolean"},
+											"v_IsPaypalPaymentSupported":{ "type": "boolean"},
+											"v_IsVoucherPaymentSupported":{ "type": "boolean"},
+											"v_PublicIdentity":{ "type": "string"},
+											"v_PublicIdentityID":{ "type": "integer"},
+											"v_PublicIdRandomStrResendCount":{ "type": "integer"},
+											"v_RandomString":{ "type": "string"},
+											"v_RandomStringApproved":{ "type": "string"},
+											"v_RandomStringAttempCount":{ "type": "integer"},
+											"v_SIPRegistrarIP":{ "type": "string"},
+											"v_SIPRegistrarPort":{ "type": "string"},
+											"v_SupportedAudioCodec":{ "type": "string"},
+											"v_UserName":{ "type": "string"},
+											"v_VPNServerInfo":{ "type": "string"},
+											"v_VPNUserName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/PublicIdentitiesManagement/PublicIdentyDetails": {
+			"get": {
+				"description": "",
+				"operationId": "UI_publicidentities",
+				"parameters": [
+				{
+					"name": "v_PublicIdentityID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_PublicIdentity":{ "type": "string", "description":""},
+								"v_UserName":{ "type": "string", "description":""},
+								"v_RandomString":{ "type": "string", "description":""},
+								"v_RandomStringApproved":{ "type": "string", "description":""},
+								"v_PublicIdRandomStrResendCount":{ "type": "integer", "description":""},
+								"v_RandomStringAttempCount":{ "type": "integer", "description":""},
+								"v_SIPRegistrarIP":{ "type": "string", "description":""},
+								"v_SIPRegistrarPort":{ "type": "string", "description":""},
+								"v_SupportedAudioCodec":{ "type": "string", "description":""},
+								"v_VPNServerInfo":{ "type": "string", "description":""},
+								"v_VPNUserName":{ "type": "string", "description":""},
+								"v_IsCreditCardSupported":{ "type": "integer", "description":""},
+								"v_IsPaypalPaymentSupported":{ "type": "integer", "description":""},
+								"v_IsVoucherPaymentSupported":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/AccountDetails": {
+			"get": {
+				"description": "",
+				"operationId": "UI_accounts",
+				"parameters": [
+				{
+					"name": "v_AccountID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_AccountIdentification":{ "type": "string", "description":""},
+								"v_UserName":{ "type": "string", "description":""},
+								"v_EmailAddress":{ "type": "string", "description":""},
+								"v_EmailAddressVerified":{ "type": "string", "description":""},
+								"v_SIPRegistrarIP":{ "type": "string", "description":""},
+								"v_SIPRegistrarPort":{ "type": "string", "description":""},
+								"v_SupportedAudioCodec":{ "type": "string", "description":""},
+								"v_VPNServerInfo":{ "type": "string", "description":""},
+								"v_VPNUserName":{ "type": "string", "description":""},
+								"v_IsCreditCardSupported":{ "type": "integer", "description":""},
+								"v_IsPaypalPaymentSupported":{ "type": "integer", "description":""},
+								"v_IsVoucherPaymentSupported":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/Accounts": {
+			"get": {
+				"description": "",
+				"operationId": "SE_Accounts",
+				"parameters": [
+				{
+					"name": "v_UserName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_AccountIdentification",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_EmailAddress",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AccountID":{ "type": "integer"},
+											"v_AccountIdentification":{ "type": "string"},
+											"v_EmailAddress":{ "type": "string"},
+											"v_EmailAddressVerified":{ "type": "string"},
+											"v_IsCreditCardSupported":{ "type": "boolean"},
+											"v_IsPaypalPaymentSupported":{ "type": "boolean"},
+											"v_IsVoucherPaymentSupported":{ "type": "boolean"},
+											"v_SIPRegistrarIP":{ "type": "string"},
+											"v_SIPRegistrarPort":{ "type": "string"},
+											"v_SupportedAudioCodec":{ "type": "string"},
+											"v_UserName":{ "type": "string"},
+											"v_VPNServerInfo":{ "type": "string"},
+											"v_VPNUserName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/AgentDetails": {
+			"get": {
+				"description": "",
+				"operationId": "UI_agents",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_AgentDomain":{ "type": "string", "description":""},
+								"v_AgentBillingVendor":{ "type": "string", "description":""},
+								"v_AgentBillingAPIURL":{ "type": "string", "description":""},
+								"v_AgentBillingAPIUserName":{ "type": "string", "description":""},
+								"v_AgentSMSProviderName":{ "type": "string", "description":""},
+								"v_AgentSMSProviderSID":{ "type": "string", "description":""},
+								"v_AgentSMSProviderAuthToken":{ "type": "string", "description":""},
+								"v_AgentSMSProviderFromNumber":{ "type": "string", "description":""},
+								"v_SIPRegistrarIP":{ "type": "string", "description":""},
+								"v_SIPRegistrarPort":{ "type": "string", "description":""},
+								"v_SupportedAudioCodec":{ "type": "string", "description":""},
+								"v_VPNServerInfo":{ "type": "string", "description":""},
+								"v_VPNUserName":{ "type": "string", "description":""},
+								"v_IsCreditCardSupported":{ "type": "integer", "description":""},
+								"v_IsPaypalPaymentSupported":{ "type": "integer", "description":""},
+								"v_PaypalPrimaryEmail":{ "type": "string", "description":""},
+								"v_IsVoucherPaymentSupported":{ "type": "integer", "description":""},
+								"v_AgentAboutUsInfo":{ "type": "string", "description":""},
+								"v_AgentAboutUsInfoHash":{ "type": "string", "description":""},
+								"v_AgentAppLogo":{ "type": "string", "description":""},
+								"v_AgentContactUsInfo":{ "type": "string", "description":""},
+								"v_AgentContactUsInfoHash":{ "type": "string", "description":""},
+								"v_AgentAppTermsAndCondition":{ "type": "string", "description":""},
+								"v_AgentAppTermsAndConditionHash":{ "type": "string", "description":""},
+								"v_AgentAppFAQs":{ "type": "string", "description":""},
+								"v_AgentAppFAQsHash":{ "type": "string", "description":""},
+								"v_RandomStringAttemptCountMax":{ "type": "integer", "description":""},
+								"v_RandomStringLength":{ "type": "integer", "description":""},
+								"v_RandomStrResendCountMax":{ "type": "integer", "description":""},
+								"v_FailedVoucherRechargesMax":{ "type": "integer", "description":""},
+								"v_FailedVoucherRechargeDelay":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccNoPrivateIdentitiesManagement/AccNoPrivateIdentities": {
+			"get": {
+				"description": "",
+				"operationId": "SE_AccnoPrivateIdentities",
+				"parameters": [
+				{
+					"name": "v_UserName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_PublicIdentity",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_PrivateIdentity",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_SIPRegistrarIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AccNoPrivateIdentityID":{ "type": "integer"},
+											"v_IsCreditCardSupported":{ "type": "boolean"},
+											"v_IsPaypalPaymentSupported":{ "type": "boolean"},
+											"v_IsVoucherPaymentSupported":{ "type": "boolean"},
+											"v_PrivateIdentity":{ "type": "string"},
+											"v_PublicIdentity":{ "type": "string"},
+											"v_SIPRegistrarIP":{ "type": "string"},
+											"v_SIPRegistrarPort":{ "type": "string"},
+											"v_SupportedAudioCodec":{ "type": "string"},
+											"v_UserName":{ "type": "string"},
+											"v_VPNServerInfo":{ "type": "string"},
+											"v_VPNUserName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccNoPrivateIdentitiesManagement/AccNoPrivateIdentityDetails": {
+			"get": {
+				"description": "",
+				"operationId": "UI_accnoprivateidentities",
+				"parameters": [
+				{
+					"name": "v_AccNoPrivateIdentityID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_PublicIdentity":{ "type": "string", "description":""},
+								"v_PrivateIdentity":{ "type": "string", "description":""},
+								"v_UserName":{ "type": "integer", "description":""},
+								"v_SIPRegistrarIP":{ "type": "string", "description":""},
+								"v_SIPRegistrarPort":{ "type": "string", "description":""},
+								"v_SupportedAudioCodec":{ "type": "string", "description":""},
+								"v_VPNServerInfo":{ "type": "string", "description":""},
+								"v_VPNUserName":{ "type": "string", "description":""},
+								"v_IsCreditCardSupported":{ "type": "integer", "description":""},
+								"v_IsPaypalPaymentSupported":{ "type": "integer", "description":""},
+								"v_IsVoucherPaymentSupported":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/Agents": {
+			"get": {
+				"description": "",
+				"operationId": "LS_agents",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AgentAboutUsInfo":{ "type": "string"},
+											"v_AgentAboutUsInfoHash":{ "type": "string"},
+											"v_AgentAppFAQs":{ "type": "string"},
+											"v_AgentAppFAQsHash":{ "type": "string"},
+											"v_AgentAppTermsAndCondition":{ "type": "string"},
+											"v_AgentAppTermsAndConditionHash":{ "type": "string"},
+											"v_AgentBillingAPIURL":{ "type": "string"},
+											"v_AgentBillingAPIUserName":{ "type": "string"},
+											"v_AgentBillingVendor":{ "type": "string"},
+											"v_AgentContactUsInfo":{ "type": "string"},
+											"v_AgentContactUsInfoHash":{ "type": "string"},
+											"v_AgentDomain":{ "type": "string"},
+											"v_AgentID":{ "type": "integer"},
+											"v_AgentSMSProviderAuthToken":{ "type": "string"},
+											"v_AgentSMSProviderName":{ "type": "string"},
+											"v_AgentSMSProviderSID":{ "type": "string"},
+											"v_IsCreditCardSupported":{ "type": "boolean"},
+											"v_IsPaypalPaymentSupported":{ "type": "boolean"},
+											"v_IsVoucherPaymentSupported":{ "type": "boolean"},
+											"v_RandomStringAttemptCountMax":{ "type": "integer"},
+											"v_RandomStringLength":{ "type": "integer"},
+											"v_RandomStrResendCountMax":{ "type": "integer"},
+											"v_SIPRegistrarIP":{ "type": "string"},
+											"v_SIPRegistrarPort":{ "type": "string"},
+											"v_SupportedAudioCodec":{ "type": "string"},
+											"v_VPNServerInfo":{ "type": "string"},
+											"v_VPNUserName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/AuthenticateAdmin": {
+			"post": {
+				"description": "",
+				"operationId": "TX_AuthenticateAdminByPassword",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_UserName":{ "type": "string", "description":""},
+							"v_Password":{ "type": "string", "description":""},
+							"v_RemoteIP":{ "type": "string", "description":""},
+							"v_PortalID":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_AdministratorID":{ "type": "integer", "description":""},
+								"v_DealerID":{ "type": "integer", "description":""},
+								"v_AdministratorSessionID":{ "type": "integer", "description":""},
+								"v_LoginSessionKey":{ "type": "string", "description":""},
+								"v_AdminPersonalizationData":{ "type": "string", "description":""},
+								"v_AdminLocaleData":{ "type": "string", "description":""},
+								"v_AdminParentalControlData":{ "type": "string", "description":""},
+								"v_AdminPresentationData":{ "type": "string", "description":""},
+								"v_AdministratorPermissions":{ "type": "string", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/DialerMediationAgent": {
+			"post": {
+				"description": "",
+				"operationId": "TX_InsDialerMediationAgent",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AgentDomain":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/AccountIsVoucherSupported": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdAccountIsVoucher",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "integer", "description":""},
+							"v_IsVoucherPaymentSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/AccountIsPaypalSupported": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdAccountIsPaypal",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "integer", "description":""},
+							"v_IsPaypalPaymentSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/AccountIsCreditCardSupported": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdAccountIsCC",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "integer", "description":""},
+							"v_IsCreditCardSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/UpdateAccountSIPRegistrar": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdAccountSIPRegiatrar",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "integer", "description":""},
+							"v_SIPRegistrarIP":{ "type": "string", "description":""},
+							"v_SIPRegistrarPort":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/UpdateAccountEmail": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdAccountEmail",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "integer", "description":""},
+							"v_EmailAddress":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/UpdateAccountUserName": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdAccountUserName",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "integer", "description":""},
+							"v_UserName":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/UpdateAccountIdentification": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdAccountIdentification",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "integer", "description":""},
+							"v_AccountIdentification":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/UpdateDMAgentFAQ": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentFAQ",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AgentAppFAQs":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/UpdateDMAgentTerms&Condtions": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentTnC",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AgentAppTermsAndCondition":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/UpdateDMAgentContactus": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentContactus",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AgentContactUsInfo":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/UpdateDMAgentAboutus": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentAboutus",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AgentAboutUsInfo":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/DMAgentIsVoucher": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentIsVoucher",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_IsVoucherPaymentSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/DMAgentIsPaypal": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentIsPaypal",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_IsPaypalPaymentSupported":{ "type": "integer", "description":""},
+							"v_PaypalPrimaryEmail":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/DMAgentIsCreditcard": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentIsCC",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_IsCreditCardSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/UpdateDMAgentVPN": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentVPN",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_VPNServerInfo":{ "type": "string", "description":""},
+							"v_VPNUserName":{ "type": "string", "description":""},
+							"v_VPNPassword":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/UpdateDMAgentSIPRegistrar": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentSIPRegistrar",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_SIPRegistrarIP":{ "type": "string", "description":""},
+							"v_SIPRegistrarPort":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AgentManagement/UpdateDMAgentSMSProvider": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentSMSProvider",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AgentSMSProviderName":{ "type": "string", "description":""},
+							"v_AgentSMSProviderSID":{ "type": "string", "description":""},
+							"v_AgentSMSProviderAuthToken":{ "type": "string", "description":""},
+							"v_AgentSMSProviderFromNumber":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/Agentmanagement/UpdateDMAgentBilling": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdDMAgentBilling",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AgentBillingVendor":{ "type": "string", "description":""},
+							"v_AgentBillingAPIURL":{ "type": "string", "description":""},
+							"v_AgentBillingAPIUserName":{ "type": "string", "description":""},
+							"v_AgentBillingAPIPassword":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccountManagement/UpdateAccountPassword": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdBillingPassword",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "integer", "description":""},
+							"v_BillingPassword":{ "type": "string", "description":""},
+							"v_BillingPasswordExpiry":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccNoPrivateIdentitiesManagement/PrivateIsVoucherSupported": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPrivateIDIsVoucher",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccNoPrivateIdentityID":{ "type": "integer", "description":""},
+							"v_IsVoucherPaymentSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/PublicIdentitiesManagement/UpdatePublicIDSIPRegistrar": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPublicIDSIPRegistrar",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_PublicIdentityID":{ "type": "integer", "description":""},
+							"v_SIPRegistrarIP":{ "type": "string", "description":""},
+							"v_SIPRegistrarPort":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/PublicIdentitiesManagement/PublicIDIsCreditCardSupported": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPublicIDIsCC",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_PublicIdentityID":{ "type": "integer", "description":""},
+							"v_IsCreditCardSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccNoPrivateIdentitiesManagement/PrivateIsPayPalSupported": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPrivateIDIsPaypal",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccNoPrivateIdentityID":{ "type": "integer", "description":""},
+							"v_IsPaypalPaymentSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccNoPrivateIdentitiesManagement/PrivateIsCreditCardSupported": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPrivateIDIsCC",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccNoPrivateIdentityID":{ "type": "integer", "description":""},
+							"v_IsCreditCardSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccNoPrivateIdentitiesManagement/UpdatePrivateIDVPN": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPrivateIDVPN",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccNoPrivateIdentityID":{ "type": "integer", "description":""},
+							"v_VPNServerInfo":{ "type": "string", "description":""},
+							"v_VPNUserName":{ "type": "string", "description":""},
+							"v_VPNPassword":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/PublicIdentitiesManagement/PublicIDIsPayPalSupported": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPublicIDIsPaypal",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_PublicIdentityID":{ "type": "integer", "description":""},
+							"v_IsPaypalPaymentSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/PublicIdentitiesManagement/PublicIDIsVoucherSupported": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPublicIDIsVoucher",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_PublicIdentityID":{ "type": "integer", "description":""},
+							"v_IsVoucherPaymentSupported":{ "type": "integer", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccNoPrivateIdentitiesManagement/UpdatePrivateIDSIPRegistrar": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPrivateIDSIPRegistrar",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccNoPrivateIdentityID":{ "type": "integer", "description":""},
+							"v_SIPRegistrarIP":{ "type": "string", "description":""},
+							"v_SIPRegistrarPort":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Operations/AccNoPrivateIdentitiesManagement/UpdatePrivateIDPassword": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdPrivateIDPassword",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccNoPrivateIdentityID":{ "type": "integer", "description":""},
+							"v_PrivateIdentityPassword":{ "type": "string", "description":""},
+							"v_TXID":{ "type": "integer", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

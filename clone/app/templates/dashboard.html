@@ -1,0 +1,76 @@
+<div class="modal-header" ng-show="$ctrl.resolve !== undefined">
+        <button ng-if="$ctrl.resolve !== undefined" type="button" class="close" data-dismiss="dialog" data-ng-click="$ctrl.close($event)">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        <h1 ng-show="$ctrl.viewsObj.heading || $ctrl.viewsObj[0].heading" class="heading">{{$ctrl.viewsObj.heading || 'Viewing Detail'}}</h1>
+    </div>
+    
+    
+    <div ng-class="{ 'modal-body' : isDefined($ctrl.viewsObj.panelType) && $ctrl.viewsObj.panelType.toLowerCase()==='formdetail' }">
+        <div ng-repeat="viewObj in {true: $ctrl.viewsObj, false: $ctrl.viewsObj.sections || $ctrl.viewsObj} [$ctrl.resolve === undefined] track by $index">
+            <section ng-if="viewObj.Params !== undefined && viewObj.Params.length > 0">
+    
+                <h1 class="heading" ng-if="viewObj.heading !== undefined && viewObj.heading !== ''">{{utilityService.formatText(viewObj.heading)}}</h1>
+    
+                <div class="row">
+                    <div class="col-md-9">
+                        <div ng-repeat="param in viewObj.Params" ng-if="(param.visible == undefined || param.visible) && (param.direction=='out' || param.direction === 'inout')"
+                            ng-class-even="'alternative_cls_even'" ng-class-odd="'alternative_cls_odd'">
+                            <div style="margin: 0 0 5px 0;" class="row" ng-right-click="$ctrl.rightClick(param);">
+                                <div class="col-sm-3">
+                                    <label class="applabel">{{utilityService.getLabel(param)}}: </label>
+                                </div>
+                                <div class="col-sm-9" ng-switch="param.ctype">
+                                    <a ng-switch-when="anchor" my-href="index.html#/tblunitreservations?v_SessionID={{grid.getCellValue(row, col)}}">{{param.value}}</a>
+                                    <div google-directive params="param" ng-switch-when="percentguage"></div>
+    
+                                    <!-- <div ng-switch-default ui-mask="{{utilityService.getMask(param)}}" class="appvalue" ng-model="param.value">{{param.value}}</div> -->
+    
+                                    <div ng-switch-when="object">
+                                        <input class="btn btn-primary btn-sm" type="button" value="View" ng-click="$ctrl.viewObject(viewObj, param)">
+                                    </div>
+                                    <div ng-switch-default ui-mask="{{utilityService.getMask(param)}}" class="appvalue" ng-model="param.value">{{param.value}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-3 btn-group-vertical" role="group">
+                        <div class="btn-group" ng-repeat="detailOperation in viewObj.detailOperations track by $index">
+                            <input ng-if="!detailOperation.showInDropDown" ng-class="$ctrl.operationButtonClasses[detailOperation.type]" class="btn-sm"
+                                type="button" value="{{detailOperation.label}}" ng-click="$ctrl.executeDetailOperation(viewObj, detailOperation)"
+                            />
+                        </div>
+    
+                        <div ng-if="viewObj.hasDropDown" class="btn-group" uib-dropdown is-open="status.isopen">
+                            <button type="button" class="btn btn-default" uib-dropdown-toggle>More Actions<span class="caret"></span></button>
+                            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                <li role="menuitem" ng-repeat="detailOperation in viewObj.detailOperations track by $index" ng-if="$index >= viewObj.dropDownIndex">
+                                    <a ng-click="$ctrl.executeDetailOperation(viewObj, detailOperation)"> {{detailOperation.label}} </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <button ng-if="viewObj.dropDownIndex === $index" type="button" class="btn btn-secondary" uib-dropdown-toggle aria-haspopup="true"
+                        aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+                    <ul class="dropdown-menu" uib-dropdown-menu role="menu">
+                        <li ng-if="detailOperation.showInDropDown" role="menuitem"><a ng-click="$ctrl.executeDetailOperation(viewObj, detailOperation)">{{detailOperation.label}}</a></li>
+                    </ul> -->
+                </div>
+                <div class="btnDiv" ng-if="viewObj.panelType === 'UpdateableReadOnlyView'">
+                    <input class="btn btn-success btn-lg pull-left" type="button" value="Update" ng-click="$ctrl.updateData(viewObj)" />
+                    <br><br>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <div class="modal-footer">
+        <div class="btnDiv col-sm-12" id="btnDiv" ng-if="$ctrl.resolve !== undefined && $ctrl.viewsObj.panelType.toLowerCase()==='formdetail'">
+            <input class="btn btn-primary pull-right" type="button" value={{$ctrl.viewsObj.buttonLabel}} ng-click="$ctrl.submit($ctrl.viewsObj)"
+            />
+        </div>
+    
+        <div class="gridWrapper" ui-view="grid"> </div>
+    </div>

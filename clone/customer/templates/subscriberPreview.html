@@ -1,0 +1,764 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="$close()">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+    </button>
+    <h3 class="modal-title">Create Subscriber Preview</h3>
+</div>
+
+<div id="createSubscriber" class="modal-body">
+    <form ng-model="createSubscriber" name="createSubscriber" novalidate>
+        <br>
+        <section>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_ExternalCustomerTypeID" class="col-form-label">Subscriber Type
+                            <span class="fieldReq">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_ExternalCustomerTypeName}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_City" class="col-form-label">City
+                            <span class="fieldReq">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{city.v_CityName}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_SalesmanID" class="col-form-label">Salesman
+                            <span class="fieldReq">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{salesman.v_Name}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_SalesmanID" class="col-form-label">Sale Date
+                            <span class="fieldReq">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_SalesDate}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_UserName" class="col-form-label">Customer ID
+                            <span class="fieldReq">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_UserName}}</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <br>
+        <section>
+            <h4>Suscriber Detail</h4>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Company" class="col-form-label">Customer Name</label>
+                    </div>
+
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_Company}}</span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Title" class="col-form-label">Title</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_Title}}</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_UserName" class="col-form-label">User Name
+                            <span class="fieldReq">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_CustomerName}}</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_MobileNumber" class="col-form-label">Mobile Number
+                            <span class="fieldReq">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_MobileNumber}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Tel" class="col-form-label">Telephone Number</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_Tel}}</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Email" class="col-form-label">Email
+                            <span class="fieldReq">*</span>
+                        </label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_Email}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_CNIC" class="col-form-label">CNIC</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_CNIC}}</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Passport" class="col-form-label">Passport</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_Passport}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_NTN" class="col-form-label">NTN</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_NTN}}</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Remarks" class="col-form-label">Remarks</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.CustomerDetail.v_Remarks}}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h4>Installation Address</h4>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Address" class="col-form-label">Address</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.InstallationAddress.v_Address}}</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_CityAreaID" class="col-form-label">Area</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.InstallationAddress.v_CityAreaName}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_CityID" class="col-form-label">City</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{city.v_CityName}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_PostalCode" class="col-form-label">Postal Code</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.InstallationAddress.v_PostalCode}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_CountryStateID" class="col-form-label">State</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.InstallationAddress.v_StateName}}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h4>Billing Address</h4>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_UseSameBillingAddress" class="col-form-label">Use same Billing Address</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.BillingAddress.v_UseSameBillingAddress}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_BillingAddress" class="col-form-label">Address</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.BillingAddress.v_BillingAddress}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_BillingCityAreaID" class="col-form-label">Area</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.BillingAddress.v_BillingCityAreaName}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_BillingCityID" class="col-form-label">City</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.BillingAddress.v_BillingCityName}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_BillingPostalCode" class="col-form-label">Postal Code</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.BillingAddress.v_BillingPostalCode}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_BillingCountryStateID" class="col-form-label">State</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.BillingAddress.v_BillingStateName}}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h4>Internet Service</h4>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_ServiceOfferingID" class="col-form-label">Package</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{package.v_ServiceOfferingName}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_ChargesPerBillingCycle" class="col-form-label">Total Amount</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{package.v_ChargesPerBillingCycle}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_SalesTax" class="col-form-label">Sales Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{package.v_SalesTax}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_AdvanceTax" class="col-form-label">Advance Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{package.v_AdvanceTax}}</span>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="row" ng-show="CustomerType.v_ExternalCustomerTypeID !== 100006">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Advance" class="col-form-label">Select Band</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.internetServiceSection.v_DeviceType === 'SB' ? 'Single Band' : 'Dual Band'}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Amount" class="col-form-label">Installment Plan</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.v_Installment > 0 ? data.v_Installment + ' Months' : 'Upfront Payment'}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="CustomerType.v_ExternalCustomerTypeID !== 100006">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="InternetOTC" class="col-form-label">Select OTC</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{InternetOTC.v_ChargeHeadName}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_OTCPackageAmount" class="col-form-label">Total Amount</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{InternetOTC.v_DefaultAmount}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row" ng-show="CustomerType.v_ExternalCustomerTypeID !== 100006">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_OTCPackageSalesTax" class="col-form-label">Sales Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{InternetOTC.v_SalesTax}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_OTCPackageAdvanceTax" class="col-form-label">Advance Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{InternetOTC.v_AdvanceTax}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="data.v_Installment > 0">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_OTCInstallment" class="col-form-label">Installment</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{InternetOTC.v_ChargesPerBillingCycle}}</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section>
+            <h4>TV Service</h4>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_TVServiceOfferingID" class="col-form-label">Select Service</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{TVServiceOffering.v_ChargeHeadName}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_TVAmount" class="col-form-label">Monthly Charges</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{TVServiceOffering.v_ChargesPerBillingCycle}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_TVSalesTax" class="col-form-label">Sales Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{TVServiceOffering.v_SalesTax}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_TVAdvance" class="col-form-label">Advance Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{TVServiceOffering.v_AdvanceTax}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_TVOTCPackage" class="col-form-label">Select OTC</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+
+                        <span class="fieldData">{{STBOTC.v_ChargeHeadName}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_TVOTCPackageAmount" class="col-form-label">Total Amount</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{STBOTC.v_DefaultAmount}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_OTCPackageSalesTax" class="col-form-label">Sales Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{STBOTC.v_SalesTax}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_OTCPackageAdvanceTax" class="col-form-label">Advance Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{STBOTC.v_AdvanceTax}}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h4>IP/Pool Service</h4>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_IPPoolServiceOfferingID" class="col-form-label">Select Service</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{IPAndPool.v_ChargeHeadName}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_IPPoolAmount" class="col-form-label">Monthly Charges</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{IPAndPool.v_ChargesPerBillingCycle}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_IPPoolSalesTax" class="col-form-label">Sales Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{IPAndPool.v_SalesTax}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_IPPoolAdvance" class="col-form-label">Advance Tax</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{IPAndPool.v_AdvanceTax}}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h4>Others OTC</h4>
+            <div id="miscOTC">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_OTCPackage" class="col-form-label">OTC 1</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{v_OTCPackage.v_ChargeHeadName}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_OTCPackageAmount" class="col-form-label">Total Amount</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{v_OTCPackage.v_DefaultAmount}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_OTCPackageSalesTax" class="col-form-label">Sales Tax</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{v_OTCPackage.v_SalesTax}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_OTCPackageAdvance" class="col-form-label">Advance Tax</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{v_OTCPackage.v_AdvanceTax}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="counter > 0" ng-repeat="n in [] | range:counter">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_OTCPackage" class="col-form-label">OTC {{$eval(n + '+2')}}</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{$eval('v_OTCPackage' + $eval(n + '+1') + '.v_ChargeHeadName')}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_OTCPackageAmount" class="col-form-label">Total Amount</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{$eval('v_OTCPackage' + $eval(n + '+1') + '.v_DefaultAmount')}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_OTCPackageSalesTax" class="col-form-label">Sales Tax</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{$eval('v_OTCPackage' + $eval(n + '+1') + '.v_SalesTax')}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_OTCPackageAdvance" class="col-form-label">Advance Tax</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{$eval('v_OTCPackage' + $eval(n + '+1') + '.v_AdvanceTax')}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section ng-show="data.v_Installment > 0">
+            <h4>Security Cheque</h4>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_SecurityChequeAmount" class="col-form-label">Amount</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.securityCheque.v_SDChequeAmount}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_SecurityChequeNumber" class="col-form-label">Cheque Number</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.securityCheque.v_SDChequeNumber}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_SecurityBankName" class="col-form-label">Drawn On</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{sdbank.v_BankName}}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <section>
+            <h4>Summary</h4>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    <strong>Description</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Amount</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Sales tax</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Advance Tax</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Total</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="chargeHead in data.chargeHeads">
+                                <td>{{chargeHead.v_ChargeHeadName}}</td>
+                                <td class="text-right">{{chargeHead.v_Amount}}</td>
+                                <td class="text-right">{{chargeHead.v_SalesTax}}</td>
+                                <td class="text-right">{{chargeHead.v_AdvanceTax}}</td>
+                                <td class="text-right">{{chargeHead.v_SumAmount}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Grand Total</strong>
+                                </td>
+                                <td class="text-right">
+                                    <strong>{{data.chargeHeadSums.TotalAmount}}</strong>
+                                </td>
+                                <td class="text-right">
+                                    <strong>{{data.chargeHeadSums.TotalSalesTax}}</strong>
+                                </td>
+                                <td class="text-right">
+                                    <strong>{{data.chargeHeadSums.TotalAdvanceTax}}</strong>
+                                </td>
+                                <td class="text-right">
+                                    <strong>{{data.chargeHeadSums.GrandSum}}</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h4>Payment</h4>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_Amount" class="col-form-label">Amount</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.paymentInfo.v_Amount}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_PaymentMode" class="col-form-label">Payment Mode</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.paymentInfo.v_PaymentMode}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_DepositSlipNo" class="col-form-label">Deposit Slip No</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.paymentInfo.v_DepositSlipNo}}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="col-md-5 col-sm-5 text-right">
+                        <label for="v_PaymentRemarks" class="col-form-label">Remarks</label>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                        <span class="fieldData">{{data.paymentInfo.v_PaymentRemarks}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chequeInfo" ng-show="data.paymentInfo.v_PaymentMode == 'Cheque'">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_ChequeNumber" class="col-form-label">Cheque Number</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{data.paymentInfo.v_ChequeNumber}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_ChequeDate" class="col-form-label">Cheque Date</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{data.paymentInfo.v_ChequeDate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5 text-right">
+                            <label for="v_BankName" class="col-form-label">Drawn on</label>
+                        </div>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="fieldData">{{bank.v_BankName}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="btnDiv" id="btnDiv">
+            <input class="btn btn-primary pull-right" type="submit" ng-click="createNewSubscriber();$close()" value="Confirm Create Subscriber">
+        </div>
+    </form>
+    <br>
+    <br>
+</div>

@@ -1,0 +1,19 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-version": "babel --version",
+    "babel": "./node_modules/.bin/babel"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-beautify": "^1.7.5",
+    "json-fn": "^1.1.1",
+    "json-stringify-pretty-compact": "^1.0.4",
+    "jsonfile": "^4.0.0"
+  }
+}

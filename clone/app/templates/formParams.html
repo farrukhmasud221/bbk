@@ -1,0 +1,76 @@
+<div class="col-md-5 text-right">
+    <label for="{{param.name}}" class="col-form-label">{{param.label}}</label>
+</div>
+
+<div ng-switch="param.ctype" class="col-md-7">
+
+    <input ng-switch-when="email" type="email" ng-required="param.required || false" class="form-control" ng-model="param.value"
+        id="{{param.name}}" name="{{param.name}}" placeholder="{{param.placeholder}}">
+
+    <div ng-switch-when="hidden" class="placeHolder"></div>
+
+    <input ng-switch-when="removeButton" class="btn btn-warning pull-right myButton" type="button" value="Remove Section" ng-click="$ctrl.removeSection(section, param.index)"
+    />
+
+    <input ng-switch-when="readonly" type="text" readonly class="form-control col-md-8" ng-model="param.value" id="{{param.name}}" name="{{param.name}}"
+        placeholder="{{param.placeholder}}">
+
+    <select ng-switch-when="select" class="form-control" ng-model="param.value" id="{{param.name}}" name="{{param.name}}" ng-change="$ctrl.onSelectionChangeEvent(param, section)"
+        ng-required="param.required || false" ng-options="opt.value as opt.display for opt in param.options"> </select>
+
+    <div ng-switch-when="selectSearch">
+        <ui-select name="{{param.name}}" ng-change="$ctrl.onSelectionChangeEvent(param, section)" ng-required="param.required || false"
+            ng-model="param.value" id="{{param.name}}" theme="bootstrap">
+            <ui-select-match>{{$select.selected.display}}</ui-select-match>
+            <ui-select-choices repeat="opt.value as opt in param.options | filter: $select.search">
+                <span ng-bind-html="opt.display | highlight: $select.search"></span>
+            </ui-select-choices>
+        </ui-select>
+    <!--    <input type="hidden" ng-model="param.value" ng-required="param.required || false"/> --> <!-- B/c ui-select doesnt work with ng-required -->
+    </div>
+
+    <div class="form-check" ng-switch-when="radiobuttonlist">
+        <label class="form-check-label" ng-repeat="opt in param.options"> <input class="form-check-input" ng-model="param.value" type="radio" id="{{param.name}}" name="{{param.name}}" value="{{opt.value}}" ng-checked="param.defaultSelected==opt.value?true:false" ng-required="param.required || false" > {{opt.display}} </label>
+    </div>
+
+    <div class="form-check" ng-switch-when="checkboxlist">
+        <label class="form-check-label" ng-repeat="opt in param.options"> <input class="form-check-input" ng-model="param.value" type="checkbox" id="{{param.name}}" ng-required="param.required || false" name="{{param.name}}" value="{{opt.value}}" > {{opt.display}} </label>
+    </div>
+    
+
+    <div ng-switch-when="dynamicArray">
+
+    </div>
+
+    <input ng-switch-when="copyCheckbox" type="checkbox" class="form-control" ng-model="param.value" id="{{param.name}}" name="{{param.name}}"
+        ng-checked="$ctrl.copySection(param, section.Params)" placeholder="{{param.placeholder}}">
+
+    <input ng-switch-when="checkbox" type="checkbox" class="form-control" ng-model="param.value" id="{{param.name}}" name="{{param.name}}"
+        ng-checked="$ctrl.checkbox(param, section.Params)" placeholder="{{param.placeholder}}">
+        
+
+    <input type="text" readonly="readonly" class="flatpickr flatpickr-input form-control" data-enabletime="true" ng-switch-when="datetime"
+        ng-model="param.value" id="{{param.name}}" name="{{param.name}}" ng-required="param.required || false" placeholder="{{param.placeholder}}"
+        ng-change="$ctrl.checkValidity(param, section)">
+
+    <input id="{{param.name}}" class="form-control" ng-switch-when="file" type="file" ng-model="param.value" ngf-pattern="param.fileTypes"
+        ngf-select="$ctrl.fileValidator(param, section)" ng-required="param.required || false">
+
+    <input class="form-control" ng-switch-default type="{{param.ctype}}" ng-min="param.min" ng-max="param.max" ng-style="param.style" ng-model="param.value" id="{{param.name}}" ng-pattern="param.pattern"
+        name="{{param.name}}" ng-change="$ctrl.checkValidity(param, section)" placeholder="{{param.placeholder}}" ng-minlength="param.minLength"
+        ng-maxlength="param.maxLength" ng-required="param.required || false">
+
+    <textarea name="{{param.name}}" class="form-control" ng-switch-when="textarea" id="{{param.name}}" ng-model="param.value"
+        ng-required="param.required || false"></textarea>
+
+    <div ng-model="param.errorMessage" class="help-block" ng-messages="$ctrl.form[param.name].$error" ng-show="($ctrl.form[param.name].$touched || $ctrl.form.$submitted) && $ctrl.form[param.name].$invalid">
+        <p ng-message="required">{{param.label}} is required</p>
+        <p ng-message="minlength">Message must be over {{param.minLength}} characters </p>
+        <p ng-message="maxlength">Message must not exceed {{param.maxLength}} characters </p>
+        <p ng-message="pattern"> {{param.validationError || "Invalid Pattern"}} </p>
+        <p ng-message="email">Must be a valid email address.</p>
+        <p ng-message="number">Must be a number.</p>
+        <p ng-message="min">Minimum value is {{param.min}}.</p>
+        <p ng-message="max">Maximum value is {{param.max}}.</p>
+    </div>
+</div>

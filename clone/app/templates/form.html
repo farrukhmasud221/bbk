@@ -1,0 +1,196 @@
+<!-- <script type="text/ng-template" id="Tree">
+    {{ category.title }}
+    <ul ng-if="category.categories">
+        <li ng-repeat="category in category.categories" ng-include="'Tree'">
+        </li>
+    </ul>
+</script>
+
+<li ng-repeat="parentCategory in categories" ng-include="'categoryTree'" ng-init="category=parentCategory"></li>
+
+<script type="text/ng-template" id="tree_item_renderer.html">
+    {{data.name}}
+    <button ng-click="add(data)">Add node</button>
+    <button ng-click="delete(data)" ng-show="data.nodes.length > 0">Delete nodes</button>
+    <ul>
+        <li ng-repeat="data in data.nodes" ng-include="'tree_item_renderer.html'"></li>
+    </ul>
+</script>
+
+<ul ng-app="Application" ng-controller="TreeController">
+    <li ng-repeat="data in tree" ng-include="'tree_item_renderer.html'"></li>
+</ul> -->
+
+
+
+<div class="modal-header">
+    <button ng-if="$ctrl.resolve !== undefined" type="button" class="close" data-dismiss="dialog" data-ng-click="$ctrl.close($event)">
+		<span aria-hidden="true">&times;</span>
+		<span class="sr-only">Close</span>
+	</button>
+    <h1 ng-show="$ctrl.viewsObj.heading" class="heading">{{$ctrl.viewsObj.heading}}</h1>
+</div>
+
+<div class="modal-body">
+    <form id="{{$ctrl.viewsObj.viewID}}" name="$ctrl.form" novalidate>
+        <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+        <div ng-repeat="section in {true: $ctrl.viewsObj.sections, false: [$ctrl.viewsObj]} [$ctrl.viewsObj.panelType === 'SectionInsertView']">
+            <section ng-show="section.parentSection === undefined || $ctrl.viewsObj.showHidden[section.parentSection][section.parentParam] === section.parentParamValue || ( section.notParentParamValue === true && $ctrl.isDefined($ctrl.viewsObj.showHidden[section.parentSection][section.parentParam]) )">
+                <!-- <section ng-show="section.parentSection === undefined || $ctrl.viewsObj.showHidden[section.parentSection][section.parentParam] === section.parentParamValue || ( section.notParentParamValue !== undefined && $ctrl.viewsObj.showHidden[section.parentSection][section.parentParam] !== section.notParentParamValue)"> -->
+                <div ng-if="$ctrl.viewsObj.panelType === 'SectionInsertView'">
+                    <h4 ng-show="section.heading" class="heading">{{section.heading}}</h4>
+                </div>
+                <div ng-repeat="row in section.rows track by $index" class="row" ng-right-click="$ctrl.rightClick(row);">
+                    <div ng-repeat="index in row track by $index" class="{{section.colClass}}">
+                        <div ng-if="(section.Params[index].visible == undefined || section.Params[index].visible) && ( section.Params[index].direction === 'in' || (section.Params[index].direction === 'inout')) "
+                            class="form-group" ng-class="{ 'has-error': ($ctrl.form[section.Params[index].name].$touched || $ctrl.form.$submitted) && $ctrl.form[section.Params[index].name].$invalid }">
+
+                            <div ng-repeat="param in [section.Params[index]]">
+                                <div ng-if="param.ctype === 'dynamicArray'">
+                                    <!-- <div ng-repeat="param in param.params"> -->
+                                </div>
+
+                                <div ng-if="param.ctype !== 'dynamicArray'">
+                                    <div ng-include="'app/templates/formParams.html'"> </div>
+                                </div>
+
+                                <div ng-switch="section.Params[index].ctype" class="col-md-7">
+
+                                    
+
+                                    <!-- <div ng-switch-when="hidden" class="placeHolder"></div> -->
+
+                                    <div ng-model="section.Params[index].errorMessage" class="help-block" ng-messages="$ctrl.form[section.Params[index].name].$error"
+                                    && $ctrl.form[section.Params[index].name].$invalid">
+                                                                       <p ng-message="minlength">Message must be over {{section.Params[index].minLength}} characters </p>
+                                    <p ng-message="maxlength">Message must not exceed {{section.Params[index].maxLength}} characters </p>
+                                    <p ng-message="pattern"> {{section.Params[index].validationError || "Invalid Pattern"}} </p>
+                                    <p ng-message="email">Must be a valid email address.</p>                                </div>
+                                <!-- <div class="col-md-5 text-right">
+                                    <label for="{{section.Params[index].name}}" class="col-form-label">{{section.Params[index].label}}</label>
+                                </div>
+
+                                <div ng-switch="section.Params[index].ctype" class="col-md-7">
+
+                                    
+
+                                     <div ng-switch-when="hidden" class="placeHolder"></div> 
+
+                                    <input ng-switch-when="removeButton" class="btn btn-warning pull-right myButton" type="button" value="Remove Section" ng-click="$ctrl.removeSection(section, section.Params[index].index)"
+                                    />
+
+                                    <input ng-switch-when="readonly" type="text" readonly class="form-control" ng-model="section.Params[index].value" id="{{section.Params[index].name}}"
+                                        name="{{section.Params[index].name}}" placeholder="{{section.Params[index].placeholder}}">
+
+                                    <select ng-switch-when="select" class="form-control" ng-model="section.Params[index].value" id="{{section.Params[index].name}}"
+                                        name="{{section.Params[index].name}}" ng-change="$ctrl.onSelectionChangeEvent(section.Params[index], section)"
+                                        ng-required="section.Params[index].required || false" ng-options="opt.value as opt.display for opt in section.Params[index].options"> 
+                                    </select>
+
+                                    <div ng-switch-when="selectSearch">
+                                        <ui-select name="{{section.Params[index].name}}" ng-change="$ctrl.onSelectionChangeEvent(section.Params[index], section)"
+                                            ng-required="section.Params[index].required || false" ng-model="section.Params[index].value"
+                                            id="{{section.Params[index].name}}" theme="bootstrap">
+                                            <ui-select-match>{{$select.selected.display}}</ui-select-match>
+                                            <ui-select-choices repeat="opt.value as opt in section.Params[index].options | filter: $select.search">
+                                                <span ng-bind-html="opt.display | highlight: $select.search"></span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+
+                                    <div class="form-check" ng-switch-when="radiobuttonlist">
+                                        <label class="form-check-label" ng-repeat="opt in section.Params[index].options">
+                                            <input class="form-check-input" ng-model="section.Params[index].value" type="radio" id="{{section.Params[index].name}}" name="{{section.Params[index].name}}" value="{{opt.value}}" ng-checked="section.Params[index].defaultSelected==opt.value?true:false" ng-required="section.Params[index].required || false" > {{opt.display}}
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check" ng-switch-when="checkboxlist">
+                                        <label class="form-check-label" ng-repeat="opt in section.Params[index].options">
+                                            <input class="form-check-input" ng-model="section.Params[index].value" type="checkbox" id="{{section.Params[index].name}}" ng-required="section.Params[index].required || false" name="{{section.Params[index].name}}" value="{{opt.value}}" > {{opt.display}}
+                                        </label>
+                                    </div>
+
+                                    <div ng-switch-when="dynamicArray">
+
+                                    </div>
+
+                                    <input ng-switch-when="copyCheckbox" type="checkbox" class="form-control" ng-model="section.Params[index].value" id="{{section.Params[index].name}}"
+                                        name="{{section.Params[index].name}}" ng-checked="$ctrl.copySection(section.Params[index], section.Params)"
+                                        placeholder="{{section.Params[index].placeholder}}">
+
+                                    <input type="text" readonly="readonly" class="flatpickr flatpickr-input form-control" data-enabletime="true" ng-switch-when="datetime"
+                                        ng-model="section.Params[index].value" id="{{section.Params[index].name}}" name="{{section.Params[index].name}}"
+                                        ng-required="section.Params[index].required || false" placeholder="{{section.Params[index].placeholder}}"
+                                        ng-change="$ctrl.checkValidity(section.Params[index], section)">
+
+                                    <input id="{{section.Params[index].name}}" class="form-control" ng-switch-when="file" type="file" ng-model="section.Params[index].value"
+                                        ngf-pattern="section.Params[index].fileTypes" ngf-select="$ctrl.fileUploadEvent(section.Params[index], section)"
+                                        ng-required="section.Params[index].required || false">
+
+                                    <input id="{{section.Params[index].name}}" class="form-control" ng-switch-when="File" type="file" ng-model="section.Params[index].value"
+                                        ngf-pattern="section.Params[index].fileTypes" ngf-select="$ctrl.processFile(section.Params[index], section)"
+                                        ng-required="section.Params[index].required || false">
+
+                                    <input id="{{section.Params[index].name}}" class="form-control" ng-switch-when="fileUpload" type="file" ng-model="section.Params[index].value"
+                                        ngf-pattern="section.Params[index].fileTypes" ngf-select="$ctrl.bulkFileUploadEvent(section.Params[index], section)"
+                                        ng-required="section.Params[index].required || false">
+
+                                    <input class="form-control" ng-switch-default type="{{section.Params[index].ctype}}" ng-model="section.Params[index].value"
+                                        id="{{section.Params[index].name}}" ng-pattern="section.Params[index].pattern" name="{{section.Params[index].name}}"
+                                        ng-change="$ctrl.checkValidity(section.Params[index], section)" placeholder="{{section.Params[index].placeholder}}"
+                                        ng-minlength="section.Params[index].minLength" ng-maxlength="section.Params[index].maxLength"
+                                        ng-required="section.Params[index].required || false">
+
+                                    <textarea name="{{section.Params[index].name}}" class="form-control" ng-switch-when="textarea" id="{{section.Params[index].name}}"
+                                        ng-model="section.Params[index].value" ng-required="section.Params[index].required || false"></textarea>
+
+                                    <div ng-model="section.Params[index].errorMessage" class="help-block" ng-messages="$ctrl.form[section.Params[index].name].$error"
+                                        ng-show="($ctrl.form[section.Params[index].name].$touched || $ctrl.form.$submitted) && $ctrl.form[section.Params[index].name].$invalid">
+                                        <p ng-message="required">{{section.Params[index].label}} is required</p>
+                                        <p ng-message="minlength">Message must be over {{section.Params[index].minLength}} characters </p>
+                                        <p ng-message="maxlength">Message must not exceed {{section.Params[index].maxLength}} characters </p>
+                                        <p ng-message="pattern"> {{section.Params[index].validationError || "Invalid Pattern"}} </p>
+                                        <p ng-message="number">Must be a number.</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="btnDiv" ng-if="section.dynamic">
+                    
+                    <input class="btn btn-primary " type="button" value="{{section.dynamicButtonLabel || 'Add Section'}}" ng-click="$ctrl.addSection(section)" />
+                </div>
+
+            </section>
+        </div>
+
+        <div class="modal-footer">
+            <div class="text-right btnDiv" id="btnDiv" ng-if="$ctrl.viewsObj.panelType=='SearchView'">
+                <input class="btn btn-success col-md-2 col-md-offset-3" type="button" value={{$ctrl.buttonLabel}} ng-click="$ctrl.search($ctrl.viewsObj)" />
+            </div>
+            <div class="text-right btnDiv" id="btnDiv" ng-if="$ctrl.viewsObj.panelType=='SearchView1'">
+                <input class="btn btn-success col-md-5 col-md-offset-3" type="button" value={{$ctrl.buttonLabel}} ng-click="$ctrl.search($ctrl.viewsObj)" />
+            </div>
+
+            <div class="btnDiv" id="btnDiv" ng-if="($ctrl.viewsObj.panelType=='InsertView' || $ctrl.viewsObj.panelType=='SectionInsertView' || $ctrl.viewsObj.panelType=='UpdateView' || $ctrl.viewsObj.panelType=='UpdateableReadOnlyView') && $ctrl.viewsObj.operationId !== 'Bulkiterator' && $ctrl.viewsObj.operationId !== 'BulkIterator2'"
+                class="col-sm-12">
+                <input class="btn btn-basic  col-sm-1 col-sm-offset-8 " type="button" ng-if="$ctrl.resolve !== undefined" type="button" class="close" data-dismiss="dialog" data-ng-click="$ctrl.close($event)" value="Cancel" ng-click="cancel()"/>    
+                <input class="btn btn-primary  col-sm-2 col-sm-offset-10" type="submit" value={{$ctrl.buttonLabel}} ng-click="$ctrl.submit($ctrl.viewsObj)"
+                />               
+              <!-- <input class="btn btn-warning pull-right" type="button" value="Cancel" ng-click="cancel()"/> -->
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<br>
+
+<div ng-if="$ctrl.viewsObj.panelType=='SearchView'" class="gridWrapper" ng-show="$ctrl.showResult" ui-view="searchResult">
+</div>
+
+<div ng-if="$ctrl.viewsObj.operationId=='Bulkiterator' || $ctrl.viewsObj.operationId=='BulkIterator2' " class="gridWrapper"
+    ng-show="$ctrl.showResult" ui-view="importResult">
+</div>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/appbootstrapchanges.css">
+    <link rel="stylesheet" href="styles/app.css">
+   
+    <link rel="stylesheet" href="styles/menu.css">
+
+    <link rel="icon" href="customer/images/fav-icon.ico" type="image/x-icon" sizes="16x16">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="styles/flexbox.css"> -->
+</head>
+
+<body ng-app="guiapp" ng-strict-di>
+    <!-- the app goes here -->
+    <div class="col-xs-12 col-md-12 col-lg-12" ui-view></div> <span us-spinner="{radius:8, width:2, length: 7, color:'#0a283b'}" spinner-key="spinner-1"></span>
+     <toaster-container></toaster-container>
+    <!-- <script src="visualizer@4.0.2.js"></script> -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script> 
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script> -->
+    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="bundles/vendor.js"></script>
+    <script src="bundles/guiapp.js"></script>
+</body>
+</html>

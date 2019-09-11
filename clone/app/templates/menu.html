@@ -1,0 +1,102 @@
+
+<div ng-if="$ctrl.viewsObj.panelType === 'TabsMenu'" id="{{$ctrl.viewsObj.id}}">
+    <h1 class="heading" ng-if="$ctrl.viewsObj.heading">{{$ctrl.viewsObj.heading}} <span ng-show="$ctrl.viewsObj[$ctrl.viewsObj.heading].Params" class="customerInfo pull-right">{{$ctrl.viewsObj[$ctrl.viewsObj.heading].Params[0].value}} ( {{$ctrl.viewsObj[$ctrl.viewsObj.heading].Params[1].value}} ) - <span class="status">{{$ctrl.viewsObj[$ctrl.viewsObj.heading].Params[2].value}}</span></span>
+        <span ng-show="$ctrl.viewsObj[$ctrl.viewsObj.heading].Params" class="arrHead"></span>
+    </h1>
+    <ul class="{{$ctrl.viewsObj.class}}" role="tab-list" >
+        <li class="nav-item" ng-class="{active: $index === $ctrl.menuService.getSelectedTab()}" ng-repeat="tab in $ctrl.viewsObj.Params track by $index">
+            <a href="javascript:void(0);" ng-click="$ctrl.tabClick(tab);" data-target="#{{tab.id}}" data-toggle="tab">{{tab.name}}</a>
+        </li>
+    </ul>
+    <br>
+</div>
+
+<div ng-if="$ctrl.viewsObj.panelType === 'TreeMenu'" class="menu menuwrapper" test="{{$ctrl.viewsObj.Params.className}}">
+    <div class="homemenu">
+            <h2  class="heading">Home</h2>
+         <!-- <a ng-href="{{$ctrl.viewsObj.homeUrl}}">  -->
+             <!-- <span class="{{$ctrl.viewsObj.homeIcon}}"></span>  -->
+        </a>
+        <!-- <a href="javascript:void(0);" class="icon-hamburger" ng-click="$ctrl.toggleMenu('treeview');">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </a> -->
+    </div>
+    <div class="treeview" id="treeview">
+            
+        <div class="{{$ctrl.viewsObj.direction}}">
+
+             <div class="input-group">
+                
+               
+            </div>
+            
+            <div class="menu-body" style="height:10%;  " > 
+                    <nav    class=" navbar navbar-default " ng-repeat="menu in $ctrl.viewsObj.Params" 
+                         data-ng-class="text-primary"  >
+
+                        <ul ng-if="menu.Params" > 
+                           <b > <h4 ><li ng-repeat="subMenu in menu.Params" 
+                                class="text-primary" >
+                                 <input type="checkbox" id="{{subMenu.id}}"   />
+                                <div class="glyphicon glyphicon-chevron-right"> <label for="{{subMenu.id}}"   ng-click="$ctrl.menuClick(subMenu, $event)">{{subMenu.name}} </label></div>
+                              
+                                <ul ng-if="subMenu.Params" 
+                                class=" nav-stacked anyClass"  >
+
+                                    <ul  id="{{subMenuChild.id}}" 
+                                         ng-click="$ctrl.menuClick(subMenuChild, $event)" 
+                                         ng-repeat="subMenuChild in subMenu.Params"> 
+<!-- class="{{subMenuChild.className}}"  -->
+                                    
+                                         <a class="navbar-brand "
+                                            style="padding: 30px; padding-top: 10px ;padding-left:90px ;font-size: 15px "  
+                                            ng-href="#!{{subMenuChild.url}}" 
+                                            ng-if="subMenuChild.url" 
+                                            ng-bind="subMenuChild.name"   ng-class="{active: subMenuChild.name}" />
+                                      
+                                    </ul>
+                                </ul>
+                            </li>   </h4></b>      
+                    </nav>
+  
+          </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <nav class="navbar navbar-default sidebar" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>      
+        </div>
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+              <ul class="dropdown-menu forAnimate" role="menu">
+                <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
+                <li><a href="#">Modificar</a></li>
+                <li><a href="#">Reportar</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Informes</a></li>
+              </ul>
+            </li>          
+            <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
+            <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+    

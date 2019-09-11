@@ -1,0 +1,2203 @@
+{
+
+			"GU_DIDDetailInfo":{
+				"ApplicationID":"1001",
+				"APIID":"17324",
+				"APIName":"GU_DIDDetailInfo",
+					"APIType":"SelectProc",
+				"Params":[
+					{"name":"v_DIDNumber", "direction":"in"},
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"WF_InsertBulkDIDs":{
+				"ApplicationID":"1001",
+				"APIID":"17856",
+				"APIName":"WF_InsertBulkDIDs",
+				"Params":[
+					{"name":"v_DIDNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_PopName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_DIDType", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SIPTrunkName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SIPTrunkExtDialingGroupName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SIPTrunkDialingExtension", "type":"bigint", "direction":"in"},
+					{"name":"v_ServiceName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "default":"0", "direction":"in"},
+					{"name":"v_AgentID_Chk", "type":"bigint", "direction":"out"},
+					{"name":"v_DIDID", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+
+
+
+
+
+			"TX_UpdSIPTrunkIncTechPrefix": {
+				"ApplicationID": "1001",
+				"APIID": "17036",
+				"APIName": "TX_UpdSIPTrunkIncTechPrefix",
+				"Params": [{
+						"name": "v_SIPTrunkID",
+						"type": "bigint",
+						"direction": "in"
+					},
+					{
+						"name": "v_SIPTrunkIncomingTechPrefix",
+						"type": "tinyint",
+						"direction": "in"
+					},
+					{
+						"name": "v_AdminID",
+						"type": "bigint",
+						"platformProperty": "sessionState.v_AdministratorID",
+						"direction": "in"
+					},
+					{
+						"name": "v_TXID",
+						"type": "bigint",
+						"direction": "in"
+					},
+					{
+						"name": "v_IsNestedTransaction",
+						"type": "tinyint",
+						"platformProperty": "Transaction.GlobalTransactionID",
+						"direction": "in"
+					},
+					{
+						"name": "v_ReturnCode",
+						"type": "bigint",
+						"direction": "out"
+					}
+				]
+			},
+			
+			
+				"TX_UpdForwardingIPPolicy2":{
+				"ApplicationID":"1001",
+				"APIID":"17380",
+				"APIName":"TX_UpdForwardingIPPolicy2",
+				"Params":[
+					{"name":"v_SIPTrunkName", "type":"varchar", "direction":"in"},
+					{"name":"v_ForwardingIPPolicy", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"siptrunkforwardingips_f1":{
+				"ApplicationID":"1001",
+				"APIID":"16546",
+				"APIName":"siptrunkforwardingips_f1",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "length":255, "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_InsSIPTrunkForwardingIPs": {
+				"ApplicationID": "1001",
+				"APIID": "13781",
+				"APIName": "TX_InsSIPTrunkForwardingIPs",
+				"Params": [{
+						"name": "v_SIPTrunkID",
+						"type": "bigint",
+						"direction": "in"
+					},
+					{
+						"name": "v_ForwardingIP",
+						"type": "tinyint",
+						"direction": "in"
+					},
+					{
+						"name": "v_ForwardingPort",
+						"type": "tinyint",
+						"direction": "in"
+					},
+					{
+						"name": "v_NumberOfChannels",
+						"type": "tinyint",
+						"direction": "in"
+					},
+					{
+						"name": "v_RoutingPriority",
+						"type": "tinyint",
+						"direction": "in"
+					},
+					{
+						"name": "v_AdminID",
+						"type": "bigint",
+						"platformProperty": "sessionState.v_AdministratorID",
+						"direction": "in"
+					},
+					{
+						"name": "v_TXID",
+						"type": "bigint",
+						"direction": "in"
+					},
+					{
+						"name": "v_IsNestedTransaction",
+						"type": "tinyint",
+						"platformProperty": "Transaction.GlobalTransactionID",
+						"direction": "in"
+					},
+					{
+						"name": "v_SIPTrunkForwardingIPID",
+						"type": "bigint",
+						"direction": "out"
+					},
+					{
+						"name": "v_ReturnCode",
+						"type": "bigint",
+						"direction": "out"
+					}
+				]
+			},
+
+
+
+
+
+
+
+
+
+
+
+			"LS_sbccallclasses":{
+				"ApplicationID":"1001",
+				"APIID":"17381",
+				"APIName":"LS_sbccallclasses",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdSIPTrunkSuspended": {
+				"ApplicationID": "1001",
+				"APIID": "13781",
+				"APIName": "TX_UpdSIPTrunkSuspended",
+				"Params": [{
+						"name": "v_SIPTrunkID",
+						"type": "bigint",
+						"direction": "in"
+					},
+					{
+						"name": "v_IsSuspended",
+						"type": "tinyint",
+						"direction": "in"
+					},
+					{
+						"name": "v_AdminID",
+						"type": "bigint",
+						"platformProperty": "sessionState.v_AdministratorID",
+						"direction": "in"
+					},
+					{
+						"name": "v_TXID",
+						"type": "bigint",
+						"direction": "in"
+					},
+					{
+						"name": "v_IsNestedTransaction",
+						"type": "tinyint",
+						"platformProperty": "Transaction.GlobalTransactionID",
+						"direction": "in"
+					},
+					{
+						"name": "v_ReturnCode",
+						"type": "bigint",
+						"direction": "out"
+					}
+				]
+			},
+			"LS_sosbscriberstatesrvprofiles":{
+				"ApplicationID":"1001",
+				"APIID":"12372",
+				"APIName":"LS_sosbscriberstatesrvprofiles",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"SE_sbccdrs":{
+				"ApplicationID":"1001",
+				"APIID":"17692",
+				"APIName":"SE_sbccdrs",
+				"Params":[
+					{"name":"v_ToUri", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_FromUri", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_CallDirection", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_CallRejectCode", "type":"bigint", "direction":"in"},
+					{"name":"v_InviteTimeFrom", "type":"datetime", "direction":"in"},
+					{"name":"v_InviteTimeTo", "type":"datetime", "direction":"in"},
+					{"name":"v_TryingTimeFrom", "type":"datetime", "direction":"in"},
+					{"name":"v_TryingTimeTo", "type":"datetime", "direction":"in"},
+					{"name":"v_RingingTimeFrom", "type":"datetime", "direction":"in"},
+					{"name":"v_RingingTimeTo", "type":"datetime", "direction":"in"},
+					{"name":"v_CallAnswerTimeFrom", "type":"datetime", "direction":"in"},
+					{"name":"v_CallAnswerTimeTo", "type":"datetime", "direction":"in"},
+					{"name":"v_ByeAckedFrom", "type":"datetime", "direction":"in"},
+					{"name":"v_ByeAckedTo", "type":"datetime", "direction":"in"},
+					{"name":"v_StartTimeFrom", "type":"datetime", "direction":"in"},
+					{"name":"v_StartTimeTo", "type":"datetime", "direction":"in"},
+					{"name":"v_Offset", "type":"bigint", "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+				"TX_UpdMediaCodecPriority":{
+				"ApplicationID":"1001",
+				"APIID":"17215",
+				"APIName":"TX_UpdMediaCodecPriority",
+				"Params":[
+					{"name":"v_MediaCodecID", "type":"bigint", "direction":"in"},
+					{"name":"v_MediaCodecPriority", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"UI_mediacodecs2":{
+				"ApplicationID":"1001",
+				"APIID":"16610",
+				"APIName":"UI_mediacodecs2",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_MediaCodecsID", "type":"bigint", "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"},
+					{"name":"v_MediaApplication", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_MediaCodecName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_MediaCodecCode", "type":"bigint", "direction":"out"},
+					{"name":"v_MediaCodecID", "type":"bigint", "direction":"out"},
+					{"name":"v_MaxConcurrentSessions", "type":"bigint", "direction":"out"},
+					
+					{"name":"v_IsAccessSBCBlocked", "type":"tinyint", "direction":"out"},
+					{"name":"v_MediaCodecPriority", "type":"bigint", "direction":"out"}
+				]
+			},
+			"UI_accesssbccalltraces":{
+				"ApplicationID":"1001",
+				"APIID":"16733",
+				"APIName":"UI_accesssbccalltraces",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_AccessSBCCallTraceID", "type":"bigint", "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"},
+					{"name":"v_SDPNodeKey", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_LocalTransportIP", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_LocalTransportPort", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_RemoteTransportIP", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_RemoteTransportPort", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_CallID", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_CSeq", "type":"bigint", "direction":"out"},
+					{"name":"v_CSeqMethod", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_RequestURIUser", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_RequestURIHost", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_RequestURIPort", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ToURIUser", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ToURIHost", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ToURIPort", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FromURIUser", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FromURIHost", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FromURIPort", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ContactURIUser", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ContactURIHost", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ContactURIPort", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_PayloadSDP", "type":"longtext", "length":2147483647, "direction":"out"},
+					{"name":"v_RawMsg", "type":"longtext", "length":2147483647, "direction":"out"}
+				]
+			},
+			"LS_didheaderrewriterules":{
+				"ApplicationID":"1001",
+				"APIID":"17093",
+				"APIName":"LS_didheaderrewriterules",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_diddowivrs":{
+				"ApplicationID":"1001",
+				"APIID":"12113",
+				"APIName":"LS_diddowivrs",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_didbasedivrs":{
+				"ApplicationID":"1001",
+				"APIID":"12112",
+				"APIName":"LS_didbasedivrs",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+				"LS_dialoutcampaigns":{
+				"ApplicationID":"1001",
+				"APIID":"12109",
+				"APIName":"LS_dialoutcampaigns",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+				"LS_callrecordingcriteria":{
+				"ApplicationID":"1001",
+				"APIID":"12003",
+				"APIName":"LS_callrecordingcriteria",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_acds":{
+				"ApplicationID":"1001",
+				"APIID":"11933",
+				"APIName":"LS_acds",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_accnoschedulecalls":{
+				"ApplicationID":"1001",
+				"APIID":"11916",
+				"APIName":"LS_accnoschedulecalls",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdIncomingTechPrefix":{
+				"ApplicationID":"1001",
+				"APIID":"17210",
+				"APIName":"TX_UpdIncomingTechPrefix",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_IncomingTechPrefix", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdIsRestrictWhiteListUA":{
+				"ApplicationID":"1001",
+				"APIID":"17213",
+				"APIName":"TX_UpdIsRestrictWhiteListUA",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsRestrictWhiteListUserAgent", "type":"tinyint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdIsIncomingAllowed":{
+				"ApplicationID":"1001",
+				"APIID":"17008",
+				"APIName":"TX_UpdIsIncomingAllowed",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsIncomingAllowed", "type":"tinyint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdIsOutgoingAllowed":{
+				"ApplicationID":"1001",
+				"APIID":"17009",
+				"APIName":"TX_UpdIsOutgoingAllowed",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsOutgoingAllowed", "type":"tinyint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_RemoveAccNoServiceOffering":{
+				"ApplicationID":"1001",
+				"APIID":"14111",
+				"APIName":"TX_RemoveAccNoServiceOffering",
+				"Params":[
+					{"name":"v_AccNoServiceOfferingID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_ModifyAccNoServiceOffering":{
+				"ApplicationID":"1001",
+				"APIID":"14054",
+				"APIName":"TX_ModifyAccNoServiceOffering",
+				"Params":[
+					{"name":"v_AccNoServiceOfferingID", "type":"bigint", "direction":"in"},
+					{"name":"v_NewServiceOfferingID", "type":"bigint", "direction":"in"},
+					{"name":"v_ChargesPerBillingCycle", "type":"decimal", "direction":"in"},
+					{"name":"v_ProrationPolicy", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_IsUpdAccNoCounterInstance", "type":"tinyint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_AssignAccNoServiceOffering":{
+				"ApplicationID":"1001",
+				"APIID":"13947",
+				"APIName":"TX_AssignAccNoServiceOffering",
+				"Params":[
+					{"name":"v_AccountID", "type":"bigint", "direction":"in"},
+					{"name":"v_ServiceOfferingID", "type":"bigint", "direction":"in"},
+					{"name":"v_SubscriptionID", "type":"bigint", "direction":"in"},
+					{"name":"v_ChargesPerBillingCycle", "type":"decimal", "direction":"in"},
+					{"name":"v_ChargesPerBillingCycleExpiry", "type":"datetime", "direction":"in"},
+					{"name":"v_ActivationChargesMultiplier", "type":"decimal", "direction":"in"},
+					{"name":"v_ApplicationClientID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_AccNoServiceOfferingID", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_AssignAccNoServiceOfferingSC":{
+				"ApplicationID":"1001",
+				"APIID":"16664",
+				"APIName":"TX_AssignAccNoServiceOfferingSC",
+				"Params":[
+					{"name":"v_AccountID", "type":"bigint", "direction":"in"},
+					{"name":"v_ServiceOfferingID", "type":"bigint", "direction":"in"},
+					{"name":"v_SubscriptionID", "type":"bigint", "direction":"in"},
+					{"name":"v_ChargesPerBillingCycle", "type":"decimal", "direction":"in"},
+					{"name":"v_ChargesPerBillingCycleExpiry", "type":"datetime", "direction":"in"},
+					{"name":"v_ActivationChargesMultiplier", "type":"decimal", "direction":"in"},
+					{"name":"v_ApplicationClientID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_AccNoServiceOfferingID", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdRegionID":{
+				"ApplicationID":"1001",
+				"APIID":"17216",
+				"APIName":"TX_UpdRegionID",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_RegionID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdDIDDomainName":{
+				"ApplicationID":"1001",
+				"APIID":"17202",
+				"APIName":"TX_UpdDIDDomainName",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_DomainName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdHuntGroupID":{
+				"ApplicationID":"1001",
+				"APIID":"17209",
+				"APIName":"TX_UpdHuntGroupID",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_HuntGroupID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdAccNoChargeHeadLineRentID":{
+				"ApplicationID":"1001",
+				"APIID":"17200",
+				"APIName":"TX_UpdAccNoChargeHeadLineRentID",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_AccNoChargeHeadLineRentID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdIsMasterSipTrunkDID":{
+				"ApplicationID":"1001",
+				"APIID":"17212",
+				"APIName":"TX_UpdIsMasterSipTrunkDID",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsMasterSipTrunkDID", "type":"tinyint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdDIDProviderTrunkID":{
+				"ApplicationID":"1001",
+				"APIID":"17203",
+				"APIName":"TX_UpdDIDProviderTrunkID",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_DIDProviderTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_InsertDIDProviderTrunk":{
+				"ApplicationID":"1001",
+				"APIID":"13437",
+				"APIName":"TX_InsertDIDProviderTrunk",
+				"Params":[
+					{"name":"v_DIDProviderID", "type":"bigint", "direction":"in"},
+					{"name":"v_TrunkName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_TechPrefix", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_NoOfChannels", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_DIDProviderTrunkID", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdOutgoingCLIRuleName":{
+				"ApplicationID":"1001",
+				"APIID":"17440",
+				"APIName":"TX_UpdOutgoingCLIRuleName",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_OutgoingCLIRuleName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_OutgoingCLIRuleData1", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdIncomingCLIRule":{
+				"ApplicationID":"1001",
+				"APIID":"17444",
+				"APIName":"TX_UpdIncomingCLIRule",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_IncomingCLIRuleName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_IncomingCLIRuleData1", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdateDIDSaleGroupRate":{
+				"ApplicationID":"1001",
+				"APIID":"13600",
+				"APIName":"TX_UpdateDIDSaleGroupRate",
+				"Params":[
+					{"name":"v_DIDSaleGroupID", "type":"bigint", "direction":"in"},
+					{"name":"v_RatePerDurationBlock", "type":"decimal", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_Insdidwhitelistuseragent":{
+				"ApplicationID":"1001",
+				"APIID":"17030",
+				"APIName":"TX_Insdidwhitelistuseragent",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_SIPUserAgentID", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_DIDWhiteListUserAgentID", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdSIPTrunkDialingExtension":{
+				"ApplicationID":"1001",
+				"APIID":"17345",
+				"APIName":"TX_UpdSIPTrunkDialingExtension",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_SIPTrunkDialingExtension", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdDIDPurchaseGroupID":{
+				"ApplicationID":"1001",
+				"APIID":"17204",
+				"APIName":"TX_UpdDIDPurchaseGroupID",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_DIDPurchaseGroupID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdDIDForwardingNumber":{
+				"ApplicationID":"1001",
+				"APIID":"17708",
+				"APIName":"TX_UpdDIDForwardingNumber",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_ForwardingNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdAccessSBCIncBlockCallPrefix":{
+				"ApplicationID":"1001",
+				"APIID":"16786",
+				"APIName":"TX_UpdAccessSBCIncBlockCallPrefix",
+				"Params":[
+					{"name":"v_AccessSBCIncBlockCallID", "type":"bigint", "direction":"in"},
+					{"name":"v_AccessSBCIncBlockCallPrefix", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_DelAccessSBCIncBlockCalls":{
+				"ApplicationID":"1001",
+				"APIID":"16729",
+				"APIName":"TX_DelAccessSBCIncBlockCalls",
+				"Params":[
+					{"name":"v_AccessSBCIncBlockCallID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ForeignKeyName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableFieldName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FieldValue", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"SE_Accounts":{
+				"ApplicationID":"1001",
+				"APIID":"16386",
+				"APIName":"SE_Accounts",
+				"Params":[
+					{"name":"v_AccountID", "type":"bigint", "direction":"in"},
+					{"name":"v_Address", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_CallingNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_Company", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_CustomerIdentification", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_CustomerName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_DSLAMCardPortCircuitName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_Email", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_Fax", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_InsertTimeFrom", "type":"datetime", "direction":"in"},
+					{"name":"v_InsertTimeTo", "type":"datetime", "direction":"in"},
+					{"name":"v_MobileNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SubscriptionID", "type":"bigint", "direction":"in"},
+					{"name":"v_Tel", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_UserName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SGUserName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_Offset", "type":"bigint", "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+				"SE_ABMFs":{
+				"ApplicationID":"1001",
+				"APIID":"16384",
+				"APIName":"SE_ABMFs",
+				"Params":[
+					{"name":"v_ABMFID", "type":"bigint", "direction":"in"},
+					{"name":"v_SubscriberID", "type":"bigint", "direction":"in"},
+					{"name":"v_Offset", "type":"bigint", "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"SE_Customers":{
+				"ApplicationID":"1001",
+				"APIID":"16393",
+				"APIName":"SE_Customers",
+				"Params":[
+					{"name":"v_Address1", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_CompanyFQDN", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_CustomerID", "type":"bigint", "direction":"in"},
+					{"name":"v_CustomerName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_CustomerUserName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_Email", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_MobileNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_Phone", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_Offset", "type":"bigint", "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+				"TX_UpdCustomerPassword":{
+				"ApplicationID":"1001",
+				"APIID":"13698",
+				"APIName":"TX_UpdCustomerPassword",
+				"Params":[
+					{"name":"v_CustomerID", "type":"bigint", "direction":"in"},
+					{"name":"v_LoginPassword", "type":"varbinary", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"WF_CreateSIPTrunk":{
+				"ApplicationID":"1001",
+				"APIID":"17316",
+				"APIName":"WF_CreateSIPTrunk",
+				"Params":[
+					{"name":"v_SIPTrunkName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_IsPostPaidSIPTrunk", "type":"tinyint", "direction":"in"},
+					{"name":"v_SIPTrunkDescription", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_TechPrefix", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_IPPolicy", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_Suspended", "type":"tinyint", "direction":"in"},
+					{"name":"v_FirstForwardingIP", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SecondForwardingIP", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_ThirdForwardingIP", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_FourthForwardingIP", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_FifthForwardingIP", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SixthForwardingIP", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_PrimaryIP", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_ForwardingPort", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_TotalNoOfChannels", "type":"bigint", "direction":"in"},
+					{"name":"v_IncomingChannels", "type":"bigint", "direction":"in"},
+					{"name":"v_OutgoingChannels", "type":"bigint", "direction":"in"},
+					{"name":"v_MediaCodecGroupName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_DIDNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_IsMasterSipTrunkDID", "type":"tinyint", "direction":"in"},
+					{"name":"v_AgentID", "type":"bigint", "platformProperty":"sessionState.agentID", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_SIPTrunkForwardingIPID", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"SE_dids":{
+				"ApplicationID":"1001",
+				"APIID":"17731",
+				"APIName":"SE_dids",
+				"Params":[
+					{"name":"v_DIDNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SIPTrunkName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_mediacodecs":{
+				"ApplicationID":"1001",
+				"APIID":"16580",
+				"APIName":"LS_mediacodecs",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_blacklistaddresses":{
+				"ApplicationID":"1001",
+				"APIID":"11995",
+				"APIName":"LS_blacklistaddresses",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_accesssbcincblockcalls":{
+				"ApplicationID":"1001",
+				"APIID":"16726",
+				"APIName":"LS_accesssbcincblockcalls",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_sipresponsecodes":{
+				"ApplicationID":"1001",
+				"APIID":"17671",
+				"APIName":"LS_sipresponsecodes",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_specialnumbers":{
+				"ApplicationID":"1001",
+				"APIID":"12376",
+				"APIName":"LS_specialnumbers",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_sipreturncodemappings":{
+				"ApplicationID":"1001",
+				"APIID":"17672",
+				"APIName":"LS_sipreturncodemappings",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_emergencynumbers":{
+				"ApplicationID":"1001",
+				"APIID":"12130",
+				"APIName":"LS_emergencynumbers",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_sbcsessions":{
+				"ApplicationID":"1001",
+				"APIID":"16981",
+				"APIName":"LS_sbcsessions",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_sbccdrs":{
+				"ApplicationID":"1001",
+				"APIID":"17355",
+				"APIName":"LS_sbccdrs",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+				"GU_CustomerInventory":{
+				"ApplicationID":"1001",
+				"APIID":"17703",
+				"APIName":"GU_CustomerInventory",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_siptrunkblockedcallclasses":{
+				"ApplicationID":"1001",
+				"APIID":"17382",
+				"APIName":"LS_siptrunkblockedcallclasses",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_cdrs":{
+				"ApplicationID":"1001",
+				"APIID":"12011",
+				"APIName":"LS_cdrs",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"GU_SIPTrunkDetailInfo":{
+				"ApplicationID":"1001",
+				"APIID":"17325",
+				"APIName":"GU_SIPTrunkDetailInfo",
+					"APIType":"SelectProc",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"incomblockaddressesBysiptrunk_f1":{
+				"ApplicationID":"1001",
+				"APIID":"17275",
+				"APIName":"incomblockaddressesBysiptrunk_f1",
+					"APIType":"SelectProc",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"incomingblockaddressesByDID_f1":{
+				"ApplicationID":"1001",
+				"APIID":"17276",
+				"APIName":"incomingblockaddressesByDID_f1",
+					"APIType":"SelectProc",
+				"Params":[
+					{"name":"v_DIDNumber", "direction":"in"},
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"LS_mediacodecgroups":{
+				"ApplicationID":"1001",
+				"APIID":"16579",
+				"APIName":"LS_mediacodecgroups",
+					"APIType":"SelectProc",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"LS_siptrunkextdialinggroups":{
+				"ApplicationID":"1001",
+				"APIID":"17340",
+				"APIName":"LS_siptrunkextdialinggroups",
+					"APIType":"SelectProc",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"LS_siptrunks":{
+				"ApplicationID":"1001",
+				"APIID":"12369",
+				"APIName":"LS_siptrunks",
+					"APIType":"SelectProc",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"outgoingblockaddrsiptrunk_f1":{
+				"ApplicationID":"1001",
+				"APIID":"17279",
+				"APIName":"outgoingblockaddrsiptrunk_f1",
+					"APIType":"SelectProc",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"SE_SIPTrunks":{
+				"ApplicationID":"1001",
+				"APIID":"17259",
+				"APIName":"SE_SIPTrunks",
+					"APIType":"SearchProc",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_TechPrefix", "direction":"in"},
+					{"name":"v_NoOfChannels", "direction":"in"},
+					{"name":"v_DefaultForwardingIP", "direction":"in"},
+					{"name":"v_ForwardingIPPolicy", "direction":"in"},
+					{"name":"v_Offset", "direction":"in"},
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"siptrunksByMediaCodecGroup_f3":{
+				"ApplicationID":"1001",
+				"APIID":"17280",
+				"APIName":"siptrunksByMediaCodecGroup_f3",
+					"APIType":"SelectProc",
+				"Params":[
+					{"name":"v_MediaCodecGroupName", "direction":"in"},
+					{"name":"v_ID", "direction":"out"}
+				]
+			},
+			"TX_AddDIDByRange":{
+				"ApplicationID":"1001",
+				"APIID":"17315",
+				"APIName":"TX_AddDIDByRange",
+					"APIType":"ActionApi",
+				"Params":[
+					{"name":"v_FromDID", "direction":"in"},
+					{"name":"v_ToDID", "direction":"in"},
+					{"name":"v_AgentID", "direction":"in"},
+					{"name":"v_CityID", "direction":"in"},
+					{"name":"v_AreaCodeID", "direction":"in"},
+					{"name":"v_SIPTrunkID", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"LS_getDIDCOdes":{
+				"ApplicationID":"1001",
+				"APIID":"17741",
+				"APIName":"LS_getDIDCOdes",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"WF_DeleteSIPTrunk2":{
+				"ApplicationID":"1001",
+				"APIID":"17726",
+				"APIName":"WF_DeleteSIPTrunk2",
+				"Params":[
+					{"name":"v_SIPTrunkName", "type":"varchar", "length":255, "direction":"in"},
+					
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ForeignKeyName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			
+				"TX_InsertBulkDIDs":{
+				"ApplicationID":"1001",
+				"APIID":"17613",
+				"APIName":"TX_InsertBulkDIDs",
+				"Params":[
+					{"name":"v_DIDNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_PopName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_DIDType", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SIPTrunkName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SIPTrunkExtDialingGroupName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SIPTrunkDialingExtension", "type":"bigint", "direction":"in"},
+					{"name":"v_ServiceName", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_AgentID_Chk", "type":"bigint", "direction":"out"},
+					{"name":"v_DIDID", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdateMediaCodecGroup":{
+				"CompletePath":"/TX_UpdateMediaCodecGroup",
+				"HttpMethod":"POST",
+				"ApplicationID":"1001",
+				"APIID":"17264",
+				"APIName":"TX_UpdateMediaCodecGroup",
+				"Params":[
+					{"name":"v_SIPTrunkName", "type":"varchar", "default":null, "direction":"in"},
+					{"name":"v_MediaCodecGroupName", "type":"varchar", "default":null, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "serverProperty":"sessionState.v_AdministratorID", "default":null, "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "serverProperty":"ResourceManager.TXID", "default":null, "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "serverProperty":"Transaction.GlobalTransactionID", "default":null, "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "default":null, "direction":"out"}
+				]
+			},
+			"LS_getDIDs":{
+				"ApplicationID":"1001",
+				"APIID":"17742",
+				"APIName":"LS_getDIDs",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"LS_getCityIDs":{
+				"ApplicationID":"1001",
+				"APIID":"17744",
+				"APIName":"LS_getCityIDs",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_AuthenticateAdminByPassword":{
+				"ApplicationID":"1001",
+				"APIID":"13955",
+				"APIName":"TX_AuthenticateAdminByPassword",
+					"APIType":"ActionApi",
+				"Params":[
+					{"name":"v_UserName", "direction":"in"},
+					{"name":"v_Password", "direction":"in"},
+					{"name":"v_RemoteIP", "direction":"in"},
+					{"name":"v_PortalID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_AdministratorID", "direction":"out"},
+					{"name":"v_AgentID", "direction":"out"},
+					{"name":"v_DealerID", "direction":"out"},
+					{"name":"v_AdministratorSessionID", "direction":"out"},
+					{"name":"v_LoginSessionKey", "direction":"out"},
+					{"name":"v_AdminPersonalizationData", "direction":"out"},
+					{"name":"v_AdminLocaleData", "direction":"out"},
+					{"name":"v_AdminParentalControlData", "direction":"out"},
+					{"name":"v_AdminPresentationData", "direction":"out"},
+					{"name":"v_AdministratorPermissions", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"TX_GetIPRangeByMask":{
+				"ApplicationID":"1001",
+				"APIID":"17270",
+				"APIName":"TX_GetIPRangeByMask",
+					"APIType":"ActionApi",
+				"Params":[
+					{"name":"v_ForwardingIPBase", "direction":"in"},
+					{"name":"v_ForwardingIPMask", "direction":"in"},
+					{"name":"v_FromForwardingIP", "direction":"out"},
+					{"name":"v_ToForwardingIP", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"TX_InsertDID":{
+				"ApplicationID":"1001",
+				"APIID":"13434",
+				"APIName":"TX_InsertDID",
+					"APIType":"InsertApi",
+				"Params":[
+					{"name":"v_DIDNumber", "direction":"in"},
+					{"name":"v_CityID", "direction":"in"},
+					{"name":"v_AreaCodeID", "direction":"in"},
+					{"name":"v_DIDType", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_AgentID_Chk", "direction":"out"},
+					{"name":"v_DIDID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"TX_Insmediacodec":{
+				"ApplicationID":"1001",
+				"APIID":"16601",
+				"APIName":"TX_Insmediacodec",
+					"APIType":"InsertApi",
+				"Params":[
+					{"name":"v_MediaApplication", "direction":"in"},
+					{"name":"v_MediaCodecName", "direction":"in"},
+					{"name":"v_MediaCodecCode", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_MediaCodecID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"TX_InsSIPTrunkExtDialingGroup":{
+				"ApplicationID":"1001",
+				"APIID":"17344",
+				"APIName":"TX_InsSIPTrunkExtDialingGroup",
+					"APIType":"InsertApi",
+				"Params":[
+					{"name":"v_SIPTrunkExtDialingGroupName", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_SIPTrunkExtDialingGroupID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"TX_InsSIPTrunkForwardIPByPool":{
+				"ApplicationID":"1001",
+				"APIID":"17268",
+				"APIName":"TX_InsSIPTrunkForwardIPByPool",
+					"APIType":"InsertApi",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_ForwardingIPBase", "direction":"in"},
+					{"name":"v_ForwardingIPMask", "direction":"in"},
+					{"name":"v_ForwardingPort", "direction":"in"},
+					{"name":"v_NumberOfChannels", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"TX_InsSIPTrunkForwardIPRange":{
+				"ApplicationID":"1001",
+				"APIID":"17269",
+				"APIName":"TX_InsSIPTrunkForwardIPRange",
+					"APIType":"InsertApi",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_FromForwardingIP", "direction":"in"},
+					{"name":"v_ToForwardingIP", "direction":"in"},
+					{"name":"v_ForwardingPort", "direction":"in"},
+					{"name":"v_NumberOfChannels", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_SIPTrunkForwardingIPID", "direction":"out"},
+					{"name":"v_SIPTrunkID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"TX_UpdServiceID":{
+				"ApplicationID":"1001",
+				"APIID":"17217",
+				"APIName":"TX_UpdServiceID",
+					"APIType":"UpdateApi",
+				"Params":[
+					{"name":"v_DIDID", "direction":"in"},
+					{"name":"v_ServiceID", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"UI_dids":{
+				"ApplicationID":"1001",
+				"APIID":"12826",
+				"APIName":"UI_dids",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+							{"name":"v_DIDID", "type":"bigint","direction":"in"},
+					{"name":"v_ID", "type":"bigint",  "direction":"out"},
+					{"name":"v_DIDNumber", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_AgentID", "type":"bigint", "direction":"out"},
+					{"name":"v_CityID", "type":"bigint", "direction":"out"},
+					{"name":"v_AreaCodeID", "type":"bigint",  "direction":"out"},
+					{"name":"v_DIDPurchaseGroupID", "type":"bigint", "direction":"out"},
+					{"name":"v_DIDSaleGroupID", "type":"bigint", "direction":"out"},
+					{"name":"v_DIDProviderTrunkint", "default":null, "direction":"out"},
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"out"},
+					{"name":"v_SIPTrunkDialingExtension", "type":"bigint", "direction":"out"},
+					{"name":"v_SIPTrunkExtDialingGroupID", "type":"bigint", "direction":"out"},
+					{"name":"v_IsMasterSipTrunkDID", "type":"tinyint", "direction":"out"},
+					{"name":"v_SIPTrunkAssignmentDate", "type":"datetime", "direction":"out"},
+					{"name":"v_AccNoServiceOfferingID", "type":"bigint", "direction":"out"},
+					{"name":"v_AccNoChargeHeadLineRentID", "type":"bigint", "direction":"out"},
+					{"name":"v_Status", "type":"tinyint", "direction":"out"},
+					{"name":"v_AccountID", "type":"bigint", "direction":"out"},
+					{"name":"v_AssignedDate", "type":"datetime", "direction":"out"},
+					{"name":"v_ServiceID", "type":"bigint", "direction":"out"},
+					{"name":"v_HuntGroupID", "type":"bigint", "direction":"out"},
+					{"name":"v_Username", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_DomainName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_LiveStatus", "type":"enum", "length":12, "direction":"out"},
+					{"name":"v_RegistrationDate", "type":"datetime", "direction":"out"},
+					{"name":"v_DIDType", "type":"enum", "length":16, "direction":"out"},
+					{"name":"v_RegionID", "type":"bigint", "direction":"out"},
+					{"name":"v_IsIncomingAllowed", "type":"tinyint", "direction":"out"},
+					{"name":"v_IsOutgoingAllowed", "type":"tinyint", "direction":"out"},
+					{"name":"v_IsRestrictWhiteListUserAgent", "type":"tinyint", "direction":"out"},
+					{"name":"v_IncomingTechPrefix", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_IncomingCLIRuleName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_IncomingCLIRuleData1", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_OutgoingCLIRuleName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_OutgoingCLIRuleData1", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_PopName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ForwardingNumber", "type":"varchar", "length":255, "direction":"out"}
+				]
+			},
+			"TX_DeleteDIDProvider":{
+				"ApplicationID":"1001",
+				"APIID":"13301",
+				"APIName":"TX_DeleteDIDProvider",
+				"Params":[
+					{"name":"v_DIDProviderID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ForeignKeyName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableFieldName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FieldValue", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_DeleteDIDSaleGroup":{
+				"ApplicationID":"1001",
+				"APIID":"13305",
+				"APIName":"TX_DeleteDIDSaleGroup",
+				"Params":[
+					{"name":"v_DIDSaleGroupID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ForeignKeyName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableFieldName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FieldValue", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"UI_mediacodecs":{
+				"ApplicationID":"1001",
+				"APIID":"16610",
+				"APIName":"UI_mediacodecs",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_MediaCodecID", "type":"bigint", "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"},
+					{"name":"v_MediaApplication", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_MediaCodecName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_MediaCodecCode", "type":"bigint", "direction":"out"},
+					{"name":"v_MaxConcurrentSessions", "type":"bigint", "direction":"out"},
+					{"name":"v_IsAccessSBCBlocked", "type":"tinyint", "direction":"out"},
+					{"name":"v_MediaCodecPriority", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdIsAccessSBCBlocked":{
+				"ApplicationID":"1001",
+				"APIID":"17211",
+				"APIName":"TX_UpdIsAccessSBCBlocked",
+				"Params":[
+					{"name":"v_MediaCodecID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsAccessSBCBlocked", "type":"tinyint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdMaxConcurrentSessions":{
+				"ApplicationID":"1001",
+				"APIID":"17214",
+				"APIName":"TX_UpdMaxConcurrentSessions",
+				"Params":[
+					{"name":"v_MediaCodecID", "type":"bigint", "direction":"in"},
+					{"name":"v_MaxConcurrentSessions", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_DeleteDIDPurchaseGroup":{
+				"ApplicationID":"1001",
+				"APIID":"13304",
+				"APIName":"TX_DeleteDIDPurchaseGroup",
+				"Params":[
+					{"name":"v_DIDPurchaseGroupID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ForeignKeyName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableFieldName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FieldValue", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_DeleteDIDProviderIP":{
+				"ApplicationID":"1001",
+				"APIID":"13302",
+				"APIName":"TX_DeleteDIDProviderIP",
+				"Params":[
+					{"name":"v_DIDProviderIPID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ForeignKeyName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableFieldName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FieldValue", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_DeleteDIDProviderTrunk":{
+				"ApplicationID":"1001",
+				"APIID":"13303",
+				"APIName":"TX_DeleteDIDProviderTrunk",
+				"Params":[
+					{"name":"v_DIDProviderTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ForeignKeyName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableFieldName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FieldValue", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_DeleteDID":{
+				"ApplicationID":"1001",
+				"APIID":"13300",
+				"APIName":"TX_DeleteDID",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ForeignKeyName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_TableFieldName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_FieldValue", "type":"bigint", "direction":"out"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+				"LS_didsalegroups":{
+				"ApplicationID":"1001",
+				"APIID":"12121",
+				"APIName":"LS_didsalegroups",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"DB_GetAccNoServiceOfferingByPK":{
+				"ApplicationID":"1001",
+				"APIID":"10313",
+				"APIName":"DB_GetAccNoServiceOfferingByPK",
+				"Params":[
+					{"name":"v_AccNoServiceOfferingID", "type":"bigint", "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"},
+					{"name":"v_AccountID", "type":"bigint", "direction":"out"},
+					{"name":"v_ServiceID", "type":"bigint", "direction":"out"},
+					{"name":"v_ServiceOfferingID", "type":"bigint", "direction":"out"},
+					{"name":"v_NextServiceOfferingID", "type":"bigint", "direction":"out"},
+					{"name":"v_NextChargesPerBillingCycle", "type":"decimal", "direction":"out"},
+					{"name":"v_NextServiceOfferingChargeID", "type":"bigint", "direction":"out"},
+					{"name":"v_NextSrvOfferingPriceTierID", "type":"bigint", "direction":"out"},
+					{"name":"v_NextSONumberofBillingCycles", "type":"bigint", "direction":"out"},
+					{"name":"v_SubscriptionID", "type":"bigint", "direction":"out"},
+					{"name":"v_ChargesPerBillingCycle", "type":"decimal", "direction":"out"},
+					{"name":"v_ChargesPerBillingCycleExpiry", "type":"datetime", "direction":"out"},
+					{"name":"v_ChargesPerBCMultiplier", "type":"decimal", "direction":"out"},
+					{"name":"v_PromoCodeID", "type":"bigint", "direction":"out"},
+					{"name":"v_SubscriptionChargesSoFar", "type":"decimal", "direction":"out"},
+					{"name":"v_PlanBillingCycleID", "type":"bigint", "direction":"out"},
+					{"name":"v_AccNoPBCExpiryDate", "type":"datetime", "direction":"out"},
+					{"name":"v_AccNoPBCInstanceID", "type":"bigint", "direction":"out"},
+					{"name":"v_DateActivated", "type":"datetime", "direction":"out"},
+					{"name":"v_ChargeCount", "type":"bigint", "direction":"out"},
+					{"name":"v_PaidTill", "type":"datetime", "direction":"out"},
+					{"name":"v_IncomingConcurrentSessions", "type":"bigint", "direction":"out"},
+					{"name":"v_OutgoingConcurrentSessions", "type":"bigint", "direction":"out"},
+					{"name":"v_SubscriptionStateID", "type":"bigint", "direction":"out"},
+					{"name":"v_LastSubscriptionStateTS", "type":"datetime", "direction":"out"},
+					{"name":"v_ServiceProfileOwnerID", "type":"bigint", "direction":"out"},
+					{"name":"v_NWFunctionServiceProfileID", "type":"bigint", "direction":"out"},
+					{"name":"v_NWFuncServiceProfilePriority", "type":"bigint", "direction":"out"},
+					{"name":"v_NWFuncServiceProfileExpiry", "type":"datetime", "direction":"out"},
+					{"name":"v_LastNWFunctionSrvProfileTS", "type":"datetime", "direction":"out"},
+					{"name":"v_ASUserProfileXML", "type":"longtext", "length":2147483647, "direction":"out"},
+					{"name":"v_SBCUserProfileXML", "type":"longtext", "length":2147483647, "direction":"out"},
+					{"name":"v_Expiration", "type":"datetime", "direction":"out"},
+					{"name":"v_LastLifeCycleActivity", "type":"datetime", "direction":"out"},
+					{"name":"v_FirstUseValidity", "type":"datetime", "direction":"out"},
+					{"name":"v_LastActiveTimeStamp", "type":"datetime", "direction":"out"},
+					{"name":"v_LastBlockedTimeStamp", "type":"datetime", "direction":"out"},
+					{"name":"v_InstancesProcessed", "type":"bigint", "direction":"out"},
+					{"name":"v_AccessRestrictionPolicy", "type":"bigint", "direction":"out"},
+					{"name":"v_BonusPoints", "type":"bigint", "direction":"out"},
+					{"name":"v_AccNoSORateMultiplier", "type":"decimal", "direction":"out"},
+					{"name":"v_RateMultiplierResetDateTime", "type":"datetime", "direction":"out"},
+					{"name":"v_MessageAlert1TimeStamp", "type":"datetime", "direction":"out"},
+					{"name":"v_MessageAlert2TimeStamp", "type":"datetime", "direction":"out"},
+					{"name":"v_MessageAlert3TimeStamp", "type":"datetime", "direction":"out"},
+					{"name":"v_MessageAlert1Sent", "type":"datetime", "direction":"out"},
+					{"name":"v_MessageAlert2Sent", "type":"datetime", "direction":"out"},
+					{"name":"v_MessageAlert3Sent", "type":"datetime", "direction":"out"},
+					{"name":"v_TotalUsageChargesInThisBC", "type":"decimal", "direction":"out"},
+					{"name":"v_UsageChargesThreshold1", "type":"decimal", "direction":"out"},
+					{"name":"v_UsageChargesThreshold2", "type":"decimal", "direction":"out"},
+					{"name":"v_UsageChargesThreshold3", "type":"decimal", "direction":"out"},
+					{"name":"v_NewBillingCycleStartedTS", "type":"datetime", "direction":"out"},
+					{"name":"v_ApplicationClientID", "type":"bigint", "direction":"out"},
+					{"name":"v_ActivationFlag", "type":"tinyint", "direction":"out"},
+					{"name":"v_UpdateCount", "type":"bigint", "direction":"out"},
+					{"name":"v_LastUpdated", "type":"datetime", "direction":"out"}
+				]
+			},
+			"TX_UpdIsSupportExtDialing":{
+				"ApplicationID":"1001",
+				"APIID":"17154",
+				"APIName":"TX_UpdIsSupportExtDialing",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsSupportExtensionDialing", "type":"tinyint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			
+			"TX_UpdSIPTrunkExtDialingGroupID":{
+				"ApplicationID":"1001",
+				"APIID":"17357",
+				"APIName":"TX_UpdSIPTrunkExtDialingGroupID",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_SIPTrunkExtDialingGroupID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+
+			
+			"TX_AssignDIDToAccNoServiceOff":{
+				"ApplicationID":"1001",
+				"APIID":"13949",
+				"APIName":"TX_AssignDIDToAccNoServiceOff",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_AccNoServiceOfferingID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_ModifyDIDSIPTrunk":{
+				"ApplicationID":"1001",
+				"APIID":"16835",
+				"APIName":"TX_ModifyDIDSIPTrunk",
+				"Params":[
+					{"name":"v_DIDID", "type":"bigint", "direction":"in"},
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_ModifyDIDSIPTrunkByRange":{
+				"ApplicationID":"1001",
+				"APIID":"16990",
+				"APIName":"TX_ModifyDIDSIPTrunkByRange",
+				"Params":[
+					{"name":"v_FromDIDNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_ToDIDNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"UI_didsByDIDNumber":{
+				"ApplicationID":"1001",
+				"APIID":"17303",
+				"APIName":"UI_didsByDIDNumber",
+					"APIType":"ReadApi",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"vi_DIDNumber", "direction":"in"},
+					{"name":"v_ID", "direction":"out"},
+					{"name":"v_DIDNumber", "direction":"out"},
+					{"name":"v_AgentID", "direction":"out"},
+					{"name":"v_CityID", "direction":"out"},
+					{"name":"v_AreaCodeID", "direction":"out"},
+					{"name":"v_DIDPurchaseGroupID", "direction":"out"},
+					{"name":"v_DIDSaleGroupID", "direction":"out"},
+					{"name":"v_DIDProviderTrunkID", "direction":"out"},
+					{"name":"v_SIPTrunkID", "direction":"out"},
+					{"name":"v_IsMasterSipTrunkDID", "direction":"out"},
+					{"name":"v_SIPTrunkAssignmentDate", "direction":"out"},
+					{"name":"v_AccNoServiceOfferingID", "direction":"out"},
+					{"name":"v_AccNoChargeHeadLineRentID", "direction":"out"},
+					{"name":"v_Status", "direction":"out"},
+					{"name":"v_AccountID", "direction":"out"},
+					{"name":"v_AssignedDate", "direction":"out"},
+					{"name":"v_ServiceID", "direction":"out"},
+					{"name":"v_HuntGroupID", "direction":"out"},
+					{"name":"v_Username", "direction":"out"},
+					{"name":"v_DomainName", "direction":"out"},
+					{"name":"v_LiveStatus", "direction":"out"},
+					{"name":"v_RegistrationDate", "direction":"out"},
+					{"name":"v_DIDType", "direction":"out"},
+					{"name":"v_RegionID", "direction":"out"},
+					{"name":"v_IsIncomingAllowed", "direction":"out"},
+					{"name":"v_IsOutgoingAllowed", "direction":"out"},
+					{"name":"v_IsRestrictWhiteListUserAgent", "direction":"out"},
+					{"name":"v_IncomingTechPrefix", "direction":"out"}
+				]
+			},
+			"TX_UpdSIPTrunkTechPrefix":{
+				"ApplicationID":"1001",
+				"APIID":"13782",
+				"APIName":"TX_UpdSIPTrunkTechPrefix",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_TechPrefix", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdIsSupportCityWideDialing":{
+				"ApplicationID":"1001",
+				"APIID":"17105",
+				"APIName":"TX_UpdIsSupportCityWideDialing",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsSupportCityWideDialing", "type":"tinyint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			
+				"TX_UpdSIPTrunkSaleGroup":{
+				"ApplicationID":"1001",
+				"APIID":"13780",
+				"APIName":"TX_UpdSIPTrunkSaleGroup",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_SIPTrunkSaleGroupID", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdSIPTrunkForwardingIP":{
+				"ApplicationID":"1001",
+				"APIID":"13777",
+				"APIName":"TX_UpdSIPTrunkForwardingIP",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_DefaultForwardingIP", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_ForwardingPort", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"TX_UpdSIPTrunkChannels":{
+				"ApplicationID":"1001",
+				"APIID":"13776",
+				"APIName":"TX_UpdSIPTrunkChannels",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_NoOfChannels", "type":"bigint", "direction":"in"},
+					{"name":"v_IncomingChannels", "type":"bigint", "direction":"in"},
+					{"name":"v_OutgoingChannels", "type":"bigint", "direction":"in"},
+					{"name":"v_AdminID", "type":"bigint", "platformProperty":"sessionState.v_AdministratorID", "direction":"in"},
+					{"name":"v_TXID", "type":"bigint", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"tinyint", "platformProperty":"Transaction.GlobalTransactionID", "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"UI_siptrunks":{
+				"ApplicationID":"1001",
+				"APIID":"13043",
+				"APIName":"UI_siptrunks",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_SIPTrunkID", "type":"bigint", "direction":"in"},
+					{"name":"v_ID", "type":"bigint", "direction":"out"},
+					{"name":"v_SIPTrunkName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_SIPTrunkDescription", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_IsPostPaidSIPTrunk", "type":"tinyint", "direction":"out"},
+					{"name":"v_AgentID", "type":"bigint", "direction":"out"},
+					{"name":"v_CustomerID", "type":"bigint", "direction":"out"},
+					{"name":"v_TechPrefix", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_NoOfChannels", "type":"bigint", "direction":"out"},
+					{"name":"v_IncomingChannels", "type":"bigint", "direction":"out"},
+					{"name":"v_OutgoingChannels", "type":"bigint", "direction":"out"},
+					{"name":"v_SIPTrunkSaleGroupID", "type":"bigint", "direction":"out"},
+					{"name":"v_DefaultForwardingIP", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ForwardingPort", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_ForwardingIPPolicy", "type":"enum", "length":10, "direction":"out"},
+					{"name":"v_FailOverCauseCodeGroupID", "type":"bigint", "direction":"out"},
+					{"name":"v_LastSIPTrunkForwardingIPID", "type":"bigint", "direction":"out"},
+					{"name":"v_UserName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_IsSuspended", "type":"tinyint", "direction":"out"},
+					{"name":"v_PaidTill", "type":"datetime", "direction":"out"},
+					{"name":"v_SIPTrunkChargeID", "type":"bigint", "direction":"out"},
+					{"name":"v_MediaCodecGroupID", "type":"bigint", "direction":"out"},
+					{"name":"v_IsSupportExtensionDialing", "type":"tinyint", "direction":"out"},
+					{"name":"v_SIPTrunkIncomingTechPrefix", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_IsSupportCityWideDialing", "type":"tinyint", "direction":"out"},
+					{"name":"v_SIPTrunkExtDialingGroupID", "type":"bigint", "direction":"out"},
+					{"name":"v_IncomingCLIRuleName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_IncomingCLIRuleData1", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_OutgoingCLIRuleName", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_OutgoingCLIRuleData1", "type":"varchar", "length":255, "direction":"out"},
+					{"name":"v_OutgoingMediaCodecGroupID", "type":"bigint", "direction":"out"}
+				]
+			},
+			"UI_siptrunksByName":{
+				"ApplicationID":"1001",
+				"APIID":"17285",
+				"APIName":"UI_siptrunksByName",
+					"APIType":"ReadApi",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"vi_SIPTrunkName", "direction":"in"},
+					{"name":"v_ID", "direction":"out"},
+					{"name":"v_SIPTrunkName", "direction":"out"},
+					{"name":"v_AgentID", "direction":"out"},
+					{"name":"v_CustomerID", "direction":"out"},
+					{"name":"v_TechPrefix", "direction":"out"},
+					{"name":"v_NoOfChannels", "direction":"out"},
+					{"name":"v_IncomingChannels", "direction":"out"},
+					{"name":"v_OutgoingChannels", "direction":"out"},
+					{"name":"v_SIPTrunkSaleGroupID", "direction":"out"},
+					{"name":"v_DefaultForwardingIP", "direction":"out"},
+					{"name":"v_ForwardingPort", "direction":"out"},
+					{"name":"v_ForwardingIPPolicy", "direction":"out"},
+					{"name":"v_FailOverCauseCodeGroupID", "direction":"out"},
+					{"name":"v_LastSIPTrunkForwardingIPID", "direction":"out"},
+					{"name":"v_UserName", "direction":"out"},
+					{"name":"v_IsSuspended", "direction":"out"},
+					{"name":"v_PaidTill", "direction":"out"},
+					{"name":"v_SIPTrunkChargeID", "direction":"out"},
+					{"name":"v_MediaCodecGroupID", "direction":"out"},
+					{"name":"v_IsSupportExtensionDialing", "direction":"out"},
+					{"name":"v_SIPTrunkIncomingTechPrefix", "direction":"out"},
+					{"name":"v_IsSupportCityWideDialing", "direction":"out"}
+				]
+			},
+			"WF_Deldidincomingblockaddr":{
+				"ApplicationID":"1001",
+				"APIID":"17329",
+				"APIName":"WF_Deldidincomingblockaddr",
+					"APIType":"DeleteProc",
+				"Params":[
+					{"name":"v_IncomingBlockAddressPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ForeignKeyName", "direction":"out"},
+					{"name":"v_TableName", "direction":"out"},
+					{"name":"v_TableFieldName", "direction":"out"},
+					{"name":"v_FieldValue", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_DelDIDOutgoingBlockAddr":{
+				"ApplicationID":"1001",
+				"APIID":"17330",
+				"APIName":"WF_DelDIDOutgoingBlockAddr",
+					"APIType":"DeleteProc",
+				"Params":[
+					{"name":"v_OutgoingBlockAddressPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ForeignKeyName", "direction":"out"},
+					{"name":"v_TableName", "direction":"out"},
+					{"name":"v_TableFieldName", "direction":"out"},
+					{"name":"v_FieldValue", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_DeleteDID":{
+				"ApplicationID":"1001",
+				"APIID":"17326",
+				"APIName":"WF_DeleteDID",
+					"APIType":"DeleteProc",
+				"Params":[
+					{"name":"v_DIDNumber", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ForeignKeyName", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_Delsiptrunkincomblockaddresses":{
+				"ApplicationID":"1001",
+				"APIID":"17331",
+				"APIName":"WF_Delsiptrunkincomblockaddresses",
+					"APIType":"DeleteProc",
+				"Params":[
+					{"name":"v_IncomingBlockAddressPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ForeignKeyName", "direction":"out"},
+					{"name":"v_TableName", "direction":"out"},
+					{"name":"v_TableFieldName", "direction":"out"},
+					{"name":"v_FieldValue", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_DelSIPTrunkOutgoingBlockAddr":{
+				"ApplicationID":"1001",
+				"APIID":"17332",
+				"APIName":"WF_DelSIPTrunkOutgoingBlockAddr",
+					"APIType":"DeleteProc",
+				"Params":[
+					{"name":"v_OutgoingBlockAddressPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ForeignKeyName", "direction":"out"},
+					{"name":"v_TableName", "direction":"out"},
+					{"name":"v_TableFieldName", "direction":"out"},
+					{"name":"v_FieldValue", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_Delsiptrunkwhiteipaddresses":{
+				"ApplicationID":"1001",
+				"APIID":"17333",
+				"APIName":"WF_Delsiptrunkwhiteipaddresses",
+					"APIType":"DeleteProc",
+				"Params":[
+					{"name":"v_WhiteIPAddress", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ForeignKeyName", "direction":"out"},
+					{"name":"v_TableName", "direction":"out"},
+					{"name":"v_TableFieldName", "direction":"out"},
+					{"name":"v_FieldValue", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_Insdidincomingblockaddresses":{
+				"ApplicationID":"1001",
+				"APIID":"17322",
+				"APIName":"WF_Insdidincomingblockaddresses",
+					"APIType":"InsertProc",
+				"Params":[
+					{"name":"v_DIDNumber", "direction":"in"},
+					{"name":"v_IncomingBlockAddressPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_DIDIncomingBlockAddressID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_InsDIDOutgoingBlockAddr":{
+				"ApplicationID":"1001",
+				"APIID":"17286",
+				"APIName":"WF_InsDIDOutgoingBlockAddr",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_DIDNumber", "direction":"in"},
+					{"name":"v_OutgoingBlockAddressPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_DIDOutgoingBlockAddrID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_InsSIPTrunkForwardingIPs":{
+				"ApplicationID":"1001",
+				"APIID":"17321",
+				"APIName":"WF_InsSIPTrunkForwardingIPs",
+					"APIType":"InsertProc",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_ForwardingIP", "direction":"in"},
+					{"name":"v_ForwardingPort", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_SIPTrunkForwardingIPID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_Inssiptrunkincomblockaddresses":{
+				"ApplicationID":"1001",
+				"APIID":"17290",
+				"APIName":"WF_Inssiptrunkincomblockaddresses",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_IncomingBlockAddressPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_SIPTrunkIncomBlockAddressID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_InsSIPTrunkOutgoingBlockAddr":{
+				"ApplicationID":"1001",
+				"APIID":"17323",
+				"APIName":"WF_InsSIPTrunkOutgoingBlockAddr",
+					"APIType":"InsertProc",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_OutgoingBlockAddressPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_SIPTrunkOutgoingBlockAddrID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_Inssiptrunkwhiteipaddresses":{
+				"ApplicationID":"1001",
+				"APIID":"17291",
+				"APIName":"WF_Inssiptrunkwhiteipaddresses",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_WhiteIPAddress", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_SIPTrunkWhiteIPAddressID", "direction":"out"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdDIDSIPTrunkID":{
+				"ApplicationID":"1001",
+				"APIID":"17287",
+				"APIName":"WF_UpdDIDSIPTrunkID",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_DIDNumber", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdDIDStatus":{
+				"ApplicationID":"1001",
+				"APIID":"17319",
+				"APIName":"WF_UpdDIDStatus",
+					"APIType":"UpdateProc",
+				"Params":[
+					{"name":"v_DIDNumber", "direction":"in"},
+					{"name":"v_Status", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdIsAccessSBCBlocked":{
+				"ApplicationID":"1001",
+				"APIID":"17292",
+				"APIName":"WF_UpdIsAccessSBCBlocked",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_MediaCodecName", "direction":"in"},
+					{"name":"v_IsAccessSBCBlocked", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdIsMasterSipTrunkDID":{
+				"ApplicationID":"1001",
+				"APIID":"17320",
+				"APIName":"WF_UpdIsMasterSipTrunkDID",
+					"APIType":"UpdateProc",
+				"Params":[
+					{"name":"v_DIDNumber", "direction":"in"},
+					{"name":"v_IsMasterSipTrunkDID", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdIsSupportCityWiseDialing":{
+				"ApplicationID":"1001",
+				"APIID":"17288",
+				"APIName":"WF_UpdIsSupportCityWiseDialing",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_IsSupportCityWiseDialing", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdIsSupportExtDialing":{
+				"ApplicationID":"1001",
+				"APIID":"17293",
+				"APIName":"WF_UpdIsSupportExtDialing",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_IsSupportExtensionDialing", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdMaxConcurrentSessions":{
+				"ApplicationID":"1001",
+				"APIID":"17294",
+				"APIName":"WF_UpdMaxConcurrentSessions",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_MediaCodecName", "direction":"in"},
+					{"name":"v_MaxConcurrentSessions", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdMediaCodecPriority":{
+				"ApplicationID":"1001",
+				"APIID":"17295",
+				"APIName":"WF_UpdMediaCodecPriority",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_MediaCodecName", "direction":"in"},
+					{"name":"v_MediaCodecPriority", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdSIPTrunkChannels":{
+				"ApplicationID":"1001",
+				"APIID":"17296",
+				"APIName":"WF_UpdSIPTrunkChannels",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_TotalNoOfChannels", "direction":"in"},
+					{"name":"v_IncomingChannels", "direction":"in"},
+					{"name":"v_OutgoingChannels", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdSIPTrunkForwardingIP":{
+				"ApplicationID":"1001",
+				"APIID":"17297",
+				"APIName":"WF_UpdSIPTrunkForwardingIP",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_DefaultIP", "direction":"in"},
+					{"name":"v_ForwardingPort", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdSIPTrunkIncTechPrefix":{
+				"ApplicationID":"1001",
+				"APIID":"17298",
+				"APIName":"WF_UpdSIPTrunkIncTechPrefix",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_SIPTrunkIncomingTechPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"LS_getSIPTrunkDialingExtension":{
+				"ApplicationID":"1001",
+				"APIID":"17743",
+				"APIName":"LS_getSIPTrunkDialingExtension",
+				"APIResponseResultParamName":"v_ID",
+				"ResponseParamToResultRegex":"^[1-9][0-9]*$",
+				"Params":[
+					{"name":"v_ID", "type":"bigint", "direction":"out"}
+				]
+			},
+	"TX_UpdateDIDStatus":{
+				"ApplicationID":"1001",
+				"APIID":"17852",
+				"APIName":"TX_UpdateDIDStatus",
+				"Params":[
+					{"name":"v_DIDNumber", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_Status", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_AdminID", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_TXID", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_IsNestedTransaction", "type":"varchar", "length":255, "direction":"in"},
+					{"name":"v_ReturnCode", "type":"bigint", "direction":"out"}
+				]
+			},
+			"WF_UpdSIPTrunkSuspended":{
+				"ApplicationID":"1001",
+				"APIID":"17299",
+				"APIName":"WF_UpdSIPTrunkSuspended",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_Suspended", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdSIPTrunkTechPrefix":{
+				"ApplicationID":"1001",
+				"APIID":"17300",
+				"APIName":"WF_UpdSIPTrunkTechPrefix",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_TechPrefix", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			},
+			"WF_UpdSIPTrunkUserNamePasswrd":{
+				"ApplicationID":"1001",
+				"APIID":"17301",
+				"APIName":"WF_UpdSIPTrunkUserNamePasswrd",
+					"APIType":"WorkFlow",
+				"Params":[
+					{"name":"v_SIPTrunkName", "direction":"in"},
+					{"name":"v_UserName", "direction":"in"},
+					{"name":"v_Password", "direction":"in"},
+					{"name":"v_AdminID", "direction":"in"},
+					{"name":"v_TXID", "direction":"in"},
+					{"name":"v_IsNestedTransaction", "direction":"in"},
+					{"name":"v_ReturnCode", "direction":"out"}
+				]
+			}
+}

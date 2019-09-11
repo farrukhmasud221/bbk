@@ -1,0 +1,203 @@
+.invoice table{
+    padding: 0;
+    margin: 0;
+}
+div.invoice, .invoice td, .invoice th{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    vertical-align: top;
+}
+.invoice .text-right{
+    text-align: right;
+    padding-right: 3px;
+}
+.invoice .text-center{
+    text-align: center;
+}
+.invoice hr{
+    border: none;
+    border-bottom: 2px dashed #000;
+}
+.invoice .padding-left{
+    padding-left: 30px !important;
+}
+.invoice .border-top{
+    border-top: 1px solid #000;
+}
+.invoice .border-right{
+    border-right: 1px dotted #000 !important;
+}
+.invoice .border-left{
+    border-left: 1px solid #000;
+}
+.invoice .inv-wrapper{
+    width: 900px;
+    margin-left: calc((100% - 900px) / 2);
+    /* border: 1px solid silver; */
+    /* text-align: center; */
+}
+.invoice .clear:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.invoice .inv-wrapper .inv-title{
+    width: 185px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 2px solid #000;
+    text-align: center;
+    margin-top: 40px;
+}
+.invoice .inv-wrapper .inv-logo{
+    width: 200px;
+    margin-top: 20px;
+    border: none;
+}
+.invoice .inv-wrapper .inv-info{
+    line-height: 15px;
+    width: 100%;
+    padding-right: 10px;
+}
+.invoice .inv-wrapper .underline{
+    border-bottom: 1px solid #000;
+}
+.invoice .inv-wrapper .inv-half{
+    width: 48.5%;
+    height: 140px;
+    float: left;
+    /* border: 1px solid #000; */
+    margin-right: 10px;
+}
+.invoice .inv-wrapper #customerSupplierAccountInfo .inv-half{
+    border: 1px solid #000;
+}
+.invoice .tblGrid{
+    border-collapse: collapse;
+    border: none;
+    width: 100%;
+    
+}
+.invoice .tblGrid th{
+    background-color: #555;
+    color: #fff;
+    height: 20px;
+    vertical-align: middle;
+    padding: 4px;
+    font-weight: 200;
+    border: 1px solid #000;
+}
+.invoice .tblGrid td{
+    border: 1px solid #000;
+    padding-left: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    vertical-align: middle;
+}
+.invoice .tblGridDotted{
+    border-collapse: collapse;
+    border: none;
+    width: 100%;
+    border: 1px solid #000;
+}
+.invoice .tblGridDotted th{
+    background-color: #555;
+    color: #fff;
+    height: 20px;
+    vertical-align: middle;
+    padding: 4px;
+    font-weight: 200;
+    text-align: center;
+}
+.invoice .tblGridDotted td{
+    border-bottom: 1px dotted #000;
+    border-right: 1px solid #000;
+    padding-left: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.invoice #bankInfo{
+    margin-top: 20px;
+}
+.invoice #bankInfo .tblGrid{
+    margin: auto;
+    width: 700px;
+    height: 50px;
+}
+.invoice #bankInfo .tblGrid td{
+    text-align: center;
+    vertical-align: middle;
+}
+.invoice #invDetail{
+    margin-top: 20px;
+}
+.invoice #netAmount{
+    margin-top: 5px;
+}
+.invoice #inWord{
+    margin-top: 15px;
+}
+
+.invoice #remarks{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.invoice #termsConditions{
+    margin-top: 5px;
+}
+.invoice #dashedLine{
+    /* margin-top: 5px; */
+}
+.invoice #dashedLine strong{
+    font-size: 14px;
+}
+.invoice #termsConditions strong{
+    margin-top: 10px;
+}
+.invoice #termsConditions ol li{
+    font-size: 10px !important;
+    padding-left: 10px;
+    margin-left: -10;
+}
+.invoice .tblGridLight{
+    border-collapse: collapse;
+    border: none;
+    width: 100%;
+}
+.invoice .tblGridLight th{
+    color: #000;
+    background-color: #eeeeee;
+    padding-left: 3px;
+}
+.invoice .tblGridLight td{
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    padding-left: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.invoice .tblGridLight td:last-of-type{
+    border-right: none;
+}
+.invoice #footer{
+    font-size: 8px;
+    text-align: center;
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
+}
+.invoice #footer hr{
+    border: none;
+    border-top: 1px solid #000;
+    text-align: center;
+}
+hr{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+@page {
+    size: 21cm 29.7cm;
+    margin: 20mm 35mm 20mm 35mm;
+}
+

@@ -1,0 +1,109 @@
+.reciept .paymentReciept{
+    width: 750px;
+    margin: auto;
+}
+.reciept table{
+    padding: 0;
+    margin: 0;
+}
+div.reciept, .reciept td, .reciept th{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    vertical-align: top;
+}
+
+.reciept .checkbox{
+    width: 12px;height: 12px;border: 1px solid #000;margin-right: 3px;margin-top: 0px;margin-bottom: 0px;float: left; background-image: url(../images/checkbox.jpg);
+}
+
+.reciept .uncheckbox{
+    width: 12px;height: 12px;border: 1px solid #000;margin-right: 3px;margin-top: 0px;margin-bottom: 0px;float: left; background-image: url(../images/uncheckbox.jpg);
+}
+
+.reciept .rec-date{
+    float: right;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.reciept .rec-office-copy{
+    background-color: #ddd;
+    padding: 3px 7px;
+    width: 100px;
+    display: inline-block;
+}
+.reciept .rec-wrapper{
+    width: 100%;
+    /* border: 1px solid silver; */
+    /* text-align: center; */
+}
+.reciept .clear:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.reciept .rec-wrapper .rec-title{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #85dfff;
+    color: #000;
+}
+.reciept .text-right{
+    text-align: right;
+    padding-right: 3px;
+}
+.reciept .text-center{
+    text-align: center;
+}
+.reciept .text-bold{
+    font-weight: bold;
+}
+.reciept .rec-wrapper .rec-logo{
+    margin-top: 20px;
+    width:200px;
+    display: inline-block;
+    border: none;
+}
+
+.reciept .tblGrid{
+    border-collapse: collapse;
+    border: none;
+    width: 100%;
+    
+}
+.reciept .tblGrid th{
+    background-color: #ccc;
+    color: #000;
+    height: 20px;
+    vertical-align: middle;
+    padding: 4px;
+    font-weight: 200;
+    border: 1px solid #000;
+}
+.reciept .tblGrid td{
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+.reciept #officeCopy, #customerCopy{
+    margin-top: 20px;
+}
+
+.reciept .rec-light-bg{
+    background-color: #d9d9d9;
+}
+.reciept .rec-font11{
+    font-size: 10px;
+}
+.reciept .border-0{
+    border: 0px !important;
+}
+
+.reciept .hr{
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

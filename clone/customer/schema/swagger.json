@@ -1,0 +1,6122 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Wateen Nodejs",
+		"version": "1.0",
+		"title": "Wateen Admin GUI for C5",
+		"termsOfService": "",
+		"contact": {},
+		"license": {"name":"AdvOSS EULA"}
+	},
+	"host": "10.1.6.122:3000",
+	"basePath": "/",
+	"tags": [],
+	"schemes": ["http", "https"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths": {
+		"/Administration/SDPCore/DIDs": {
+			"get": {
+				"description": "",
+				"operationId": "LS_getDIDs",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_DIDNumber":{ "type": "integer"},
+											"v_DIDID":{ "type": "string"},
+											"v_SIPTrunkID":{ "type": "string"},
+											"v_SIPTrunkAssignmentDate":{ "type": "string"},
+											"v_LiveStatus":{ "type": "string"},
+											"v_DIDType":{ "type": "string"},
+											"v_Status":{ "type": "string"}
+
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_siptrunkblockedcallclasses": {
+				"get": {
+				"description": "",
+				"operationId": "LS_siptrunkblockedcallclasses",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_SBCCallClassID":{ "type": "integer"},
+											"v_SBCCallClassName":{ "type": "string"},
+											"v_SIPTrunkBlockedCallClassID":{ "type": "integer"},
+											"v_SIPTrunkID":{ "type": "integer"},
+											"v_SIPTrunkName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		
+			"/Administration/SDPCore/LS_sbccallclasses": {
+			"get": {
+				"description": "",
+				"operationId": "LS_sbccallclasses",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_SBCCallClassID":{ "type": "integer"},
+											"v_SBCCallClassName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/AddDIDs": {
+			"post": {
+				"description": "",
+				"operationId": "TX_InsertDID",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_CityID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_AreaCodeID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_DIDType",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_AgentID_Chk":{ "type": "integer", "description":""},
+								"v_DIDID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		
+		"/Administration/SDPCore/TX_UpdateDIDStatus": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdateDIDStatus",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_Status",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "boolean",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdAccessSBCIncBlockCallPrefix": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdAccessSBCIncBlockCallPrefix",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccessSBCIncBlockCallID":{ "type": "string", "description":""},
+							"v_AccessSBCIncBlockCallPrefix":{ "type": "string", "description":""}
+
+
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_DelAccessSBCIncBlockCalls": {
+			"post": {
+				"description": "",
+				"operationId": "TX_DelAccessSBCIncBlockCalls",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccessSBCIncBlockCallID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_didheaderrewriterules": {
+			"get": {
+				"description": "",
+				"operationId": "LS_didheaderrewriterules",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_ContactRegex":{ "type": "string"},
+											"v_DIDHeaderReWriteRuleID":{ "type": "integer"},
+											"v_DIDID":{ "type": "integer"},
+											"v_FromRegex":{ "type": "string"},
+											"v_HeaderRewriteRulePriority":{ "type": "integer"},
+											"v_IsReject":{ "type": "boolean"},
+											"v_PrependContact":{ "type": "string"},
+											"v_PrependFrom":{ "type": "string"},
+											"v_PrependRequest":{ "type": "string"},
+											"v_PrependTo":{ "type": "string"},
+											"v_RemoveFromContact":{ "type": "string"},
+											"v_RemoveFromFrom":{ "type": "string"},
+											"v_RemoveFromRequest":{ "type": "string"},
+											"v_RemoveFromTo":{ "type": "string"},
+											"v_ReplaceContact":{ "type": "string"},
+											"v_ReplaceFrom":{ "type": "string"},
+											"v_ReplaceRequest":{ "type": "string"},
+											"v_ReplaceTo":{ "type": "string"},
+											"v_RequestRegex":{ "type": "string"},
+											"v_ToRegex":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_diddowivrs": {
+			"get": {
+				"description": "",
+				"operationId": "LS_diddowivrs",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_CustomerID":{ "type": "integer"},
+											"v_CustomerIVRID":{ "type": "integer"},
+											"v_DayOfWeek":{ "type": "integer"},
+											"v_DIDDoWIVRID":{ "type": "integer"},
+											"v_DIDID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_didbasedivrs": {
+			"get": {
+				"description": "",
+				"operationId": "LS_didbasedivrs",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_CustomerID":{ "type": "integer"},
+											"v_CustomerIVRID":{ "type": "integer"},
+											"v_DIDBasedIVRID":{ "type": "integer"},
+											"v_DIDID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_dialoutcampaigns": {
+			"get": {
+				"description": "",
+				"operationId": "LS_dialoutcampaigns",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_ABMFID":{ "type": "integer"},
+											"v_AccountID":{ "type": "integer"},
+											"v_ActivationTime":{ "type": "date"},
+											"v_CompletionTime":{ "type": "date"},
+											"v_CorporateMessageTemplateID":{ "type": "integer"},
+											"v_CustomerID":{ "type": "integer"},
+											"v_CustomerIVRID":{ "type": "integer"},
+											"v_CustomerMask":{ "type": "string"},
+											"v_DialOutCampaignID":{ "type": "integer"},
+											"v_DialOutCampaignName":{ "type": "string"},
+											"v_DialOutCampaignStatus":{ "type": "integer"},
+											"v_DialOutCampaignType":{ "type": "string"},
+											"v_DIDID":{ "type": "integer"},
+											"v_ProcessTime":{ "type": "date"},
+											"v_ReturnCodeIn":{ "type": "integer"},
+											"v_ScheduleTime":{ "type": "date"},
+											"v_ServiceID":{ "type": "integer"},
+											"v_ServiceUnitReservationID":{ "type": "integer"},
+											"v_StaticPayloadText":{ "type": "string"},
+											"v_Status":{ "type": "string"},
+											"v_TotalMessageCount":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_callrecordingcriteria": {
+			"get": {
+				"description": "",
+				"operationId": "LS_callrecordingcriteria",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_CallRecordingCriteriaID":{ "type": "integer"},
+											"v_CustomerID":{ "type": "integer"},
+											"v_DIDID":{ "type": "integer"},
+											"v_IsIncoming":{ "type": "boolean"},
+											"v_IsOutgoing":{ "type": "boolean"},
+											"v_PhoneNumber":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_acds": {
+			"get": {
+				"description": "",
+				"operationId": "LS_acds",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_ACDID":{ "type": "integer"},
+											"v_CustomerID":{ "type": "integer"},
+											"v_DIDID":{ "type": "integer"},
+											"v_RoutingMethodID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_accnoschedulecalls": {
+			"get": {
+				"description": "",
+				"operationId": "LS_accnoschedulecalls",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AccNoScheduleCallID":{ "type": "integer"},
+											"v_AccNoServiceGroupUserNameID":{ "type": "integer"},
+											"v_CallType":{ "type": "string"},
+											"v_Destination":{ "type": "string"},
+											"v_DIDID":{ "type": "integer"},
+											"v_ProcessTime":{ "type": "date"},
+											"v_ScheduleTime":{ "type": "date"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdIncomingTechPrefix": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdIncomingTechPrefix",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_IncomingTechPrefix":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdIsRestrictWhiteListUA": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdIsRestrictWhiteListUA",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_IsRestrictWhiteListUserAgent":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdIsIncomingAllowed": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdIsIncomingAllowed",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_IsIncomingAllowed":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdIsOutgoingAllowed": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdIsOutgoingAllowed",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_IsOutgoingAllowed":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_RemoveAccNoServiceOffering": {
+			"post": {
+				"description": "",
+				"operationId": "TX_RemoveAccNoServiceOffering",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccNoServiceOfferingID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_ModifyAccNoServiceOffering": {
+			"post": {
+				"description": "",
+				"operationId": "TX_ModifyAccNoServiceOffering",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccNoServiceOfferingID":{ "type": "string", "description":""},
+							"v_NewServiceOfferingID":{ "type": "string", "description":""},
+							"v_ChargesPerBillingCycle":{ "type": "string", "description":""},
+							"v_ProrationPolicy":{ "type": "string", "description":""},
+							"v_IsUpdAccNoCounterInstance":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_AssignAccNoServiceOffering": {
+			"post": {
+				"description": "",
+				"operationId": "TX_AssignAccNoServiceOffering",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "string", "description":""},
+							"v_ServiceOfferingID":{ "type": "string", "description":""},
+							"v_SubscriptionID":{ "type": "string", "description":""},
+							"v_ChargesPerBillingCycle":{ "type": "string", "description":""},
+							"v_ChargesPerBillingCycleExpiry":{ "type": "string", "description":""},
+							"v_ActivationChargesMultiplier":{ "type": "string", "description":""},
+							"v_ApplicationClientID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_AccNoServiceOfferingID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_AssignAccNoServiceOfferingSC": {
+			"post": {
+				"description": "",
+				"operationId": "TX_AssignAccNoServiceOfferingSC",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccountID":{ "type": "string", "description":""},
+							"v_ServiceOfferingID":{ "type": "string", "description":""},
+							"v_SubscriptionID":{ "type": "string", "description":""},
+							"v_ChargesPerBillingCycle":{ "type": "string", "description":""},
+							"v_ChargesPerBillingCycleExpiry":{ "type": "string", "description":""},
+							"v_ActivationChargesMultiplier":{ "type": "string", "description":""},
+							"v_ApplicationClientID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_AccNoServiceOfferingID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdRegionID": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdRegionID",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_RegionID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdDIDDomainName": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdDIDDomainName",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_DomainName":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdHuntGroupID": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdHuntGroupID",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_HuntGroupID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdAccNoChargeHeadLineRentID": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdAccNoChargeHeadLineRentID",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_AccNoChargeHeadLineRentID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdIsMasterSipTrunkDID": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdIsMasterSipTrunkDID",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_IsMasterSipTrunkDID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdDIDProviderTrunkID": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdDIDProviderTrunkID",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_DIDProviderTrunkID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_InsertDIDProviderTrunk": {
+			"post": {
+				"description": "",
+				"operationId": "TX_InsertDIDProviderTrunk",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDProviderID":{ "type": "string", "description":""},
+							"v_TrunkName":{ "type": "string", "description":""},
+							"v_TechPrefix":{ "type": "string", "description":""},
+							"v_NoOfChannels":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_DIDProviderTrunkID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdOutgoingCLIRuleName": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdOutgoingCLIRuleName",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_OutgoingCLIRuleName":{ "type": "string", "description":""},
+							"v_OutgoingCLIRuleData1":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdIncomingCLIRule": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdIncomingCLIRule",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_SIPTrunkID":{ "type": "string", "description":""},
+							"v_IncomingCLIRuleName":{ "type": "string", "description":""},
+							"v_IncomingCLIRuleData1":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdateDIDSaleGroupRate": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdateDIDSaleGroupRate",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDSaleGroupID":{ "type": "string", "description":""},
+							"v_RatePerDurationBlock":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdSIPTrunkDialingExtension": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdSIPTrunkDialingExtension",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_SIPTrunkDialingExtension":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdDIDPurchaseGroupID": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdDIDPurchaseGroupID",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_DIDPurchaseGroupID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdDIDForwardingNumber": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdDIDForwardingNumber",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDID":{ "type": "string", "description":""},
+							"v_ForwardingNumber":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		
+		"/Administration/SDPCore/UI_accesssbccalltraces": {
+			"post": {
+				"description": "",
+				"operationId": "UI_accesssbccalltraces",
+					"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_AccessSBCCallTraceID":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_SDPNodeKey":{ "type": "string", "description":""},
+								"v_LocalTransportIP":{ "type": "string", "description":""},
+								"v_LocalTransportPort":{ "type": "string", "description":""},
+								"v_RemoteTransportIP":{ "type": "string", "description":""},
+								"v_RemoteTransportPort":{ "type": "string", "description":""},
+								"v_CallID":{ "type": "string", "description":""},
+								"v_CSeq":{ "type": "integer", "description":""},
+								"v_CSeqMethod":{ "type": "string", "description":""},
+								"v_RequestURIUser":{ "type": "string", "description":""},
+								"v_RequestURIHost":{ "type": "string", "description":""},
+								"v_RequestURIPort":{ "type": "string", "description":""},
+								"v_ToURIUser":{ "type": "string", "description":""},
+								"v_ToURIHost":{ "type": "string", "description":""},
+								"v_ToURIPort":{ "type": "string", "description":""},
+								"v_FromURIUser":{ "type": "string", "description":""},
+								"v_FromURIHost":{ "type": "string", "description":""},
+								"v_FromURIPort":{ "type": "string", "description":""},
+								"v_ContactURIUser":{ "type": "string", "description":""},
+								"v_ContactURIHost":{ "type": "string", "description":""},
+								"v_ContactURIPort":{ "type": "string", "description":""},
+								"v_PayloadSDP":{ "type": "string", "description":""},
+								"v_RawMsg":{ "type": "string", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdMediaCodecPriority": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdMediaCodecPriority",
+				"parameters": [
+				{
+					"name": "v_MediaCodecID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_MediaCodecPriority",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+	"/Administration/SDPCore/DeleteDID": {
+			"delete": {
+				"description": "",
+				"operationId": "WF_DeleteDID",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":"Return Code in case of success or failure, Zero for Success and other error codes for failure"}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/AssignDIDs": {
+			"post": {
+				"description": "",
+				"operationId": "TX_InsertBulkDIDs2",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_PopName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				,
+				{
+					"name": "v_DIDType",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				,
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				,
+				{
+					"name": "v_SIPTrunkExtDialingGroupName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				,
+				{
+					"name": "v_SIPTrunkDialingExtension",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				,
+				{
+					"name": "v_ServiceName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_AgentID_Chk":{ "type": "integer", "description":""},
+								"v_DIDID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/didincomingblockaddresses": {
+			"post": {
+				"description": "",
+				"operationId": "WF_Insdidincomingblockaddresses",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IncomingBlockAddressPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_DIDIncomingBlockAddressID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/didoutgoingblockaddress/GetByDID/{v_DIDNumber}": {
+			"get": {
+				"description": "",
+				"operationId": "incomingblockaddressesByDID_f1",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_DIDID":{ "type": "integer"},
+											"v_DIDIncomingBlockAddressID":{ "type": "integer"},
+											"v_IncomingBlockAddressPrefix":{ "type": "string"},
+											"v_InsertTime":{ "type": "date"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/didoutgoingblockaddress/{v_DIDNumber}": {
+			"post": {
+				"description": "",
+				"operationId": "WF_InsDIDOutgoingBlockAddr",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_OutgoingBlockAddressPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_DIDOutgoingBlockAddrID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/DIDs/DIDDetailInformation": {
+			"get": {
+				"description": "",
+				"operationId": "GU_DIDDetailInfo",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/DIDs/{vi_DIDNumber}": {
+			"get": {
+				"description": "",
+				"operationId": "UI_didsByDIDNumber",
+				"parameters": [
+				{
+					"name": "vi_DIDNumber",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_DIDNumber":{ "type": "string", "description":""},
+								"v_CityID":{ "type": "integer", "description":""},
+								"v_AreaCodeID":{ "type": "integer", "description":""},
+								"v_DIDPurchaseGroupID":{ "type": "integer", "description":""},
+								"v_DIDSaleGroupID":{ "type": "integer", "description":""},
+								"v_DIDProviderTrunkID":{ "type": "integer", "description":""},
+								"v_SIPTrunkID":{ "type": "integer", "description":""},
+								"v_IsMasterSipTrunkDID":{ "type": "boolean", "description":""},
+								"v_SIPTrunkAssignmentDate":{ "type": "string", "description":""},
+								"v_AccNoServiceOfferingID":{ "type": "integer", "description":""},
+								"v_AccNoChargeHeadLineRentID":{ "type": "integer", "description":""},
+								"v_Status":{ "type": "boolean", "description":""},
+								"v_AccountID":{ "type": "integer", "description":""},
+								"v_AssignedDate":{ "type": "string", "description":""},
+								"v_ServiceID":{ "type": "integer", "description":""},
+								"v_HuntGroupID":{ "type": "integer", "description":""},
+								"v_Username":{ "type": "string", "description":""},
+								"v_DomainName":{ "type": "string", "description":""},
+								"v_LiveStatus":{ "type": "string", "description":""},
+								"v_RegistrationDate":{ "type": "string", "description":""},
+								"v_DIDType":{ "type": "string", "description":""},
+								"v_RegionID":{ "type": "integer", "description":""},
+								"v_IsIncomingAllowed":{ "type": "boolean", "description":""},
+								"v_IsOutgoingAllowed":{ "type": "boolean", "description":""},
+								"v_IsRestrictWhiteListUserAgent":{ "type": "boolean", "description":""},
+								"v_IncomingTechPrefix":{ "type": "string", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/DIDs/{v_SIPTrunkName}/DIDSIPTrunkID": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdDIDSIPTrunkID",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/DIDStatus": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdDIDStatus",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_Status",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "boolean",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/MasterDID": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdIsMasterSipTrunkDID",
+				"parameters": [
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IsMasterSipTrunkDID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "boolean",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SipTrunking/AddSIPTrunkForwardingIP": {
+			"post": {
+				"description": "",
+				"operationId": "WF_InsSIPTrunkForwardingIPs",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingPort",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_SIPTrunkForwardingIPID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/AddSiptrunkForwardingIPByPool": {
+			"post": {
+				"description": "",
+				"operationId": "TX_InsSIPTrunkForwardIPByPool",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingIPBase",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingIPMask",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingPort",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_NumberOfChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/AddSIPTrunkForwardingIPByRange": {
+			"post": {
+				"description": "",
+				"operationId": "TX_InsSIPTrunkForwardIPRange",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_FromForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ToForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingPort",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_NumberOfChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_SIPTrunkForwardingIPID":{ "type": "integer", "description":""},
+								"v_SIPTrunkID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/DeletenIcomblockAddress": {
+			"delete": {
+				"description": "",
+				"operationId": "WF_Delsiptrunkincomblockaddresses",
+				"parameters": [
+				{
+					"name": "v_IncomingBlockAddressPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+			"/Administration/SIPTrunking/DeleteSIPTrunk": {
+			"delete": {
+				"description": "",
+				"operationId": "WF_DeleteSIPTrunk2",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/DeleteSIPTrunkOutgoingBlockAddr": {
+			"delete": {
+				"description": "",
+				"operationId": "WF_DelSIPTrunkOutgoingBlockAddr",
+				"parameters": [
+				{
+					"name": "v_OutgoingBlockAddressPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/DeleteSIPTrunkWhiteAddress": {
+			"get": {
+				"description": "",
+				"operationId": "WF_Delsiptrunkwhiteipaddresses",
+				"parameters": [
+				{
+					"name": "v_WhiteIPAddress",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/GetIPRangeByMask": {
+			"get": {
+				"description": "",
+				"operationId": "TX_GetIPRangeByMask",
+				"parameters": [
+				{
+					"name": "v_ForwardingIPBase",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingIPMask",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_FromForwardingIP":{ "type": "string", "description":""},
+								"v_ToForwardingIP":{ "type": "string", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunkincomblockaddresses/GetBySIPTrunk/{v_SIPTrunkName}": {
+			"get": {
+				"description": "",
+				"operationId": "incomblockaddressesBysiptrunk_f1",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_IncomingBlockAddressPrefix":{ "type": "string"},
+											"v_InsertTime":{ "type": "date"},
+											"v_SIPTrunkID":{ "type": "integer"},
+											"v_SIPTrunkIncomBlockAddressID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks1": {
+			"post": {
+				"description": "",
+				"operationId": "outgoingblockaddrsiptrunk_f1",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_InsertTime":{ "type": "date"},
+											"v_OutgoingBlockAddressPrefix":{ "type": "string"},
+											"v_SIPTrunkID":{ "type": "integer"},
+											"v_SIPTrunkOutgoingBlockAddrID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/GetByMediaCodecGroup/{v_MediaCodecGroupName}": {
+			"post": {
+				"description": "",
+				"operationId": "siptrunksByMediaCodecGroup_f3",
+				"parameters": [
+				{
+					"name": "v_MediaCodecGroupName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AgentID":{ "type": "integer"},
+											"v_CustomerID":{ "type": "integer"},
+											"v_DefaultForwardingIP":{ "type": "string"},
+											"v_FailOverCauseCodeGroupID":{ "type": "integer"},
+											"v_ForwardingIPPolicy":{ "type": "string"},
+											"v_ForwardingPort":{ "type": "string"},
+											"v_IncomingChannels":{ "type": "integer"},
+											"v_InsertTime":{ "type": "date"},
+											"v_IsSupportCityWideDialing":{ "type": "boolean"},
+											"v_IsSupportExtensionDialing":{ "type": "boolean"},
+											"v_IsSuspended":{ "type": "boolean"},
+											"v_LastSIPTrunkForwardingIPID":{ "type": "integer"},
+											"v_MediaCodecGroupID":{ "type": "integer"},
+											"v_NoOfChannels":{ "type": "integer"},
+											"v_OutgoingChannels":{ "type": "integer"},
+											"v_PaidTill":{ "type": "date"},
+											"v_SIPTrunkChargeID":{ "type": "integer"},
+											"v_SIPTrunkDescription":{ "type": "string"},
+											"v_SIPTrunkID":{ "type": "integer"},
+											"v_SIPTrunkIncomingTechPrefix":{ "type": "string"},
+											"v_SIPTrunkName":{ "type": "string"},
+											"v_SIPTrunkSaleGroupID":{ "type": "integer"},
+											"v_TechPrefix":{ "type": "string"},
+											"v_UserName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/SIPTrunkDetailInformation": {
+			"get": {
+				"description": "",
+				"operationId": "GU_SIPTrunkDetailInfo",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/SIPTrunkOutgoingBlockAddr": {
+			"post": {
+				"description": "",
+				"operationId": "WF_InsSIPTrunkOutgoingBlockAddr",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_OutgoingBlockAddressPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_SIPTrunkOutgoingBlockAddrID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{vi_SIPTrunkName}": {
+			"get": {
+				"description": "",
+				"operationId": "UI_siptrunksByName",
+				"parameters": [
+				{
+					"name": "vi_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_SIPTrunkName":{ "type": "string", "description":""},
+								"v_CustomerID":{ "type": "integer", "description":""},
+								"v_TechPrefix":{ "type": "string", "description":""},
+								"v_NoOfChannels":{ "type": "integer", "description":""},
+								"v_IncomingChannels":{ "type": "integer", "description":""},
+								"v_OutgoingChannels":{ "type": "integer", "description":""},
+								"v_SIPTrunkSaleGroupID":{ "type": "integer", "description":""},
+								"v_DefaultForwardingIP":{ "type": "string", "description":""},
+								"v_ForwardingPort":{ "type": "string", "description":""},
+								"v_ForwardingIPPolicy":{ "type": "string", "description":""},
+								"v_FailOverCauseCodeGroupID":{ "type": "integer", "description":""},
+								"v_LastSIPTrunkForwardingIPID":{ "type": "integer", "description":""},
+								"v_UserName":{ "type": "string", "description":""},
+								"v_IsSuspended":{ "type": "boolean", "description":""},
+								"v_PaidTill":{ "type": "string", "description":""},
+								"v_SIPTrunkChargeID":{ "type": "integer", "description":""},
+								"v_MediaCodecGroupID":{ "type": "integer", "description":""},
+								"v_IsSupportExtensionDialing":{ "type": "boolean", "description":""},
+								"v_SIPTrunkIncomingTechPrefix":{ "type": "string", "description":""},
+								"v_IsSupportCityWideDialing":{ "type": "boolean", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/IsSupportCityWiseDialing": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdIsSupportCityWiseDialing",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IsSupportCityWiseDialing",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "boolean",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/IsSupportExtDialing": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdIsSupportExtDialing",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IsSupportExtensionDialing",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "boolean",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/SIPTrunkChannels": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdSIPTrunkChannels",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_TotalNoOfChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_IncomingChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_OutgoingChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/SIPTrunkForwardingIP": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdSIPTrunkForwardingIP",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_DefaultIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingPort",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/siptrunkincomingblockaddresses": {
+			"post": {
+				"description": "",
+				"operationId": "WF_Inssiptrunkincomblockaddresses",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IncomingBlockAddressPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_SIPTrunkIncomBlockAddressID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/SIPTrunkIncTechPrefix": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdSIPTrunkIncTechPrefix",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_SIPTrunkIncomingTechPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+
+
+		"/Administration/SIPTrunking/TX_UpdSIPTrunkSuspended": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdSIPTrunkSuspended",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IsSuspended",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+
+		
+		"/Administration/SIPTrunking/TX_UpdSIPTrunkIncTechPrefix": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdSIPTrunkIncTechPrefix",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_SIPTrunkIncomingTechPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/SIPTrunkSuspended": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdSIPTrunkSuspended",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_Suspended",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "boolean",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/SIPTrunkTechPrefix": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdSIPTrunkTechPrefix",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_TechPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/SIPTrunkUserNamePasswrd": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdSIPTrunkUserNamePasswrd",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_UserName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_Password",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": "binary"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks/{v_SIPTrunkName}/siptrunkwhiteipaddresses": {
+			"post": {
+				"description": "",
+				"operationId": "WF_Inssiptrunkwhiteipaddresses",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_WhiteIPAddress",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_SIPTrunkWhiteIPAddressID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_cdrs": {
+			"get": {
+				"description": "",
+				"operationId": "LS_cdrs",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_ABMFID":{ "type": "string"},
+											"v_ABMFRateMultiplier":{ "type": "string"},
+											"v_AccessAAAServerGroupID":{ "type": "string"},
+											"v_AccessLegPolicyID":{ "type": "string"},
+											"v_AccessNumber":{ "type": "string"},
+											"v_AccessNumberPolicyID":{ "type": "string"},
+											"v_AccessNumberPolicyPrefixID":{ "type": "string"},
+											"v_AccessNumberPolicyRatingZnID":{ "type": "string"},
+											"v_AccessPolicyID":{ "type": "string"},
+											"v_AccessPolicyPrefixID":{ "type": "string"},
+											"v_AccessPolicyRatingZoneID":{ "type": "string"},
+											"v_AccNoPBCExpiryDate":{ "type": "string"},
+											"v_AccNoPBCInstanceID":{ "type": "string"},
+											"v_AccNoRateMultiplier":{ "type": "string"},
+											"v_AccNoServiceOfferingID":{ "type": "string"},
+											"v_AccNoSORateMultiplier":{ "type": "string"},
+											"v_AccountID":{ "type": "integer"},
+											"v_AcctSessionID":{ "type": "string"},
+											"v_AdjustmentRatePerMin":{ "type": "string"},
+											"v_AGBalance":{ "type": "string"},
+											"v_AGDestname":{ "type": "string"},
+											"v_AgentBalance":{ "type": "string"},
+											"v_AgentCallCharges":{ "type": "string"},
+											"v_AgentDuration":{ "type": "string"},
+											"v_AgentErrorCode":{ "type": "string"},
+											"v_AgentFirstInt":{ "type": "string"},
+											"v_AgentID":{ "type": "string"},
+											"v_AgentNextInt":{ "type": "string"},
+											"v_AgentPolicyID":{ "type": "string"},
+											"v_AgentPolicyPrefixID":{ "type": "string"},
+											"v_AgentRatePerMin":{ "type": "string"},
+											"v_AgentRatingStatus":{ "type": "string"},
+											"v_AgentSubInvoiceID":{ "type": "string"},
+											"v_AmountChargedInSubRecord":{ "type": "string"},
+											"v_AmountDebited":{ "type": "string"},
+											"v_ApplicableRateMultiplier":{ "type": "string"},
+											"v_AuthCriteria":{ "type": "string"},
+											"v_AuthCriteriaSession":{ "type": "string"},
+											"v_BalanceExpiry":{ "type": "string"},
+											"v_BlockSize":{ "type": "string"},
+											"v_BTSSiteID":{ "type": "string"},
+											"v_BTSSiteName":{ "type": "string"},
+											"v_Called_Station_ID":{ "type": "string"},
+											"v_Calling_Station_ID":{ "type": "string"},
+											"v_CallLeg":{ "type": "string"},
+											"v_CallLegID":{ "type": "string"},
+											"v_CallPriorityID":{ "type": "string"},
+											"v_CDRFileID":{ "type": "string"},
+											"v_ChargedSecondsDebited":{ "type": "string"},
+											"v_ChargedUsageDebited":{ "type": "string"},
+											"v_ChargeHeadID":{ "type": "string"},
+											"v_ChargingIdentifier":{ "type": "string"},
+											"v_CheckGlobalRouting":{ "type": "string"},
+											"v_ConnCharges":{ "type": "string"},
+											"v_CounterUnitsBasis":{ "type": "string"},
+											"v_CreditBalance":{ "type": "string"},
+											"v_CurrentBalance":{ "type": "string"},
+											"v_CustomerID":{ "type": "string"},
+											"v_CustomerIVRID":{ "type": "string"},
+											"v_CustomerMask":{ "type": "string"},
+											"v_DeferredCommission":{ "type": "string"},
+											"v_DeliveryStatus":{ "type": "string"},
+											"v_DestinationPolicyID":{ "type": "string"},
+											"v_DestName":{ "type": "string"},
+											"v_DialOutCampaignID":{ "type": "string"},
+											"v_DoAgentRating":{ "type": "string"},
+											"v_DoDuplicateChecking":{ "type": "string"},
+											"v_DoLocalAccounting":{ "type": "string"},
+											"v_DoSubscriberCharging":{ "type": "string"},
+											"v_DoVendorRating":{ "type": "string"},
+											"v_DurAccNoCounterInstanceID":{ "type": "string"},
+											"v_Duration":{ "type": "integer"},
+											"v_DurationAvailableUnits":{ "type": "string"},
+											"v_DurationBasedCharging":{ "type": "string"},
+											"v_DurationBlockSize":{ "type": "string"},
+											"v_DurationCounterExpiry":{ "type": "string"},
+											"v_DurationCounterID":{ "type": "string"},
+											"v_DurationCounterUnitsConsumed":{ "type": "string"},
+											"v_DurationCounterUnitsRefunded":{ "type": "string"},
+											"v_DurationProgressRateRelative":{ "type": "string"},
+											"v_DurationRateExpiry":{ "type": "string"},
+											"v_DurationRateID":{ "type": "string"},
+											"v_DurationRateTypeID":{ "type": "string"},
+											"v_DurCounterSubscriptionStatID":{ "type": "string"},
+											"v_EmergencyDestName":{ "type": "string"},
+											"v_EmergencyNumberID":{ "type": "string"},
+											"v_EndTime":{ "type": "string"},
+											"v_EventAccNoCounterInstanceID":{ "type": "string"},
+											"v_EventAvailableUnits":{ "type": "string"},
+											"v_EventBasedCharging":{ "type": "string"},
+											"v_EventCounterExpiry":{ "type": "string"},
+											"v_EventCounterID":{ "type": "string"},
+											"v_EventProgressiveRateRelative":{ "type": "string"},
+											"v_EventRateExpiry":{ "type": "string"},
+											"v_EventRateID":{ "type": "string"},
+											"v_EventRateTypeID":{ "type": "string"},
+											"v_EvtCounterSubscriptionStatID":{ "type": "string"},
+											"v_FirstInt":{ "type": "string"},
+											"v_FramedIPAddress":{ "type": "string"},
+											"v_HasCounters":{ "type": "string"},
+											"v_HasDurationCounterChanges":{ "type": "string"},
+											"v_HasDurationRateChanges":{ "type": "string"},
+											"v_HasPolicyRules":{ "type": "string"},
+											"v_HasRateChanges":{ "type": "string"},
+											"v_HasUsageCounterChanges":{ "type": "string"},
+											"v_HasUsageRateChanges":{ "type": "string"},
+											"v_IncomingConcurrentSessions":{ "type": "string"},
+											"v_InsertZeroDuration":{ "type": "string"},
+											"v_InTechPrefix":{ "type": "string"},
+											"v_InterimDurCtrUnitsConsumed":{ "type": "string"},
+											"v_InterimUsageCtrUnitsConsumed":{ "type": "string"},
+											"v_IsAutoRenew":{ "type": "string"},
+											"v_IsFairUsage":{ "type": "string"},
+											"v_IsInsertRatingSubRecord":{ "type": "string"},
+											"v_IsSessionFound":{ "type": "string"},
+											"v_LocalRoutingNumber":{ "type": "string"},
+											"v_MinimumChargeableDuration":{ "type": "string"},
+											"v_MinimumCredit":{ "type": "string"},
+											"v_Multiplier":{ "type": "string"},
+											"v_NASIdentifier":{ "type": "string"},
+											"v_NASIPAddress":{ "type": "string"},
+											"v_NetworkFunctionID":{ "type": "string"},
+											"v_NextInt":{ "type": "string"},
+											"v_NWFunctionServiceProfileID":{ "type": "string"},
+											"v_OptionSelected":{ "type": "string"},
+											"v_OriginPolicyID":{ "type": "string"},
+											"v_OriginPolicyPrefixID":{ "type": "string"},
+											"v_OriginPolicyRatingZoneID":{ "type": "string"},
+											"v_OutgoingConcurrentSessions":{ "type": "string"},
+											"v_OutTechPrefix":{ "type": "string"},
+											"v_PayloadText":{ "type": "string"},
+											"v_PlanBillingCycleID":{ "type": "string"},
+											"v_PlanID":{ "type": "string"},
+											"v_PlanPolicyID":{ "type": "string"},
+											"v_PolicyID":{ "type": "string"},
+											"v_PolicyPrefixID":{ "type": "string"},
+											"v_PolicyRatingClassID":{ "type": "string"},
+											"v_PolicyRatingZoneID":{ "type": "string"},
+											"v_PolicyRoutingZoneID":{ "type": "string"},
+											"v_PolicyTypeID":{ "type": "string"},
+											"v_RatePerBlock":{ "type": "string"},
+											"v_RatePerDurationBlock":{ "type": "string"},
+											"v_RatePerEvent":{ "type": "string"},
+											"v_RatingClassID":{ "type": "string"},
+											"v_Realm":{ "type": "string"},
+											"v_RealTimeTolerance":{ "type": "string"},
+											"v_RecordID":{ "type": "integer"},
+											"v_ReturnCodeIn":{ "type": "string"},
+											"v_RevenueForConsumedDuration":{ "type": "string"},
+											"v_RevenueForConsumedEvents":{ "type": "string"},
+											"v_RevenueForConsumedUsage":{ "type": "string"},
+											"v_ReverseDataRecordID":{ "type": "string"},
+											"v_ScheduledTime":{ "type": "string"},
+											"v_ServiceAccNoPBCExpiryDate":{ "type": "string"},
+											"v_ServiceAccNoPBCInstanceID":{ "type": "string"},
+											"v_ServiceGroupID":{ "type": "string"},
+											"v_ServiceID":{ "type": "string"},
+											"v_ServiceOfferingID":{ "type": "string"},
+											"v_SessionID":{ "type": "string"},
+											"v_SessionTime":{ "type": "string"},
+											"v_StartTime":{ "type": "string"},
+											"v_StartTimeSession":{ "type": "string"},
+											"v_SubInvoiceID":{ "type": "string"},
+											"v_SubscriberErrorCode":{ "type": "string"},
+											"v_SubscriberRatingStatus":{ "type": "string"},
+											"v_SubscriberStateID":{ "type": "string"},
+											"v_SubscriptionStateID":{ "type": "string"},
+											"v_Tax1":{ "type": "string"},
+											"v_Tax1Rate":{ "type": "string"},
+											"v_Tax2":{ "type": "string"},
+											"v_Tax2Rate":{ "type": "string"},
+											"v_TechPrefixAccNo":{ "type": "string"},
+											"v_TechPrefixGroupID":{ "type": "string"},
+											"v_TechPrefixLength":{ "type": "string"},
+											"v_TerminationCause":{ "type": "string"},
+											"v_TerminationCost":{ "type": "string"},
+											"v_TimeTolerance":{ "type": "string"},
+											"v_TotalCharges":{ "type": "number"},
+											"v_TotalSubscriptionCharges":{ "type": "string"},
+											"v_UnchargedDuration":{ "type": "string"},
+											"v_UnchargedEvents":{ "type": "string"},
+											"v_UnchargedUsage":{ "type": "string"},
+											"v_UsageAccNoCounterInstanceID":{ "type": "string"},
+											"v_UsageAvailableUnits":{ "type": "string"},
+											"v_UsageBasedCharging":{ "type": "string"},
+											"v_UsageCounterExpiry":{ "type": "string"},
+											"v_UsageCounterID":{ "type": "string"},
+											"v_UsageCounterUnitsConsumed":{ "type": "string"},
+											"v_UsageCounterUnitsRefunded":{ "type": "string"},
+											"v_UsageProgressiveRateRelative":{ "type": "string"},
+											"v_UsageRateExpiry":{ "type": "string"},
+											"v_UsageRateID":{ "type": "string"},
+											"v_UsageRateTypeID":{ "type": "string"},
+											"v_UsageTotal":{ "type": "string"},
+											"v_UsageUnitsIn":{ "type": "string"},
+											"v_UsageUnitsOut":{ "type": "string"},
+											"v_UserName":{ "type": "string"},
+											"v_UsgCounterSubscriptionStatID":{ "type": "string"},
+											"v_VendorDestName":{ "type": "string"},
+											"v_VendorDuration":{ "type": "string"},
+											"v_VendorErrorCode":{ "type": "string"},
+											"v_VendorFirstInt":{ "type": "string"},
+											"v_VendorID":{ "type": "string"},
+											"v_VendorIPAddress":{ "type": "string"},
+											"v_VendorMinChargeableDur":{ "type": "string"},
+											"v_VendorNextInt":{ "type": "string"},
+											"v_VendorPolicyID":{ "type": "string"},
+											"v_VendorPolicyPrefixID":{ "type": "string"},
+											"v_VendorPolicyRatingClassID":{ "type": "string"},
+											"v_VendorRatePerMin":{ "type": "string"},
+											"v_VendorRatingStatus":{ "type": "string"},
+											"v_VendorRawCDRBatchID":{ "type": "string"},
+											"v_VendorRawCDRDifferenceMask":{ "type": "string"},
+											"v_VendorRawCDRID":{ "type": "string"},
+											"v_VendorSubInvoiceID":{ "type": "string"},
+											"v_VendorTrunkID":{ "type": "string"},
+											"v_WarningsBitMask":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIP_Truncking/LS_siptrunks": {
+			"get": {
+				"description": "",
+				"operationId": "LS_siptrunks",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_Destination":{ "type": "string"},
+											"v_ForwardingIPPolicy":{ "type": "string"},
+											"v_SIPTrunkExtDialingGroupName":{ "type": "string"},
+											"v_SIPTrunkID":{ "type": "integer"},
+											"v_SIPTrunkName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administrations/Siptrunking/UpdateSIPTrunkExtensionDialingGroup": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdSIPTrunkExtDialingGroupID",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/SE_sbccdrs": {
+			"get": {
+				"description": "",
+				"operationId": "SE_sbccdrs",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_ToUri": {
+									"type": "string",
+									"description": ""
+								},
+								"v_FromUri": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CallDirection": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CallRejectCode": {
+									"type": "string",
+									"description": ""
+								},
+								"v_InviteTimeFrom": {
+									"type": "string",
+									"description": ""
+								},
+								"v_InviteTimeTo": {
+									"type": "string",
+									"description": ""
+								},
+								"v_TryingTimeFrom": {
+									"type": "string",
+									"description": ""
+								},
+								"v_TryingTimeTo": {
+									"type": "string",
+									"description": ""
+								},
+								"v_RingingTimeFrom": {
+									"type": "string",
+									"description": ""
+								}
+								,
+								"v_CallAnswerTimeFrom": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CallAnswerTimeTo": {
+									"type": "string",
+									"description": ""
+								},
+								"v_ByeAckedFrom": {
+									"type": "string",
+									"description": ""
+								},
+								"v_ByeAckedTo": {
+									"type": "string",
+									"description": ""
+								},
+								"v_StartTimeFrom": {
+									"type": "string",
+									"description": ""
+								}
+								,
+								"v_StartTimeTo": {
+									"type": "string",
+									"description": ""
+								}
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"Duration":{ "type": "string"},
+											"IncomingContactUri":{ "type": "string"},
+											"IncomingFromUri":{ "type": "string"},
+											"IncomingRequestUri":{ "type": "string"},
+											"IncomingToURI":{ "type": "string"},
+											"OutgoingContactUri":{ "type": "string"},
+											"OutgoingFromUri":{ "type": "string"},
+											"OutgoingRequestUri":{ "type": "string"},
+											"OutgoingToUri":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+
+
+		"/Administration/SDPCore/siptrunkforwardingips_f1": {
+			"get": {
+				"description": "",
+				"operationId": "siptrunkforwardingips_f1",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_SIPTrunkForwardingIPID":{ "type": "integer"},
+											"v_SIPTrunkID":{ "type": "integer"},
+											"v_ForwardingIP":{ "type": "integer"},
+											"v_ForwardingIPNumeric":{ "type": "integer"},
+											"v_ForwardingPort":{ "type": "integer"},
+											"v_NumberOfChannels":{ "type": "integer"},
+											"v_RoutingPriority":{ "type": "integer"},
+											"v_InsertTime":{ "type": "integer"}
+											
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+
+
+
+
+		"/Administration/SIPTrunking/TX_InsSIPTrunkForwardingIPs": {
+			"post": {
+				"description": "",
+				"operationId": "TX_InsSIPTrunkForwardingIPs",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingPort",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_NumberOfChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_RoutingPriority",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""},
+								"v_RoutingPriority":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+
+
+
+
+
+
+		"/Configurations/SDPCore/LS_emergencynumbers": {
+			"get": {
+				"description": "",
+				"operationId": "LS_emergencynumbers",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_CalledNumber":{ "type": "string"},
+											"v_DestName":{ "type": "string"},
+											"v_EmergencyNumberID":{ "type": "integer"},
+											"v_FirstPriorityRouteURI":{ "type": "string"},
+											"v_SecondPriorityRouteURI":{ "type": "string"},
+											"v_ThirdPriorityRouteURI":{ "type": "string"},
+											"v_WellformedNumber":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/siptrunks": {
+			"post": {
+				"description": "",
+				"operationId": "WF_CreateSIPTrunk",
+					"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IsPostPaidSIPTrunk",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_SIPTrunkDescription",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_TechPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_IPPolicy",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_Suspended",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_FirstForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_SecondForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_ThirdForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_FourthForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_FifthForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_SixthForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_PrimaryIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingPort",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_TotalNoOfChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_IncomingChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				,
+				{
+					"name": "v_OutgoingChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_MediaCodecGroupName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_DIDNumber",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				,
+				{
+					"name": "v_IsMasterSipTrunkDID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_SIPTrunkID":{ "type": "integer", "description":""},
+								"v_SIPTrunkForwardingIPID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+			"/Administration/SDPCore/SE_ABMFs": {
+			"get": {
+				"description": "",
+				"operationId": "SE_ABMFs",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_ABMFID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_SubscriberID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"CreditLimit":{ "type": "number"},
+											"CurrentBalance":{ "type": "string"},
+											"CustomerName":{ "type": "string"},
+											"SubscriberID":{ "type": "integer"},
+											"v_ABMFID":{ "type": "integer"},
+											"v_CustomerID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+			"/Administration/SDPCore/SE_Customers": {
+			"get": {
+				"description": "",
+				"operationId": "SE_Customers",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_Address1": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CompanyFQDN": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CustomerID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CustomerName": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CustomerUserName": {
+									"type": "string",
+									"description": ""
+								},
+								"v_Email": {
+									"type": "string",
+									"description": ""
+								},
+								"v_MobileNumber": {
+									"type": "string",
+									"description": ""
+								},
+								"v_Phone": {
+									"type": "string",
+									"description": ""
+								}
+								
+							
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"CompanyFQDN":{ "type": "string"},
+											"CustomerName":{ "type": "string"},
+											"CustomerUserName":{ "type": "string"},
+											"v_CustomerID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdCustomerPassword": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdCustomerPassword",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_CustomerID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_LoginPassword": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/UI_siptrunks": {
+			"post": {
+				"description": "",
+				"operationId": "UI_siptrunks",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_SIPTrunkName":{ "type": "string", "description":""},
+								"v_SIPTrunkDescription":{ "type": "string", "description":""},
+								"v_IsPostPaidSIPTrunk":{ "type": "boolean", "description":""},
+								"v_CustomerID":{ "type": "integer", "description":""},
+								"v_TechPrefix":{ "type": "string", "description":""},
+								"v_NoOfChannels":{ "type": "integer", "description":""},
+								"v_IncomingChannels":{ "type": "integer", "description":""},
+								"v_OutgoingChannels":{ "type": "integer", "description":""},
+								"v_SIPTrunkSaleGroupID":{ "type": "integer", "description":""},
+								"v_DefaultForwardingIP":{ "type": "string", "description":""},
+								"v_ForwardingPort":{ "type": "string", "description":""},
+								"v_ForwardingIPPolicy":{ "type": "string", "description":""},
+								"v_FailOverCauseCodeGroupID":{ "type": "integer", "description":""},
+								"v_LastSIPTrunkForwardingIPID":{ "type": "integer", "description":""},
+								"v_UserName":{ "type": "string", "description":""},
+								"v_IsSuspended":{ "type": "boolean", "description":""},
+								"v_PaidTill":{ "type": "string", "description":""},
+								"v_SIPTrunkChargeID":{ "type": "integer", "description":""},
+								"v_MediaCodecGroupID":{ "type": "integer", "description":""},
+								"v_IsSupportExtensionDialing":{ "type": "boolean", "description":""},
+								"v_SIPTrunkIncomingTechPrefix":{ "type": "string", "description":""},
+								"v_IsSupportCityWideDialing":{ "type": "boolean", "description":""},
+								"v_SIPTrunkExtDialingGroupID":{ "type": "integer", "description":""},
+								"v_IncomingCLIRuleName":{ "type": "string", "description":""},
+								"v_IncomingCLIRuleData1":{ "type": "string", "description":""},
+								"v_OutgoingCLIRuleName":{ "type": "string", "description":""},
+								"v_OutgoingCLIRuleData1":{ "type": "string", "description":""},
+								"v_OutgoingMediaCodecGroupID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdSIPTrunkTechPrefix": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdSIPTrunkTechPrefix",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_SIPTrunkID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_TechPrefix": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdSIPTrunkSaleGroup": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdSIPTrunkSaleGroup",
+					"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_SIPTrunkID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_SIPTrunkSaleGroupID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdSIPTrunkForwardingIP": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdSIPTrunkForwardingIP",
+					"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_SIPTrunkID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_DefaultForwardingIP": {
+									"type": "string",
+									"description": ""
+								},
+								"v_ForwardingPort": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/UI_dids": {
+			"post": {
+				"description": "",
+				"operationId": "UI_dids",
+					"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_DIDID":{ "type": "integer", "description":""},
+								"v_ID":{ "type": "string", "description":""},
+								"v_DIDNumber":{ "type": "integer", "description":""},
+								"v_AgentID":{ "type": "integer", "description":""},
+								"v_CityID":{ "type": "integer", "description":""},
+								"v_AreaCodeID":{ "type": "integer", "description":""},
+								"v_DIDPurchaseGroupID":{ "type": "integer", "description":""},
+								"v_DIDSaleGroupID":{ "type": "integer", "description":""},
+								"v_DIDProviderTrunkID":{ "type": "integer", "description":""},
+								"v_SIPTrunkID":{ "type": "integer", "description":""},
+								"v_SIPTrunkDialingExtension":{ "type": "boolean", "description":""},
+								"v_SIPTrunkExtDialingGroupID":{ "type": "string", "description":""},
+								"v_IsMasterSipTrunkDID":{ "type": "integer", "description":""},
+								"v_SIPTrunkAssignmentDate":{ "type": "integer", "description":""},
+								"v_AccNoServiceOfferingID":{ "type": "boolean", "description":""},
+								"v_AccNoChargeHeadLineRentID":{ "type": "integer", "description":""},
+								"v_Status":{ "type": "string", "description":""},
+								"v_AccountID":{ "type": "integer", "description":""},
+								"v_AssignedDate":{ "type": "integer", "description":""},
+								"v_ServiceID":{ "type": "string", "description":""},
+								"v_HuntGroupID":{ "type": "string", "description":""},
+								"v_Username":{ "type": "string", "description":""},
+								"v_DomainName":{ "type": "string", "description":""},
+								"v_LiveStatus":{ "type": "string", "description":""},
+								"v_RegistrationDate":{ "type": "integer", "description":""},
+								"v_DIDType":{ "type": "boolean", "description":""},
+								"v_RegionID":{ "type": "boolean", "description":""},
+								"v_IsIncomingAllowed":{ "type": "boolean", "description":""},
+								"v_IsOutgoingAllowed":{ "type": "string", "description":""},
+								"v_IsRestrictWhiteListUserAgent":{ "type": "string", "description":""},
+								"v_IncomingTechPrefix":{ "type": "string", "description":""},
+								"v_IncomingCLIRuleName":{ "type": "string", "description":""},
+								"v_IncomingCLIRuleData1":{ "type": "string", "description":""},
+								"v_OutgoingCLIRuleName":{ "type": "string", "description":""},
+								"v_OutgoingCLIRuleData1":{ "type": "string", "description":""},
+								"v_PopName":{ "type": "string", "description":""},
+								"v_ForwardingNumber":{ "type": "string", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdMaxConcurrentSessions": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdMaxConcurrentSessions",
+			"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_MediaCodecID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_MaxConcurrentSessions": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdIsAccessSBCBlocked": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdIsAccessSBCBlocked",
+			"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_MediaCodecID": {
+									"type": "string",
+									"description": ""
+								},"v_IsAccessSBCBlocked": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/UI_mediacodecs": {
+			"post": {
+				"description": "",
+				"operationId": "UI_mediacodecs",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_MediaCodecID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_MediaApplication":{ "type": "string", "description":""},
+								"v_MediaCodecName":{ "type": "string", "description":""},
+								"v_MediaCodecCode":{ "type": "integer", "description":""},
+								"v_MaxConcurrentSessions":{ "type": "integer", "description":""},
+								"v_IsAccessSBCBlocked":{ "type": "boolean", "description":""},
+								"v_MediaCodecPriority":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/UI_mediacodecs2": {
+			"post": {
+				"description": "",
+				"operationId": "UI_mediacodecs2",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_MediaCodecsID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ID":{ "type": "integer", "description":""},
+								"v_MediaApplication":{ "type": "string", "description":""},
+								"v_MediaCodecName":{ "type": "string", "description":""},
+								"v_MediaCodecCode":{ "type": "integer", "description":""},
+								"v_MediaCodecID":{ "type": "integer", "description":""},
+								"v_MaxConcurrentSessions":{ "type": "integer", "description":""},
+								"v_IsAccessSBCBlocked":{ "type": "boolean", "description":""},
+								"v_MediaCodecPriority":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_DeleteDIDSaleGroup": {
+			"post": {
+				"description": "",
+				"operationId": "TX_DeleteDIDSaleGroup",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDSaleGroupID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_DeleteDIDPurchaseGroup": {
+			"post": {
+				"description": "",
+				"operationId": "TX_DeleteDIDPurchaseGroup",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDPurchaseGroupID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_DeleteDIDProviderIP": {
+			"post": {
+				"description": "",
+				"operationId": "TX_DeleteDIDProviderIP",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDProviderIPID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_DeleteDIDProviderTrunk": {
+			"post": {
+				"description": "",
+				"operationId": "TX_DeleteDIDProviderTrunk",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDProviderTrunkID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_DeleteDIDProvider": {
+			"post": {
+				"description": "",
+				"operationId": "TX_DeleteDIDProvider",
+					"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDProviderID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		 "/Administration/SDPCore/TX_DeleteDID": {
+			    "post": {
+				"description": "",
+				"operationId": "TX_DeleteDID",
+					"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_didsalegroups": {
+			"get": {
+				"description": "",
+				"operationId": "LS_didsalegroups",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AgentID":{ "type": "integer"},
+											"v_ChargeHeadID":{ "type": "integer"},
+											"v_ConnectionCharges":{ "type": "number"},
+											"v_DIDGroupName":{ "type": "string"},
+											"v_DIDSaleGroupID":{ "type": "integer"},
+											"v_HuntGroupID":{ "type": "integer"},
+											"v_IsDefault":{ "type": "boolean"},
+											"v_MonthlyCharges":{ "type": "number"},
+											"v_RatePerDurationBlock":{ "type": "number"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_AssignDIDToAccNoServiceOff": {
+			"post": {
+				"description": "",
+				"operationId": "TX_AssignDIDToAccNoServiceOff",
+				 "parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDID": {
+									"type": "string",
+									"description": ""
+								},
+								 "v_AccNoServiceOfferingID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_ModifyDIDSIPTrunk": {
+			"post": {
+				"description": "",
+				"operationId": "TX_ModifyDIDSIPTrunk",
+			    "parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDID": {
+									"type": "string",
+									"description": ""
+								},
+								 "v_SIPTrunkID": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_sosbscriberstatesrvprofiles": {
+			"get": {
+				"description": "",
+				"operationId": "LS_sosbscriberstatesrvprofiles",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AgentID":{ "type": "integer"},
+											"v_NetworkFunctionID":{ "type": "integer"},
+											"v_NWFuncServiceProfilePriority":{ "type": "integer"},
+											"v_NWFunctionServiceProfileID":{ "type": "integer"},
+											"v_ServiceOfferingID":{ "type": "integer"},
+											"v_SOSbscriberStateSrvProfileID":{ "type": "integer"},
+											"v_SubscriberStateID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdDIDPopName": {
+			"post": {
+				"description": "",
+				"operationId": "TX_UpdDIDPopName",
+			    "parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_PopName": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/UpdateMediaCodecGroup": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdateMediaCodecGroup",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_MediaCodecGroupName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/TX_UpdSIPTrunkChannels": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdSIPTrunkChannels",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkID",
+					"in": "path",
+					"description": "",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				},
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_NoOfChannels": {
+									"type": "integer",
+									"description": ""
+								},
+								"v_IncomingChannels": {
+									"type": "integer",
+									"description": ""
+								},
+								"v_OutgoingChannels": {
+									"type": "integer",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+			"/Administration/SDPCore/SE_Accounts": {
+			"get": {
+				"description": "",
+				"operationId": "SE_Accounts",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_AccountID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_Address": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CallingNumber": {
+									"type": "string",
+									"description": ""
+								},
+								"v_Company": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CustomerIdentification": {
+									"type": "string",
+									"description": ""
+								},
+								"v_CustomerName": {
+									"type": "string",
+									"description": ""
+								},
+								"v_DSLAMCardPortCircuitName": {
+									"type": "string",
+									"description": ""
+								},
+								"v_Email": {
+									"type": "string",
+									"description": ""
+								},
+								"v_Fax": {
+									"type": "string",
+									"description": ""
+								},
+								"v_InsertTimeFrom": {
+									"type": "string",
+									"description": ""
+								},
+								"v_InsertTimeTo": {
+									"type": "string",
+									"description": ""
+								},
+								"v_MobileNumber": {
+									"type": "string",
+									"description": ""
+								},
+								"v_SubscriptionID": {
+									"type": "string",
+									"description": ""
+								},
+								"v_Tel": {
+									"type": "string",
+									"description": ""
+								},
+								"v_UserName": {
+									"type": "string",
+									"description": ""
+								},
+								"v_SGUserName": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"Address":{ "type": "string"},
+											"City":{ "type": "string"},
+											"Country":{ "type": "string"},
+											"CustomerIdentification":{ "type": "string"},
+											"CustomerName":{ "type": "string"},
+											"CustomerType":{ "type": "string"},
+											"Email":{ "type": "string"},
+											"Fax":{ "type": "string"},
+											"InsertTime":{ "type": "date"},
+											"MobileNumber":{ "type": "string"},
+											"PlanID":{ "type": "integer"},
+											"SGUserName":{ "type": "string"},
+											"State":{ "type": "string"},
+											"SubscriberID":{ "type": "string"},
+											"Tel":{ "type": "string"},
+											"UserName":{ "type": "string"},
+											"v_ABMFID":{ "type": "integer"},
+											"v_AccountID":{ "type": "integer"},
+											"v_CustomerID":{ "type": "integer"},
+											"v_SubscriptionID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/SE_dids": {
+			"get": {
+				"description": "",
+				"operationId": "SE_dids",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_DIDNumber": {
+									"type": "string",
+									"description": ""
+								},
+								"v_SIPTrunkName": {
+									"type": "string",
+									"description": ""
+								}
+								
+							}
+						}
+					}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AccountID":{ "type": "integer"},
+											"v_AssignedDate":{ "type": "date"},
+											"v_DIDID":{ "type": "integer"},
+											"v_DIDNumber":{ "type": "string"},
+											"v_DIDProviderTrunkID":{ "type": "integer"},
+											"v_DIDType":{ "type": "string"},
+											"v_DomainName":{ "type": "string"},
+											"v_IncomingTechPrefix":{ "type": "string"},
+											"v_IsIncomingAllowed":{ "type": "boolean"},
+											"v_IsMasterSipTrunkDID":{ "type": "boolean"},
+											"v_IsOutgoingAllowed":{ "type": "boolean"},
+											"v_IsRestrictWhiteListUserAgent":{ "type": "boolean"},
+											"v_LiveStatus":{ "type": "string"},
+											"v_PopName":{ "type": "string"},
+											"v_RegistrationDate":{ "type": "date"},
+											"v_ServiceName":{ "type": "date"},
+											"v_SIPTrunkAssignmentDate":{ "type": "date"},
+											"v_SIPTrunkDialingExtension":{ "type": "integer"},
+											"v_SIPTrunkExtDialingGroupName":{ "type": "string"},
+											"v_SIPTrunkName":{ "type": "string"},
+											"v_Status":{ "type": "boolean"},
+											"v_Username":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configurations/SDPCore/LS_mediacodecs": {
+			"get": {
+				"description": "",
+				"operationId": "LS_mediacodecs",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_IsAccessSBCBlocked":{ "type": "boolean"},
+											"v_MaxConcurrentSessions":{ "type": "integer"},
+											"v_MediaApplication":{ "type": "string"},
+											"v_MediaCodecCode":{ "type": "integer"},
+											"v_MediaCodecID":{ "type": "integer"},
+											"v_MediaCodecName":{ "type": "string"},
+											"v_MediaCodecPriority":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configurations/SDPCore/LS_blacklistaddresses": {
+			"get": {
+				"description": "",
+				"operationId": "LS_blacklistaddresses",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_BlackListAddress":{ "type": "string"},
+											"v_BlackListAddressExpiry":{ "type": "date"},
+											"v_BlackListAddressID":{ "type": "integer"},
+											"v_LastRejectedCallLogged":{ "type": "date"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configurations/SDPCore/LS_accesssbcincblockcalls": {
+			"get": {
+				"description": "",
+				"operationId": "LS_accesssbcincblockcalls",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AccessSBCIncBlockCallID":{ "type": "integer"},
+											"v_AccessSBCIncBlockCallPrefix":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configurations/SDPCore/LS_sipresponsecodes": {
+			"get": {
+				"description": "",
+				"operationId": "LS_sipresponsecodes",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_SIPResponseCodeDescription":{ "type": "string"},
+											"v_SIPResponseCodeID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configurations/SDPCore/LS_specialnumbers": {
+			"get": {
+				"description": "",
+				"operationId": "LS_specialnumbers",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_CalledNumber":{ "type": "string"},
+											"v_CallingPrefix":{ "type": "string"},
+											"v_FirstPriorityRouteURI":{ "type": "string"},
+											"v_SecondPriorityRouteURI":{ "type": "string"},
+											"v_SpecialNumberID":{ "type": "integer"},
+											"v_ThirdPriorityRouteURI":{ "type": "string"},
+											"v_WellformedNumber":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configurations/SDPCore/LS_sipreturncodemappings": {
+			"get": {
+				"description": "",
+				"operationId": "LS_sipreturncodemappings",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AppReturnCode":{ "type": "integer"},
+											"v_ErrorDescription":{ "type": "string"},
+											"v_SIPResponseCodeID":{ "type": "integer"},
+											"v_SIPReturnCodeMappingID":{ "type": "integer"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_sbcsessions": {
+			"get": {
+				"description": "",
+				"operationId": "LS_sbcsessions",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_AccountID":{ "type": "string"},
+											"v_AccountingCode":{ "type": "string"},
+											"v_AuthorizationCode":{ "type": "string"},
+											"v_BillingRateInd":{ "type": "string"},
+											"v_ByeParty":{ "type": "string"},
+											"v_CallDirection":{ "type": "string"},
+											"v_CallRejectCode":{ "type": "integer"},
+											"v_CallSubType":{ "type": "string"},
+											"v_CancelParty":{ "type": "string"},
+											"v_CauseCode":{ "type": "string"},
+											"v_CauseCodeDescription":{ "type": "string"},
+											"v_ChargingInfo":{ "type": "string"},
+											"v_ContactUri":{ "type": "string"},
+											"v_ContactURIHost":{ "type": "string"},
+											"v_ContactURIPort":{ "type": "string"},
+											"v_ContactURIUser":{ "type": "string"},
+											"v_CorrelationID":{ "type": "integer"},
+											"v_CountryCode":{ "type": "string"},
+											"v_CrankBackIP":{ "type": "string"},
+											"v_CrankBackPort":{ "type": "integer"},
+											"v_DestinationCarrierID":{ "type": "string"},
+											"v_DialPlanId":{ "type": "string"},
+											"v_Failover2ByeAcked":{ "type": "date"},
+											"v_Failover2ByeInitiated":{ "type": "date"},
+											"v_Failover2CallAnswerTime":{ "type": "date"},
+											"v_Failover2CallElapsedTime":{ "type": "date"},
+											"v_Failover2CancelAckTime":{ "type": "date"},
+											"v_Failover2CancelInitiatedTime":{ "type": "date"},
+											"v_Failover2CancelParty":{ "type": "string"},
+											"v_Failover2OutgoingOffer":{ "type": "string"},
+											"v_Failover2OutgoingRequestUri":{ "type": "string"},
+											"v_Failover2OutgoingToUri":{ "type": "string"},
+											"v_Failover2RequestUri":{ "type": "string"},
+											"v_Failover2RingingTime":{ "type": "date"},
+											"v_Failover2TryingTime":{ "type": "date"},
+											"v_Failover3ByeAcked":{ "type": "date"},
+											"v_Failover3ByeInitiated":{ "type": "date"},
+											"v_Failover3CallAnswerTime":{ "type": "date"},
+											"v_Failover3CallElapsedTime":{ "type": "date"},
+											"v_Failover3CancelAckTime":{ "type": "date"},
+											"v_Failover3CancelInitiatedTime":{ "type": "date"},
+											"v_Failover3CancelParty":{ "type": "string"},
+											"v_Failover3OutgoingOffer":{ "type": "string"},
+											"v_Failover3OutgoingRequestUri":{ "type": "string"},
+											"v_Failover3OutgoingToUri":{ "type": "string"},
+											"v_Failover3RequestUri":{ "type": "string"},
+											"v_Failover3RingingTime":{ "type": "date"},
+											"v_Failover3TryingTime":{ "type": "date"},
+											"v_FailoverByeAcked":{ "type": "date"},
+											"v_FailoverByeInitiated":{ "type": "date"},
+											"v_FailoverCallAnswerTime":{ "type": "date"},
+											"v_FailoverCallElapsedTime":{ "type": "date"},
+											"v_FailoverCancelAckTime":{ "type": "date"},
+											"v_FailoverCancelInitiatedTime":{ "type": "date"},
+											"v_FailoverCancelParty":{ "type": "string"},
+											"v_FailoverOutgoingOffer":{ "type": "string"},
+											"v_FailoverOutgoingRequestUri":{ "type": "string"},
+											"v_FailoverOutgoingToUri":{ "type": "string"},
+											"v_FailoverRequestUri":{ "type": "string"},
+											"v_FailoverRingingTime":{ "type": "date"},
+											"v_FailoverTryingTime":{ "type": "date"},
+											"v_FaxIndicator":{ "type": "string"},
+											"v_FaxPagesReceived":{ "type": "string"},
+											"v_FaxPagesSent":{ "type": "string"},
+											"v_ForwardingNumber":{ "type": "string"},
+											"v_FromUri":{ "type": "string"},
+											"v_FromURIHost":{ "type": "string"},
+											"v_FromURIPort":{ "type": "string"},
+											"v_FromURIUser":{ "type": "string"},
+											"v_GatewayName":{ "type": "string"},
+											"v_IMSIDICID":{ "type": "string"},
+											"v_IncomingSIPTrunkID":{ "type": "integer"},
+											"v_IncomingSIPTrunkTechPrefix":{ "type": "string"},
+											"v_InviteSIPRawMessage":{ "type": "string"},
+											"v_IsSuccessful":{ "type": "boolean"},
+											"v_OrigCACType":{ "type": "string"},
+											"v_OriginatingPOPTimeZone":{ "type": "string"},
+											"v_OriginatingTrunkNumber":{ "type": "string"},
+											"v_OutgoingSIPTrunkID":{ "type": "integer"},
+											"v_OutgoingSIPTrunkTechPrefix":{ "type": "string"},
+											"v_OverallCorrelationIdentifier":{ "type": "string"},
+											"v_PayloadSDP":{ "type": "string"},
+											"v_PDD":{ "type": "integer"},
+											"v_QoS":{ "type": "integer"},
+											"v_RecordID":{ "type": "integer"},
+											"v_RequestUri":{ "type": "string"},
+											"v_SBCCallClassID":{ "type": "integer"},
+											"v_SbcSessionID":{ "type": "integer"},
+											"v_SessionStartTime":{ "type": "date"},
+											"v_SessionTerminationTime":{ "type": "date"},
+											"v_SIPHeaders":{ "type": "string"},
+											"v_SourceCarrierId":{ "type": "integer"},
+											"v_TermCACType":{ "type": "string"},
+											"v_TerminatingTrunkNumber":{ "type": "string"},
+											"v_ToUri":{ "type": "string"},
+											"v_ToURIHost":{ "type": "string"},
+											"v_ToURIPort":{ "type": "string"},
+											"v_ToURIUser":{ "type": "string"},
+											"v_VideoCodec":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SDPCore/LS_sbccdrs": {
+			"get": {
+				"description": "",
+				"operationId": "LS_sbccdrs",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"CallLegIDA":{ "type": "string"},
+											"CallLegIDB":{ "type": "string"},
+											"IncomingToURI":{ "type": "string"},
+											"IncomingFromUri":{ "type": "string"},
+											"IncomingRequestUri":{ "type": "string"},
+											"IncomingContactUri":{ "type": "string"},
+											"InviteTime":{ "type": "string"},
+											"OutgoingToUri":{ "type": "string"},
+											"OutgoingFromUri":{ "type": "string"},
+											
+											"OutgoingRequestUri":{ "type": "string"},
+											"OutgoingContactUri":{ "type": "string"},
+											"Duration":{ "type": "string"},
+											"IncomingOffer":{ "type": "string"},
+											"OutgoingOffer":{ "type": "string"},
+											"TryingTime":{ "type": "string"},
+											"RingingTime":{ "type": "string"},
+											"CancelInitiatedTime":{ "type": "string"},
+											"CancelParty":{ "type": "string"},
+
+											"CancelAcknowledgedTime":{ "type": "string"},
+											"CallAnswerTime":{ "type": "string"},
+											"ByeInitiated":{ "type": "string"},
+											"ByeAcked":{ "type": "string"},
+											"CallElapsedTime":{ "type": "string"},
+											"AuthorizationCode":{ "type": "string"},
+											"AccountCode":{ "type": "string"},
+											"CallTerminationCause":{ "type": "string"},
+											"OriginatingTrunkNumber":{ "type": "string"},
+
+											"TerminatingTrunkNumber":{ "type": "string"},
+											"OverallCorrelationIdentifier":{ "type": "string"},
+											"OriginatingPOPTimeZone":{ "type": "string"},
+											"SourceCarrierId":{ "type": "string"},
+											"DestinationCarrierID":{ "type": "string"},
+											"FaxIndicator":{ "type": "string"},
+											"FaxPagesSent":{ "type": "string"},
+											"FaxPagesReceived":{ "type": "string"},
+											"DialPlanId":{ "type": "string"},
+
+											"VideoCodec":{ "type": "string"},
+											"BillingRateInd":{ "type": "string"},
+											"AccountId":{ "type": "string"},
+											"CallSubType":{ "type": "string"},
+											"CallDirection":{ "type": "string"},
+											"ForwardingNumber":{ "type": "string"},
+											"GatewayName":{ "type": "string"},
+											"CorrelationID":{ "type": "string"},
+											"PDD":{ "type": "string"},
+
+											"QoS":{ "type": "string"},
+											"ChargingInfo":{ "type": "string"},
+											"CountryCode":{ "type": "string"},
+											"OrigCACType":{ "type": "string"},
+											"TermCACType":{ "type": "string"},
+											"IMSIDICID":{ "type": "string"},
+											"FailoverOutgoingToUri":{ "type": "string"},
+											"FailoverOutgoingRequestUri":{ "type": "string"},
+											"FailoverOutgoingOffer":{ "type": "string"},
+
+											"FailoverTryingTime":{ "type": "string"},
+											"FailoverRingingTime":{ "type": "string"},
+											"FailoverCancelInitiatedTime":{ "type": "string"},
+											"FailoverCancelParty":{ "type": "string"},
+											"FailoverCancelAckTime":{ "type": "string"},
+											"FailoverCallAnswerTime":{ "type": "string"},
+											"FailoverByeInitiated":{ "type": "string"},
+											"FailoverByeAcked":{ "type": "string"},
+											"FailoverCallElapsedTime":{ "type": "string"},
+
+											"Failover2OutgoingToUri":{ "type": "string"},
+											"Failover2OutgoingRequestUri":{ "type": "string"},
+											"Failover2OutgoingOffer":{ "type": "string"},
+											"Failover2TryingTime":{ "type": "string"},
+											"Failover2RingingTime":{ "type": "string"},
+											"Failover2CancelInitiatedTime":{ "type": "string"},
+											"Failover2CancelParty":{ "type": "string"},
+											"Failover2CancelAckTime":{ "type": "string"},
+											"Failover2CallAnswerTime":{ "type": "string"},
+
+											"Failover2ByeInitiated":{ "type": "string"},
+											"Failover2ByeAcked":{ "type": "string"},
+											"Failover2CallElapsedTime":{ "type": "string"},
+											"Failover3OutgoingToUri":{ "type": "string"},
+											"Failover3OutgoingRequestUri":{ "type": "string"},
+											"Failover3OutgoingOffer":{ "type": "string"},
+											"Failover3TryingTime":{ "type": "string"},
+											"Failover3RingingTime":{ "type": "string"},
+											"Failover3CancelInitiatedTime":{ "type": "string"},
+
+											"Failover3CancelParty":{ "type": "string"},
+											"Failover3CancelAckTime":{ "type": "string"},
+											"Failover3CallAnswerTime":{ "type": "string"},
+											"Failover3ByeInitiated":{ "type": "string"},
+											"Failover3ByeAcked":{ "type": "string"},
+											"Failover3CallElapsedTime":{ "type": "string"},
+											"OutgoingSIPTrunkTechPrefix":{ "type": "string"},
+											"IncomingSIPTrunkTechPrefix":{ "type": "string"},
+											"CallRejectCode":{ "type": "string"},
+
+											"CallRejectDescription":{ "type": "string"},
+											"ByeParty":{ "type": "string"},
+											"IsSuccessful":{ "type": "string"},
+											"CauseCode":{ "type": "string"},
+											"CauseCodeDescription":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+	"/Administrator/SIP_Truncking/GU_CustomerInventory": {
+			"get": {
+				"description": "",
+				"operationId": "GU_CustomerInventory",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"Channels":{ "type": "string"},
+											"Customer":{ "type": "string"},
+											"ForwardingIP":{ "type": "string"},
+											"Number":{ "type": "string"},
+											"STATUS":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administrator/SIP_Truncking/LS_siptrunkextdialinggroups": {
+			"get": {
+				"description": "",
+				"operationId": "LS_siptrunkextdialinggroups",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_SIPTrunkExtDialingGroupID":{ "type": "integer"},
+											"v_SIPTrunkExtDialingGroupName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		
+		"/Administrator/SIP_Truncking/LS_getCityIDs": {
+			"get": {
+				"description": "",
+				"operationId": "LS_getCityIDs",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_CityID":{ "type": "integer"},
+											"v_CityName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/TX_AuthenticateAdminByPassword": {
+			"post": {
+				"description": "",
+				"operationId": "TX_AuthenticateAdminByPassword",
+				"parameters": [
+				{
+					"name": "v_UserName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_Password",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200": {
+						"description": "success",
+						"schema": {
+							"type": "object",
+							"properties": {
+								"v_AdministratorSessionID": {
+									"type": "integer",
+									"description": ""
+								},
+								"v_AdminPersonalizationData": {
+									"type": "string",
+									"description": ""
+								},
+								"v_AdminLocaleData": {
+									"type": "string",
+									"description": ""
+								},
+								"v_AdminParentalControlData": {
+									"type": "string",
+									"description": ""
+								},
+								"v_AdminPresentationData": {
+									"type": "string",
+									"description": ""
+								},
+								"v_AdministratorPermissions": {
+									"type": "string",
+									"description": ""
+								},
+								"v_ReturnCode": {
+									"type": "integer",
+									"description": ""
+								}
+							}
+						}
+					}
+				}
+			}
+		},"/Application/LogOut": {
+			"post": {
+					"description": "",
+					"operationId": "TX_MrkAdminSessionEndTime",
+					"parameters": [
+							{
+									"name": "body",
+									"in": "body",
+									"schema": {
+											"type": "object",
+											"properties": {
+													"v_LoginSessionKey": {
+															"type": "string",
+															"description": ""
+													},
+													"v_IsSessionExpired": {
+															"type": "boolean",
+															"description": ""
+													},
+													"v_AdminSessionLastAccessed": {
+															"type": "string",
+															"description": ""
+													},
+													"v_AdminSessionAttributes": {
+															"type": "string",
+															"description": ""
+													}
+											}
+									}
+							}
+					],
+					"responses": {
+							"200": {
+									"description": "success",
+									"schema": {
+											"type": "object",
+											"properties": {
+													"v_AdministratorSessionID": {
+															"type": "integer",
+															"description": ""
+													},
+													"v_ReturnCode": {
+															"type": "integer",
+															"description": ""
+													}
+											}
+									}
+							}
+					}
+			}
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		"/bulkOperations/bulkAPis": {
+			"post": {
+				"description": "",
+				"operationId": "Orchestrator_Iterator",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configuration/SDPcore/Deletedidincomingblockaddr": {
+			"delete": {
+				"description": "",
+				"operationId": "WF_Deldidincomingblockaddr",
+				"parameters": [
+				{
+					"name": "v_IncomingBlockAddressPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configuration/SDPCore/DeleteDIDOutgoingBlockNumberorPrefix": {
+			"delete": {
+				"description": "",
+				"operationId": "WF_DelDIDOutgoingBlockAddr",
+				"parameters": [
+				{
+					"name": "v_OutgoingBlockAddressPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ForeignKeyName":{ "type": "string", "description":""},
+								"v_TableName":{ "type": "string", "description":""},
+								"v_TableFieldName":{ "type": "string", "description":""},
+								"v_FieldValue":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configuration/SDPCore/mediacodecs/": {
+			"post": {
+				"description": "",
+				"operationId": "TX_Insmediacodec",
+				"parameters": [
+				{
+					"name": "v_MediaApplication",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_MediaCodecName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_MediaCodecCode",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_MediaCodecID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+
+		"/Configuration/SDPCore/TX_Insdidwhitelistuseragent": {
+			"post": {
+				"description": "",
+				"operationId": "TX_Insdidwhitelistuseragent",
+				"parameters": [
+				{
+					"name": "v_DIDID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_SIPUserAgentID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_DIDWhiteListUserAgentID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+
+		"/Configuration/SDPCore/mediacodecs/{v_MediaCodecName}/IsAccessSBCBlocked": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdIsAccessSBCBlocked",
+				"parameters": [
+				{
+					"name": "v_MediaCodecName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IsAccessSBCBlocked",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "boolean",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configuration/SDPCore/mediacodecs/{v_MediaCodecName}/MaxConcurrentSessions": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdMaxConcurrentSessions",
+				"parameters": [
+				{
+					"name": "v_MediaCodecName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_MaxConcurrentSessions",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configuration/SDPCore/mediacodecs/{v_MediaCodecName}/MediaCodecPriority": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdMediaCodecPriority",
+				"parameters": [
+				{
+					"name": "v_MediaCodecName",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_MediaCodecPriority",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		
+		"/Configuration/SDPCore/mediacodecsgroups/": {
+			"get": {
+				"description": "",
+				"operationId": "LS_mediacodecgroups",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_MediaCodecGroupID":{ "type": "integer"},
+											"v_MediaCodecGroupName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Configurations/SDPCore/UpdateSIPTrunkDialingExtension": {
+			"patch": {
+				"description": "",
+				"operationId": "WF_UpdSIPTrunkDialingExtension",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								
+							}
+						}
+					}
+				}
+			}
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		"/Configurations/SDPCore/UpdServiceID": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdServiceID",
+				"parameters": [
+				{
+					"name": "v_DIDID",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_ServiceID",
+					"in": "path",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+
+"/Administrations/Siptrunking/TX_UpdIsSupportExtDialing":{
+				"post": {
+				"description": "",
+				"operationId": "TX_UpdIsSupportExtDialing",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IsSupportExtensionDialing",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+				}
+				
+			},
+			"/Administrations/Siptrunking/TX_UpdIsSupportCityWideDialing":{
+				"post": {
+				"description": "",
+				"operationId": "TX_UpdIsSupportCityWideDialing",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkID",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_IsSupportCityWideDialing",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+				}
+				
+			},
+
+		"/Administrations/Siptrunking/TX_UpdSIPTrunkExtDialingGroupID":{
+			"post": {
+			"description": "",
+			"operationId": "TX_UpdSIPTrunkExtDialingGroupID",
+			"parameters": [
+			{
+				"name": "v_SIPTrunkID",
+				"in": "query",
+				"description": "",
+				"required": false,
+				"type": "string",
+				"format": ""
+			},
+			{
+				"name": "v_SIPTrunkExtDialingGroupID",
+				"in": "query",
+				"description": "",
+				"required": false,
+				"type": "integer",
+				"format": "int64"
+			}
+			],
+			"responses": {
+				"200":{
+					"description":"success",
+					"schema": {
+					"type": "object",
+						"properties":{
+							"v_ReturnCode":{ "type": "integer", "description":""}
+						}
+					}
+				}
+			}
+			}
+			
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			"/Configurations/SIPTrunkExtDialingGroup/AddSIPTrunkExtDialingGroup": {
+			"post": {
+				"description": "",
+				"operationId": "TX_InsSIPTrunkExtDialingGroup",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkExtDialingGroupName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_SIPTrunkExtDialingGroupID":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/Administration/SIPTrunking/UpdForwardingIPPolicy": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdForwardingIPPolicy2",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingIPPolicy",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+			
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_SIPTrunkID":{ "type": "integer", "description":""},
+								"v_ForwardingIPPolicy":{ "type": "integer", "description":""},
+								"v_Returnv_IsNestedTransactionCode":{ "type": "integer", "description":""},
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/SE_SIPTrunks": {
+			"get": {
+				"description": "",
+				"operationId": "SE_SIPTrunks",
+				"parameters": [
+				{
+					"name": "v_SIPTrunkName",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_TechPrefix",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_NoOfChannels",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "v_DefaultForwardingIP",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				},
+				{
+					"name": "v_ForwardingIPPolicy",
+					"in": "query",
+					"description": "",
+					"required": false,
+					"type": "string",
+					"format": ""
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"Address":{ "type": "string"},
+											"ForwardingIPPolicy":{ "type": "string"},
+											"SIPTrunkID":{ "type": "integer"},
+											"SIPTrunkName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+		"/Administrator/SIP_Truncking/LS_getSIPTrunkDialingExtension": {
+			"get": {
+				"description": "",
+				"operationId": "LS_getSIPTrunkDialingExtension",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+							"type": "object",
+							"properties":{
+								"rows":{
+									"type": "array",
+									"items": {
+										"type":"object",
+										"properties": {
+											"v_SIPTrunkExtDialingGroupID":{ "type": "integer"},
+											"v_SIPTrunkExtDialingGroupName":{ "type": "string"}
+										}
+									}
+								},
+							"v_ID":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		},
+
+			"/Administration/SDPCore/TX_UpdateDIDStatus": {
+			"patch": {
+				"description": "",
+				"operationId": "TX_UpdateDIDStatus",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"v_DIDNumber":{ "type": "string", "description":""},
+							"v_Status":{ "type": "string", "description":""}
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success",
+						"schema": {
+						"type": "object",
+							"properties":{
+								"v_ReturnCode":{ "type": "integer", "description":""}
+							}
+						}
+					}
+				}
+			}
+		}
+}

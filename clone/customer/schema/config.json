@@ -1,0 +1,24 @@
+{
+    "loginOperationId": "TX_AuthenticateAdminByPassword",
+    "logoutOperationId": "TX_MrkAdminSessionEndTime",
+    "serverSideBulkAPI": "Iterator",
+    "serverSideBulkDataParam": "v_Data",
+    "serverSideBulTargetAPIParam": "v_TargetAPI",
+    "fetchMenuOperationId": "TX_GetMenuByStateView",
+    "updateAlert": {
+        "success": "Record updated successfully!",
+        "failure": "Record update unsuccessful!"
+    },
+    "insertAlert": {
+        "success": "Execute successfully!",
+        "failure": "Adding record unsuccessful!"
+    },
+    "batchDeleteAlert": {
+        "success": "All selected records were deleted!",
+        "failure": "Not all selected records were deleted!"
+    },
+    "swaggerSuccess": {
+        "responseFields": "data.status",
+        "success" : "OK"
+    }
+}
