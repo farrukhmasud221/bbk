@@ -145,7 +145,40 @@ export const topState = {
                             }]
                         },
 
+                        {
+                            name: "Mediation Settings",
+                            className: "tempClass",
+                            id: "item-3",
+                            Params: [{
+                                name: "Task operation",
+                                id: "item-3-0",
+                                Params: [
+                                    //{ url: "/AgentDashboard/BillingInformation", name: "Mediation Settings", id: "item-1-0-0" },
+                                    //{ url: "/AgentDashboard/BillingInformation", name: "Global Settings", id: "item-1-0-1" },
+                                    // { url: "/PrivateID", name: "Accounts", id: "item-1-0-2" },
+                                    { url: "/taskOperation", name: "Task Operation", id: "item-3-0-1" },
+				                    // { url: "/GridTask", name: "GridTask", id: "item-2-0-2" },
+                                    // { url: "/SBCSessions", name: "SBC Sessions", id: "item-2-0-3" },
+                                    
+                                    
 
+                                    //{ url: "/CreateAccounts", name: "Create Account", id: "item-1-0-4" },
+                                    //{ url: "/customercdrs", name: "Account CDRs", id: "item-1-0-5" },
+                                    //{ url: "/AddPayment", name: "Account Payment", id: "item-1-0-6" },
+                                    //{ url: "/Devices", name: "Devices", id: "item-0-0-6" },
+                                    //{ url: "/SignUpAttempts", name: "Signup Attempts", id: "item-1-0-7" },
+                                    //{ url: "/Logs", name: "Event logs", id: "item-1-0-8" },
+                                    //{ url: "/TransactionHistory", name: "Wallet Balance Transfer", id: "item-0-0-7" },
+                                    // { url: "/BalanceSalesHistory", name: "Balance Sale Report", id: "item-1-0-9" },
+                                    //              { url: "/BalanceTransfer", name: "Balance Transfer to Reseller Report", id: "item1-0-10" },
+                                    // // { url: "/PaymentHistory", name: "Wallet Payment History", id: "item-0-0-9" }, 
+                                    // { url: "/RedeemBalanceHistory", name: "Balance Transfer to Account Report", id: "item-1-0-11" },
+                                    // { url: "/TransactionLedgerHistory", name: " All Transaction Report", id: "item-1-0-12" },
+
+
+                                ]
+                            }]
+                        },
 
 
 
@@ -1009,7 +1042,17 @@ export const topState = {
             });
         }
     },
-   
+    {
+        name: "top.gui.operation_taskOperation.**",
+        url: "taskOperation",
+        lazyLoad: function () {
+            return System.import('./top.gui.operation.taskOperation').then(response => {
+                return response.Operation_taskOperationState;
+            });
+        }
+        
+        
+    },
    
 
 
